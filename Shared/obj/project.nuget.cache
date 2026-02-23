@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "dpnFrX0wrOA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference System.Text.Json will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
+      "projectPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
