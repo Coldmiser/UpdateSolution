@@ -183,7 +183,7 @@
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.26.149.460",
     "restore": {
       "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
       "projectName": "Shared",

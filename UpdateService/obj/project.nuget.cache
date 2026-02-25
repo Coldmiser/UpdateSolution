@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2HN1xQ5YbsI=",
+  "dgSpecHash": "eSXHOONSEZU=",
   "success": true,
   "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.hosting\\10.0.3\\microsoft.extensions.hosting.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\10.0.3\\microsoft.extensions.hosting.abstractions.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.hosting.windowsservices\\10.0.3\\microsoft.extensions.hosting.windowsservices.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.http\\10.0.3\\microsoft.extensions.http.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.logging\\10.0.3\\microsoft.extensions.logging.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.3\\microsoft.extensions.logging.abstractions.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.logging.configuration\\10.0.3\\microsoft.extensions.logging.configuration.10.0.3.nupkg.sha512",

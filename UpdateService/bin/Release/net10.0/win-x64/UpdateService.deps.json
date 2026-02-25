@@ -7,16 +7,17 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {},
     ".NETCoreApp,Version=v10.0/win-x64": {
-      "UpdateService/1.0.0": {
+      "UpdateService/0.26.149.460": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "10.0.3",
           "Microsoft.Extensions.Hosting.WindowsServices": "10.0.3",
+          "Microsoft.Extensions.Http": "10.0.3",
           "Serilog.Enrichers.Environment": "3.0.1",
           "Serilog.Enrichers.Thread": "4.0.0",
           "Serilog.Extensions.Hosting": "10.0.0",
           "Serilog.Sinks.Console": "6.1.1",
           "Serilog.Sinks.File": "7.0.0",
-          "Shared": "1.0.0",
+          "Shared": "0.26.149.460",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.3"
         },
         "runtime": {
@@ -1000,6 +1001,22 @@
           }
         }
       },
+      "Microsoft.Extensions.Http/10.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Diagnostics": "10.0.3",
+          "Microsoft.Extensions.Logging": "10.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Options": "10.0.3"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Http.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.326.7603"
+          }
+        }
+      },
       "Microsoft.Extensions.Logging/10.0.3": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "10.0.3",
@@ -1237,18 +1254,18 @@
           }
         }
       },
-      "Shared/1.0.0": {
+      "Shared/0.26.149.460": {
         "runtime": {
           "Shared.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "0.26.149.460",
+            "fileVersion": "0.26.149.460"
           }
         }
       }
     }
   },
   "libraries": {
-    "UpdateService/1.0.0": {
+    "UpdateService/0.26.149.460": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1384,6 +1401,13 @@
       "path": "microsoft.extensions.hosting.windowsservices/10.0.3",
       "hashPath": "microsoft.extensions.hosting.windowsservices.10.0.3.nupkg.sha512"
     },
+    "Microsoft.Extensions.Http/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M5gWob3dtzlF14oto1lR1ZuSJrR0gGc+obv7zY9LGmX5y3Ndpve29MrrjqJW/m4CFud4TE/KFUuHjjtwxhCO8g==",
+      "path": "microsoft.extensions.http/10.0.3",
+      "hashPath": "microsoft.extensions.http.10.0.3.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/10.0.3": {
       "type": "package",
       "serviceable": true,
@@ -1517,7 +1541,7 @@
       "path": "system.serviceprocess.servicecontroller/10.0.3",
       "hashPath": "system.serviceprocess.servicecontroller.10.0.3.nupkg.sha512"
     },
-    "Shared/1.0.0": {
+    "Shared/0.26.149.460": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

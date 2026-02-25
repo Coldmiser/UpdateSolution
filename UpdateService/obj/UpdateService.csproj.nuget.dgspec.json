@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
-      "version": "1.0.0",
+      "version": "0.26.149.460",
       "restore": {
         "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
         "projectName": "Shared",
@@ -369,7 +369,7 @@
       }
     },
     "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj": {
-      "version": "1.0.0",
+      "version": "0.26.149.460",
       "restore": {
         "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
         "projectName": "UpdateService",
@@ -417,6 +417,10 @@
               "version": "[10.0.3, )"
             },
             "Microsoft.Extensions.Hosting.WindowsServices": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[10.0.3, )"
             },

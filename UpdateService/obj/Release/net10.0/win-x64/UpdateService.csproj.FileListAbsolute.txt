@@ -244,3 +244,4 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\UpdateService.pdb
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\UpdateService.genruntimeconfig.cache
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\ref\UpdateService.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\Microsoft.Extensions.Http.dll
