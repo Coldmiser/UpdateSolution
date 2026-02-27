@@ -1,13 +1,3 @@
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.csproj.AssemblyReference.cache
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\MainWindow.g.cs
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\Views\MainWindow.g.cs
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\App.g.cs
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier_MarkupCompile.cache
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier_MarkupCompile.lref
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\MainWindow.baml
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.dll
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\refint\UpdateNotifier.dll
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.pdb
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\UpdateNotifier.exe
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\UpdateNotifier.deps.json
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\UpdateNotifier.runtimeconfig.json
@@ -19,7 +9,14 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\Serilog.Sinks.File.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\Shared.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Debug\net10.0-windows\Shared.pdb
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.csproj.AssemblyReference.cache
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\Views\MainWindow.g.cs
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier_MarkupCompile.cache
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier_MarkupCompile.lref
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\Views\MainWindow.baml
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.g.resources
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.GeneratedMSBuildEditorConfig.editorconfig
@@ -28,5 +25,8 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.csproj.CoreCompileInputs.cache
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.sourcelink.json
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNo.77EC6303.Up2Date
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\refint\UpdateNotifier.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.pdb
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\UpdateNotifier.genruntimeconfig.cache
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Debug\net10.0-windows\ref\UpdateNotifier.dll

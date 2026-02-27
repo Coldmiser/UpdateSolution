@@ -121,13 +121,14 @@ public static class WingetWorker
         var (exitCode, stdout, stderr) = await RunWingetAsync(args, cancellationToken);
 
         // Exit 0 = success, 3010 = success + reboot required.
-        var succeeded = exitCode is 0 or 3010;
+        var succeeded    = exitCode is 0 or 3010;
         var rebootNeeded = exitCode == 3010;
 
         if (succeeded)
         {
             LogConfig.ServiceLog.Information(
-                "WingetWorker: '{Id}' upgraded successfully. RebootRequired={R}", packageId, rebootNeeded);
+                "WingetWorker: '{Id}' upgraded successfully. RebootRequired={R}",
+                packageId, rebootNeeded);
         }
         else
         {
@@ -138,17 +139,19 @@ public static class WingetWorker
 
         return new UpdateResult
         {
-            Identifier    = packageId,
-            Title         = packageId,
-            Status        = succeeded ? UpdateStatus.Succeeded : UpdateStatus.Failed,
-            ErrorMessage  = succeeded ? null : $"winget exit code {exitCode}: {stderr}",
+            Identifier     = packageId,
+            Title          = packageId,
+            Status         = succeeded ? UpdateStatus.Succeeded : UpdateStatus.Failed,
+            ErrorMessage   = succeeded ? null : $"winget exit code {exitCode}: {stderr}",
             RebootRequired = rebootNeeded,
-            AttemptedAt   = DateTime.UtcNow
+            AttemptedAt    = DateTime.UtcNow
         };
     }
 
     /// <summary>
     /// Runs the winget executable with the given arguments and captures all output.
+    /// Fully qualifies System.Diagnostics.Process to avoid conflict with the
+    /// UpdateService.Process namespace (the UserProcessLauncher folder).
     /// </summary>
     private static async Task<(int ExitCode, string Stdout, string Stderr)> RunWingetAsync(
         string arguments, CancellationToken cancellationToken)
@@ -163,7 +166,7 @@ public static class WingetWorker
             RedirectStandardError  = true,
             CreateNoWindow         = true,
             // Ensure winget can find its own resources even when launched by SYSTEM.
-            Environment            = { ["LOCALAPPDATA"] = @"C:\Windows\System32\config\systemprofile\AppData\Local" }
+            Environment = { ["LOCALAPPDATA"] = @"C:\Windows\System32\config\systemprofile\AppData\Local" }
         };
 
         LogConfig.ServiceLog.Debug("WingetWorker: winget {Args}", arguments);

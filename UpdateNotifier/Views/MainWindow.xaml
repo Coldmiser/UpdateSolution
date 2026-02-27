@@ -16,7 +16,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Topmost="True"
-        ShowInTaskbar="True"
+        ShowInTaskbar="False"
         WindowStyle="SingleBorderWindow">
 
     <!-- Prevent moving: handled in code-behind via WM_SYSCOMMAND -->
@@ -83,7 +83,7 @@
                 <!-- Company logo.
                      Place your actual logo at UpdateNotifier/Resources/CompanyLogo.png.
                      The image is embedded as a resource in the single-file publish. -->
-                <Image Source="/Resources/CompanyLogo.png"
+                <Image x:Name="CompanyLogoImage"
                        Height="40" Width="40"
                        Stretch="Uniform"
                        VerticalAlignment="Center"
@@ -91,7 +91,7 @@
                        RenderOptions.BitmapScalingMode="HighQuality" />
 
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="CapTG IT — System Update"
+                    <TextBlock Text="Capital Technology Group — System Update"
                                Foreground="White"
                                FontSize="18"
                                FontWeight="Bold" />

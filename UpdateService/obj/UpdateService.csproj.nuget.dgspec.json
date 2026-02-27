@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
-      "version": "0.26.149.460",
+      "version": "0.26.154.508",
       "restore": {
         "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
         "projectName": "Shared",
@@ -49,10 +49,6 @@
               "target": "Package",
               "version": "[10.0.3, )",
               "autoReferenced": true
-            },
-            "System.Text.Json": {
-              "target": "Package",
-              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -369,7 +365,7 @@
       }
     },
     "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj": {
-      "version": "0.26.149.460",
+      "version": "0.26.154.508",
       "restore": {
         "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
         "projectName": "UpdateService",

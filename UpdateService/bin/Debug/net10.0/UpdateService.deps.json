@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "10.0.3",
           "Microsoft.Extensions.Hosting.WindowsServices": "10.0.3",
+          "Microsoft.Extensions.Http": "10.0.3",
           "Serilog.Enrichers.Environment": "3.0.1",
           "Serilog.Enrichers.Thread": "4.0.0",
           "Serilog.Extensions.Hosting": "10.0.0",
@@ -255,6 +256,22 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Hosting.WindowsServices.dll": {
             "assemblyVersion": "10.0.0.3",
+            "fileVersion": "10.0.326.7603"
+          }
+        }
+      },
+      "Microsoft.Extensions.Http/10.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Diagnostics": "10.0.3",
+          "Microsoft.Extensions.Logging": "10.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Options": "10.0.3"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Http.dll": {
+            "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.326.7603"
           }
         }
@@ -655,6 +672,13 @@
       "sha512": "sha512-2XfvVSYf1bKWIUVeOZZ7OG8UlV137OwCrw1Qouxbmu8/lqION4l4WtheVz9TDJmO/KcuxpN4lCKbsr37ZW+Y8w==",
       "path": "microsoft.extensions.hosting.windowsservices/10.0.3",
       "hashPath": "microsoft.extensions.hosting.windowsservices.10.0.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M5gWob3dtzlF14oto1lR1ZuSJrR0gGc+obv7zY9LGmX5y3Ndpve29MrrjqJW/m4CFud4TE/KFUuHjjtwxhCO8g==",
+      "path": "microsoft.extensions.http/10.0.3",
+      "hashPath": "microsoft.extensions.http.10.0.3.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/10.0.3": {
       "type": "package",

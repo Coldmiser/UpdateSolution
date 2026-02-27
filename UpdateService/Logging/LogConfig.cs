@@ -76,7 +76,7 @@ public static class LogConfig
                     "{Timestamp:yyyy-MM-dd HH:mm:ss} | {Level:u3} | {Message:lj}{NewLine}{Exception}")
             .CreateLogger();
 
-        ServiceLog.Information("Logging initialised. Directory: {LogDir}", logDir);
+        ServiceLog.Information("Logging initialized. Directory: {LogDir}", logDir);
     }
 
     /// <summary>Flushes and disposes both loggers. Call on service shutdown.</summary>

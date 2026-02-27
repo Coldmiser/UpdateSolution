@@ -53,6 +53,7 @@ dotnet publish "$PSScriptRoot\UpdateNotifier\UpdateNotifier.csproj" `
 	-p:Version=`"$Ver`" `
     -p:PublishSingleFile=true `
     -p:EnableCompressionInSingleFile=true `
+    -p:IncludeNativeLibrariesForSelfExtract=false `
     --output "$OutDir\UpdateNotifier"
 
 if ($LASTEXITCODE -ne 0) { throw "UpdateNotifier publish failed." }
@@ -65,8 +66,21 @@ Write-Color "`nMerging output into: $OutDir\Deploy" -Color Yellow
 $deployDir = "$OutDir\Deploy"
 New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
 
-Copy-Item "$OutDir\UpdateService\UpdateService.exe"   $deployDir -Force
-Copy-Item "$OutDir\UpdateNotifier\UpdateNotifier.exe" $deployDir -Force
+# Copy ALL files from both publish outputs so native WPF DLLs are included.
+Copy-Item "$OutDir\UpdateService\*"  $deployDir -Recurse -Force
+Copy-Item "$OutDir\UpdateNotifier\*" $deployDir -Recurse -Force
+
+# Copy the company logo next to the exe so LoadLogo() can find it.
+# The logo is loaded from disk at runtime (not embedded) to avoid a WPF
+# pack URI crash on .NET 10 during early window initialisation.
+$logoSrc = "$PSScriptRoot\UpdateNotifier\Resources\CompanyLogo.png"
+if (Test-Path $logoSrc) {
+    Copy-Item $logoSrc $deployDir -Force
+    Write-Host "CompanyLogo.png copied to deploy folder." -ForegroundColor Green
+} else {
+    Write-Host "WARNING: CompanyLogo.png not found at $logoSrc" -ForegroundColor Yellow
+    Write-Host "         The notifier window will appear without a logo." -ForegroundColor Yellow
+}
 
 $exeVer1 = (Get-Item -Path "$deployDir\UpdateService.exe").VersionInfo.ProductVersion
 write-Color "Service version:        ", $exeVer1 -Color White, Yellow
@@ -79,7 +93,7 @@ Write-Host "   UpdateNotifier.exe`n"
 Write-Host "To install the service (run as Administrator):"
 Write-Host "   $deployDir\UpdateService.exe --install`n"
 
-if ($exeVer1 eq $exever2){
+if ($exeVer1 -eq $exever2){
 	Write-Color "`n✅  Updating version control to version: ", $ver -Color Green, Yellow
-	$Ver  | Out-File -FilePath version.txt
+	$Ver  | Out-File -FilePath VersionControl.dat
 }

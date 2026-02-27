@@ -1,0 +1,16 @@
+Version 0.26.151.658
+
+- Rewrite of UpdateService/Workers/WindowsUpdateWorker.cs
+	Install-WindowsUpdate instead of Get-WindowsUpdate -AcceptAll
+	Get-WindowsUpdate is a query command. While -AcceptAll implies installation in some module versions, it isn't guaranteed across all versions. Install-WindowsUpdate is the explicit install command — no ambiguity.
+	Added -MicrosoftUpdate flag
+	Without this, PSWindowsUpdate only queries the basic Windows Update WSUS channel. The Microsoft Update catalog is a superset that includes .NET Framework updates, Defender platform updates (KB5007651), and the Malicious Software Removal Tool (KB890830) — exactly the updates showing in your screenshot.
+	Added Add-WUServiceManager -MicrosoftUpdate
+	This one-time registration tells the Windows Update Agent on the machine that it should use the Microsoft Update service as a source. Without it, -MicrosoftUpdate may silently fall back to the basic catalog.
+	Fixed result code detection
+	$u.Result -eq 'Installed' never matched because PSWindowsUpdate exposes result codes as integers (2 = Succeeded), not strings. Every update was being incorrectly logged as Failed.
+	Regarding Defender definition updates specifically — there is nothing you can do about KB2267602 always appearing. Microsoft publishes new definition files multiple times per day. The service will apply whatever version exists at the time it runs, and a newer one will exist a few hours later. That is expected and correct behavior.
+
+- Modification of Build-And-Publish.ps1 to update "VersionControl.dat"
+- Added VersionHistory.txt document
+- Removed <PackageReference Include="System.Text.Json" Version="9.0.0" /> from /Shared/Shared.csproj as it was not used.

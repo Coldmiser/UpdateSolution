@@ -1,35 +1,36 @@
 // UpdateNotifier/Views/MainWindow.xaml.cs
 // Code-behind for the reboot-notification window.
 // Responsibilities:
-//   • Prevent the window from being moved (intercept WM_SYSCOMMAND SC_MOVE).
-//   • Prevent Alt+F4 close (intercept WM_SYSCOMMAND SC_CLOSE).
-//   • Prevent minimise (intercept WM_SYSCOMMAND SC_MINIMIZE).
-//   • Re-assert Topmost on every activation so the window stays in front.
-//   • Forward the user's decision back through the PipeClient.
+//   • Load company logo from a file next to the exe (avoids WPF pack URI crash)
+//   • Prevent the window from being moved   — via LocationChanged event
+//   • Prevent the window from being closed  — via Closing event
+//   • Prevent the window from being minimised — via StateChanged event
+//   • Re-assert Topmost on every activation
+//   • Forward the user's decision back through the PipeClient
 
-using System.Runtime.InteropServices;
+using System.IO;
 using System.Windows;
-using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using UpdateNotifier.Logging;
 using UpdateNotifier.ViewModels;
 
 namespace UpdateNotifier.Views;
 
 /// <summary>
-/// Code-behind for the always-on-top, non-movable reboot notification window.
+/// Always-on-top, non-movable reboot notification window.
 /// </summary>
 public partial class MainWindow : Window
 {
-    // ── WM_SYSCOMMAND constants ───────────────────────────────────────────────
-    private const int WM_SYSCOMMAND = 0x0112;
-    private const int SC_MOVE       = 0xF010;
-    private const int SC_CLOSE      = 0xF060;
-    private const int SC_MINIMIZE   = 0xF020;
-    private const int SC_MAXIMIZE   = 0xF030;
-
     // ── Fields ────────────────────────────────────────────────────────────────
 
     private readonly MainViewModel _viewModel;
+
+    // Set to true once the user confirms a choice — allows the window to close.
+    private bool _decisionMade = false;
+
+    // Locked screen position — restored if the user tries to drag the window.
+    private double _lockedLeft;
+    private double _lockedTop;
 
     // ── Constructor ──────────────────────────────────────────────────────────
 
@@ -38,90 +39,120 @@ public partial class MainWindow : Window
         InitializeComponent();
         DataContext = _viewModel = viewModel;
 
-        // Subscribe to the ViewModel's decision event.
+        // Subscribe to ViewModel decision event.
         _viewModel.UserDecided += OnUserDecided;
 
-        // Hook into the Win32 message loop once the window handle is created.
-        SourceInitialized += OnSourceInitialized;
+        // ── Prevent moving ────────────────────────────────────────────────────
+        Loaded += (_, _) =>
+        {
+            // Load the logo here — after InitializeComponent — so WPF's
+            // internal infrastructure is fully ready before we touch images.
+            LoadLogo();
 
-        // Re-assert Topmost on every activation.
+            _lockedLeft = Left;
+            _lockedTop  = Top;
+            LogConfig.Log.Debug(
+                "MainWindow: position locked at ({Left}, {Top}).", _lockedLeft, _lockedTop);
+        };
+
+        LocationChanged += (_, _) =>
+        {
+            if (_lockedLeft == 0 && _lockedTop == 0) return;
+            if (Math.Abs(Left - _lockedLeft) > 0.5 || Math.Abs(Top - _lockedTop) > 0.5)
+            {
+                Left = _lockedLeft;
+                Top  = _lockedTop;
+                LogConfig.Log.Debug("MainWindow: move attempt blocked.");
+            }
+        };
+
+        // ── Prevent minimising / maximising ──────────────────────────────────
+        StateChanged += (_, _) =>
+        {
+            if (WindowState != WindowState.Normal)
+            {
+                WindowState = WindowState.Normal;
+                LogConfig.Log.Debug("MainWindow: state change blocked.");
+            }
+        };
+
+        // ── Prevent closing before a decision ────────────────────────────────
+        Closing += (_, cancelArgs) =>
+        {
+            if (!_decisionMade)
+            {
+                cancelArgs.Cancel = true;
+                LogConfig.Log.Debug("MainWindow: close attempt blocked.");
+            }
+        };
+
+        // ── Stay on top ───────────────────────────────────────────────────────
         Activated += (_, _) =>
         {
             Topmost = true;
-            LogConfig.Log.Debug("MainWindow: activated — Topmost re-asserted.");
+            LogConfig.Log.Debug("MainWindow: Topmost re-asserted.");
         };
 
         LogConfig.Log.Information("MainWindow: constructor complete.");
     }
 
-    // ── Window-level event handlers ──────────────────────────────────────────
+    // ── Logo loading ──────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Hooks the Win32 message loop so we can intercept move/close/minimise commands.
+    /// Loads CompanyLogo.png from the same directory as the executable.
+    /// Loading from disk avoids WPF's pack URI infrastructure entirely,
+    /// which prevents the internal SetWindowLongPtr / HwndSubclass crash
+    /// that occurs when pack URIs are resolved during early WPF startup.
+    ///
+    /// To deploy the logo: place CompanyLogo.png in the same folder as
+    /// UpdateNotifier.exe. The Build-And-Publish script handles this automatically.
     /// </summary>
-    private void OnSourceInitialized(object? sender, EventArgs e)
+    private void LoadLogo()
     {
-        var hwnd = new WindowInteropHelper(this).Handle;
-        HwndSource.FromHwnd(hwnd)?.AddHook(WndProc);
-        LogConfig.Log.Debug("MainWindow: WndProc hook installed.");
-    }
-
-    /// <summary>
-    /// Win32 message handler.  Swallows move, close, minimize, and maximize syscommands.
-    /// </summary>
-    private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
-    {
-        if (msg == WM_SYSCOMMAND)
+        try
         {
-            // Mask off the lower 4 bits (used for drag-resizing details).
-            var command = wParam.ToInt32() & 0xFFF0;
+            // Find the exe's own directory — works for both debug and published builds.
+            var exeDir   = AppContext.BaseDirectory;
+            var logoPath = Path.Combine(exeDir, "CompanyLogo.png");
 
-            if (command is SC_MOVE or SC_CLOSE or SC_MINIMIZE or SC_MAXIMIZE)
+            if (!File.Exists(logoPath))
             {
-                LogConfig.Log.Debug(
-                    "MainWindow: blocked WM_SYSCOMMAND 0x{Command:X4}.", command);
-                handled = true;
-                return IntPtr.Zero;
+                LogConfig.Log.Warning(
+                    "MainWindow: CompanyLogo.png not found at {Path}. " +
+                    "Copy the file next to UpdateNotifier.exe.", logoPath);
+                return;
             }
-        }
 
-        return IntPtr.Zero;
+            // Load with OnLoad cache so the file handle is released immediately.
+            var bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource      = new Uri(logoPath, UriKind.Absolute);
+            bitmap.CacheOption    = BitmapCacheOption.OnLoad;
+            bitmap.EndInit();
+            bitmap.Freeze(); // make it thread-safe and improve render performance
+
+            CompanyLogoImage.Source = bitmap;
+            LogConfig.Log.Information("MainWindow: logo loaded from {Path}.", logoPath);
+        }
+        catch (Exception ex)
+        {
+            // Logo failure must never prevent the notification window from showing.
+            LogConfig.Log.Warning(ex, "MainWindow: logo load failed — continuing without logo.");
+        }
     }
+
+    // ── ViewModel event handler ───────────────────────────────────────────────
 
     /// <summary>
     /// Raised by the ViewModel when the user presses Confirm.
-    /// Initiates the pipe response and closes the window.
     /// </summary>
     private void OnUserDecided(object? sender, Shared.Models.SnoozeOption choice)
     {
         LogConfig.Log.Information(
             "MainWindow: user decided '{Label}'. Closing window.", choice.Label);
 
-        // The App class is listening for this event and will send the pipe response.
-        // We just need to close the window.
-        // Remove our hook so WndProc no longer blocks WM_CLOSE.
-        var hwnd = new WindowInteropHelper(this).Handle;
-        HwndSource.FromHwnd(hwnd)?.RemoveHook(WndProc);
-
-        DialogResult = true;  // signals App that a clean decision was made
+        _decisionMade = true;
+        DialogResult  = true;
         Close();
     }
-}
-
-// ── BooleanToVisibilityConverter singleton ────────────────────────────────────
-// Declared here as a static singleton for x:Static reference in XAML.
-
-/// <summary>
-/// Standard bool→Visibility converter accessible via x:Static in XAML.
-/// </summary>
-public sealed class BooleanToVisibilityConverter : System.Windows.Data.IValueConverter
-{
-    /// <summary>Singleton instance referenced by XAML.</summary>
-    public static readonly BooleanToVisibilityConverter Instance = new();
-
-    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) =>
-        value is true ? Visibility.Visible : Visibility.Collapsed;
-
-    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) =>
-        throw new NotSupportedException();
 }

@@ -56,15 +56,26 @@ public static class WindowsUpdateWorker
     // ── Private helpers ──────────────────────────────────────────────────────
 
     /// <summary>
-    /// Installs the PSWindowsUpdate module from the Gallery if it is not already present.
-    /// Runs in AllSigned bypass scope so it works on systems with restrictive execution policies.
+    /// Installs the PSWindowsUpdate module from the Gallery if it is not already present,
+    /// and registers the Microsoft Update service so that -MicrosoftUpdate works correctly.
     /// </summary>
     private static async Task EnsureModuleInstalledAsync(CancellationToken cancellationToken)
     {
         const string checkScript = @"
+            # Install PSWindowsUpdate module if missing.
             if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate)) {
                 Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers
             }
+
+            Import-Module PSWindowsUpdate -ErrorAction Stop
+
+            # Register the Microsoft Update service source so that -MicrosoftUpdate
+            # flag works and the full catalog (Defender, .NET, MSRT, etc.) is visible.
+            # This is idempotent — safe to call every time.
+            try {
+                Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue
+            } catch {}
+
             Write-Output 'OK'
         ";
 
@@ -82,30 +93,71 @@ public static class WindowsUpdateWorker
     /// <summary>
     /// Builds the PowerShell script that installs all pending updates and
     /// emits a JSON array describing each result.
+    ///
+    /// Key flags explained:
+    ///   -MicrosoftUpdate  : Includes the full Microsoft Update catalog, not just
+    ///                       the basic Windows Update channel.  Required to catch
+    ///                       .NET Framework updates, Defender platform updates,
+    ///                       MSRT, and other Microsoft software updates.
+    ///   -Install          : Explicitly instructs PSWindowsUpdate to install after
+    ///                       downloading.  Some module versions treat -AcceptAll
+    ///                       alone as download-only.
+    ///   -AcceptAll        : Auto-accepts all EULAs so no interactive prompt blocks
+    ///                       the background process.
+    ///   -IgnoreReboot     : Do not reboot automatically — we handle reboot prompting
+    ///                       ourselves via the named pipe / WPF notifier.
+    ///
+    /// Result code mapping (PSWindowsUpdate OperationResultCode enum):
+    ///   0 = NotStarted, 1 = InProgress, 2 = Succeeded,
+    ///   3 = SucceededWithErrors, 4 = Failed, 5 = Aborted
     /// </summary>
     private static string BuildUpdateScript() => @"
         Import-Module PSWindowsUpdate -ErrorAction Stop
 
-        # Accept all updates including drivers and optional patches.
-        $updates = Get-WindowsUpdate -AcceptAll -IgnoreReboot -ErrorAction Continue 2>&1
+        # Install all available updates from both Windows Update AND the full
+        # Microsoft Update catalog (-MicrosoftUpdate).
+        # -Install is explicit to ensure download+install on all module versions.
+        # Suppress progress output so only our JSON reaches stdout.
+        $ProgressPreference = 'SilentlyContinue'
+
+        $updates = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
 
         $results = @()
 
         foreach ($u in $updates) {
-            $status  = if ($u.Result -eq 'Installed') { 'Succeeded' } else { 'Failed' }
-            $kb      = if ($u.KBArticleIDs.Count -gt 0) { $u.KBArticleIDs[0] } else { '' }
+            # PSWindowsUpdate returns OperationResultCode as an integer:
+            #   2 = Succeeded, 3 = SucceededWithErrors — both count as success.
+            #   Anything else (0,1,4,5) is a failure or incomplete.
+            $resultCode = [int]$u.ResultCode
+            $succeeded  = ($resultCode -eq 2 -or $resultCode -eq 3)
+            $status     = if ($succeeded) { 'Succeeded' } else { 'Failed' }
+
+            # Extract the first KB number if present.
+            $kb = ''
+            if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                $kb = 'KB' + $u.KBArticleIDs[0]
+            }
+
+            # RebootRequired is a property on the update object.
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
 
             $results += [PSCustomObject]@{
-                Identifier    = $kb
-                Title         = $u.Title
-                Status        = $status
-                ErrorMessage  = ''
-                RebootRequired = $u.RebootRequired
-                AttemptedAt   = (Get-Date -Format 'o')
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
             }
         }
 
-        # Always output valid JSON even if $results is empty.
+        # Always emit valid JSON — an empty array if nothing was installed.
         if ($results.Count -eq 0) {
             Write-Output '[]'
         } else {

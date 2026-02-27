@@ -51,7 +51,7 @@ public static class AppConstants
     /// Override this in the registry to point to your own hosting.
     /// </summary>
     public const string DefaultVersionFileUrl =
-        "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/version.txt";
+        "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/VersionControl.dat";
 
     /// <summary>
     /// URL template for the update ZIP.  {0} is replaced with the version string.

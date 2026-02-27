@@ -1,0 +1,12 @@
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\bin\Release\net10.0\win-x64\Shared.deps.json
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\bin\Release\net10.0\win-x64\Shared.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\bin\Release\net10.0\win-x64\Shared.pdb
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.AssemblyInfoInputs.cache
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.AssemblyInfo.cs
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.csproj.CoreCompileInputs.cache
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.sourcelink.json
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\refint\Shared.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\Shared.pdb
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\Shared\obj\Release\net10.0\win-x64\ref\Shared.dll

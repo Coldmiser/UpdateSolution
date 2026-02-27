@@ -17,6 +17,41 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+	<Platforms>x64</Platforms>
+	
+	<!-- Single-file publish settings.
+		 IncludeNativeLibrariesForSelfExtract=false is required for WPF —
+		 native DLLs (wpfgfx_cor3.dll etc.) must sit alongside the exe,
+		 not bundled inside the single file, or WPF crashes at startup. -->
+	<PublishSingleFile>true</PublishSingleFile>
+	<SelfContained>true</SelfContained>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+	<IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+
+<!--
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+	<FileVersion>1.0.0.0</FileVersion>
+	<InformationalVersion>1.0.0</InformationalVersion>
+-->
+
+	<ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
-</Project>
+  <ItemGroup>
+	<ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Serilog"                  Version="4.2.0" />
+	<PackageReference Include="Serilog.Sinks.File"       Version="6.0.0" />
+	<PackageReference Include="Serilog.Sinks.Console"    Version="6.0.0" />
+	<PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+  </ItemGroup>
+
+  <!-- NOTE: CompanyLogo.png is NOT embedded as a WPF Resource.
+	   It is loaded from disk at runtime (next to the exe) by MainWindow.xaml.cs.
+	   This avoids a WPF pack URI crash on .NET 10 during early window init.
+	   The Build-And-Publish.ps1 script copies the logo to the deploy folder. -->
+
+</Project>	
