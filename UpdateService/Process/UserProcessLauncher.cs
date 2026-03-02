@@ -152,7 +152,9 @@ public static class UserProcessLauncher
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool CloseHandle(IntPtr hObject);
 
-        [DllImport("Wtsapi32.dll", SetLastError = true)]
+        // WTSGetActiveConsoleSessionId lives in kernel32.dll, NOT Wtsapi32.dll.
+        // Using the wrong DLL causes EntryPointNotFoundException on .NET 10.
+        [DllImport("kernel32.dll")]
         public static extern uint WTSGetActiveConsoleSessionId();
 
         [DllImport("Wtsapi32.dll", SetLastError = true)]

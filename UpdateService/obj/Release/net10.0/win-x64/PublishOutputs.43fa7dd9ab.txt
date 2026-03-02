@@ -1,0 +1,5 @@
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateService\appsettings.Development.json
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateService\appsettings.json
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateService\UpdateService.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateService\Shared.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateService\UpdateService.exe

@@ -1,5 +1,21 @@
-Version 0.26.151.658
+Version <version>
+Version <version>
+Version <version>
 
+Version  0.26.165.427
+2026-03-02
+- Rewrote WindowsUpdateWorker.cs as the service was not installing and running Add-WUServiceManager 
+- UserProcessLauncher.cs — WTSGetActiveConsoleSessionId was declared with DllImport("Wtsapi32.dll") but it actually lives in kernel32.dll. 
+	This is what caused the EntryPointNotFoundException and prevented the notifier from ever launching.  
+- WingetWorker.cs — added a FindWinget() method that searches three locations in order: where.exe on PATH, the 
+	C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_* folder (where it actually lives on most machines), and the 
+	SYSTEM profile's WindowsApps folder. The SYSTEM account has no winget in its PATH so "winget" as a filename always fails.
+- WindowsUpdateWorker.cs — the PowerShell pipeline with 2>&1 was mixing progress strings and error records in with the actual 
+	update objects. The foreach loop was then trying to cast those strings to [int] via $u.ResultCode, throwing an exception for 
+	every item and marking all 12 updates as Failed. The fix filters the pipeline output to only objects
+
+Version 0.26.151.658
+2026-02-25
 - Rewrite of UpdateService/Workers/WindowsUpdateWorker.cs
 	Install-WindowsUpdate instead of Get-WindowsUpdate -AcceptAll
 	Get-WindowsUpdate is a query command. While -AcceptAll implies installation in some module versions, it isn't guaranteed across all versions. Install-WindowsUpdate is the explicit install command — no ambiguity.
@@ -10,7 +26,7 @@ Version 0.26.151.658
 	Fixed result code detection
 	$u.Result -eq 'Installed' never matched because PSWindowsUpdate exposes result codes as integers (2 = Succeeded), not strings. Every update was being incorrectly logged as Failed.
 	Regarding Defender definition updates specifically — there is nothing you can do about KB2267602 always appearing. Microsoft publishes new definition files multiple times per day. The service will apply whatever version exists at the time it runs, and a newer one will exist a few hours later. That is expected and correct behavior.
-
 - Modification of Build-And-Publish.ps1 to update "VersionControl.dat"
 - Added VersionHistory.txt document
 - Removed <PackageReference Include="System.Text.Json" Version="9.0.0" /> from /Shared/Shared.csproj as it was not used.
+

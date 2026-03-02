@@ -1,0 +1,8 @@
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\UpdateNotifier.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\D3DCompiler_47_cor3.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\PenImc_cor3.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\PresentationNative_cor3.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\vcruntime140_cor3.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\wpfgfx_cor3.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\Shared.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\UpdateNotifier\UpdateNotifier.exe

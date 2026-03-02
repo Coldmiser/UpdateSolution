@@ -1,10 +1,4 @@
 // UpdateService/Workers/WindowsUpdateWorker.cs
-// Uses PowerShell + the PSWindowsUpdate module to install Windows Updates,
-// patches, and driver updates silently.  If the module is not installed it
-// is installed automatically from the PowerShell Gallery.
-// All individual update results (KB numbers, titles, status) are captured
-// and returned so the orchestrator can log them and determine reboot need.
-
 using System.Diagnostics;
 using System.Text.Json;
 using Shared.Models;
@@ -12,26 +6,13 @@ using UpdateService.Logging;
 
 namespace UpdateService.Workers;
 
-/// <summary>
-/// Drives Windows Update via the PSWindowsUpdate PowerShell module.
-/// </summary>
 public static class WindowsUpdateWorker
 {
-    // ── Public API ───────────────────────────────────────────────────────────
-
-    /// <summary>
-    /// Downloads and installs all available Windows Updates, patches, and drivers.
-    /// </summary>
-    /// <param name="cancellationToken">Used to abort the PowerShell process.</param>
-    /// <returns>One <see cref="UpdateResult"/> per update attempted.</returns>
     public static async Task<List<UpdateResult>> RunAsync(CancellationToken cancellationToken)
     {
         LogConfig.ServiceLog.Information("WindowsUpdateWorker: starting update pass.");
-
-        // Ensure PSWindowsUpdate is available before running the update script.
         await EnsureModuleInstalledAsync(cancellationToken);
 
-        // The PowerShell script installs all updates and emits a JSON array of results.
         var script = BuildUpdateScript();
         var (exitCode, stdout, stderr) = await RunPowerShellAsync(script, cancellationToken);
 
@@ -46,81 +27,66 @@ public static class WindowsUpdateWorker
             results.Count(r => r.Status == UpdateStatus.Succeeded),
             results.Count(r => r.Status == UpdateStatus.Failed));
 
-        // Write every result to the dedicated history log.
         foreach (var r in results)
             LogHistoryEntry(r);
 
         return results;
     }
 
-    // ── Private helpers ──────────────────────────────────────────────────────
-
-    /// <summary>
-    /// Installs the PSWindowsUpdate module from the Gallery if it is not already present,
-    /// and registers the Microsoft Update service so that -MicrosoftUpdate works correctly.
-    /// </summary>
     private static async Task EnsureModuleInstalledAsync(CancellationToken cancellationToken)
     {
         const string checkScript = @"
-            # Install PSWindowsUpdate module if missing.
-            if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate)) {
-                Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers
-            }
-
-            Import-Module PSWindowsUpdate -ErrorAction Stop
-
-            # Register the Microsoft Update service source so that -MicrosoftUpdate
-            # flag works and the full catalog (Defender, .NET, MSRT, etc.) is visible.
-            # This is idempotent — safe to call every time.
+            $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
             try {
-                Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue
-            } catch {}
-
-            Write-Output 'OK'
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
         ";
 
         LogConfig.ServiceLog.Information("WindowsUpdateWorker: verifying PSWindowsUpdate module.");
-        var (_, stdout, _) = await RunPowerShellAsync(checkScript, cancellationToken);
+        var (exitCode, stdout, stderr) = await RunPowerShellAsync(checkScript, cancellationToken);
 
-        if (!stdout.Contains("OK", StringComparison.OrdinalIgnoreCase))
-            LogConfig.ServiceLog.Warning(
-                "WindowsUpdateWorker: PSWindowsUpdate module check returned unexpected output: {Out}",
-                stdout.Trim());
-        else
+        if (!string.IsNullOrWhiteSpace(stderr))
+            LogConfig.ServiceLog.Warning("WindowsUpdateWorker: module check stderr: {Err}", stderr.Trim());
+
+        if (stdout.Contains("OK", StringComparison.OrdinalIgnoreCase))
             LogConfig.ServiceLog.Information("WindowsUpdateWorker: PSWindowsUpdate module OK.");
+        else
+            LogConfig.ServiceLog.Warning(
+                "WindowsUpdateWorker: module check did not return OK. ExitCode={Code} Output={Out}",
+                exitCode, stdout.Trim());
     }
 
-    /// <summary>
-    /// Builds the PowerShell script that installs all pending updates and
-    /// emits a JSON array describing each result.
-    ///
-    /// Key flags explained:
-    ///   -MicrosoftUpdate  : Includes the full Microsoft Update catalog, not just
-    ///                       the basic Windows Update channel.  Required to catch
-    ///                       .NET Framework updates, Defender platform updates,
-    ///                       MSRT, and other Microsoft software updates.
-    ///   -Install          : Explicitly instructs PSWindowsUpdate to install after
-    ///                       downloading.  Some module versions treat -AcceptAll
-    ///                       alone as download-only.
-    ///   -AcceptAll        : Auto-accepts all EULAs so no interactive prompt blocks
-    ///                       the background process.
-    ///   -IgnoreReboot     : Do not reboot automatically — we handle reboot prompting
-    ///                       ourselves via the named pipe / WPF notifier.
-    ///
-    /// Result code mapping (PSWindowsUpdate OperationResultCode enum):
-    ///   0 = NotStarted, 1 = InProgress, 2 = Succeeded,
-    ///   3 = SucceededWithErrors, 4 = Failed, 5 = Aborted
-    /// </summary>
     private static string BuildUpdateScript() => @"
         Import-Module PSWindowsUpdate -ErrorAction Stop
-
-        # Install all available updates from both Windows Update AND the full
-        # Microsoft Update catalog (-MicrosoftUpdate).
-        # -Install is explicit to ensure download+install on all module versions.
-        # Suppress progress output so only our JSON reaches stdout.
         $ProgressPreference = 'SilentlyContinue'
 
-        $updates = Install-WindowsUpdate `
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
             -MicrosoftUpdate `
             -AcceptAll `
             -IgnoreReboot `
@@ -129,21 +95,23 @@ public static class WindowsUpdateWorker
 
         $results = @()
 
-        foreach ($u in $updates) {
-            # PSWindowsUpdate returns OperationResultCode as an integer:
-            #   2 = Succeeded, 3 = SucceededWithErrors — both count as success.
-            #   Anything else (0,1,4,5) is a failure or incomplete.
-            $resultCode = [int]$u.ResultCode
-            $succeeded  = ($resultCode -eq 2 -or $resultCode -eq 3)
-            $status     = if ($succeeded) { 'Succeeded' } else { 'Failed' }
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
 
-            # Extract the first KB number if present.
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+            $status    = if ($succeeded) { 'Succeeded' } else { 'Failed' }
+
             $kb = ''
-            if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
-                $kb = 'KB' + $u.KBArticleIDs[0]
-            }
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
 
-            # RebootRequired is a property on the update object.
             $needsReboot = $false
             try { $needsReboot = [bool]$u.RebootRequired } catch {}
 
@@ -157,7 +125,6 @@ public static class WindowsUpdateWorker
             }
         }
 
-        # Always emit valid JSON — an empty array if nothing was installed.
         if ($results.Count -eq 0) {
             Write-Output '[]'
         } else {
@@ -165,21 +132,15 @@ public static class WindowsUpdateWorker
         }
     ";
 
-    /// <summary>
-    /// Parses the JSON emitted by the PowerShell script into a list of <see cref="UpdateResult"/>.
-    /// Falls back to an empty list if the output is malformed.
-    /// </summary>
     private static List<UpdateResult> ParseResults(string json)
     {
         try
         {
-            // Isolate the JSON line — PowerShell may emit progress/verbose lines first.
             var jsonLine = json
                 .Split('\n', StringSplitOptions.RemoveEmptyEntries)
                 .LastOrDefault(l => l.TrimStart().StartsWith('[') || l.TrimStart().StartsWith('{'))
                 ?? "[]";
 
-            // PowerShell may emit a single object instead of an array for one update.
             if (jsonLine.TrimStart().StartsWith('{'))
                 jsonLine = $"[{jsonLine}]";
 
@@ -189,29 +150,25 @@ public static class WindowsUpdateWorker
 
             return dtos.Select(d => new UpdateResult
             {
-                Identifier    = d.Identifier ?? string.Empty,
-                Title         = d.Title       ?? string.Empty,
-                Status        = Enum.TryParse<UpdateStatus>(d.Status, out var s) ? s : UpdateStatus.Failed,
-                ErrorMessage  = string.IsNullOrWhiteSpace(d.ErrorMessage) ? null : d.ErrorMessage,
+                Identifier     = d.Identifier ?? string.Empty,
+                Title          = d.Title       ?? string.Empty,
+                Status         = Enum.TryParse<UpdateStatus>(d.Status, out var s) ? s : UpdateStatus.Failed,
+                ErrorMessage   = string.IsNullOrWhiteSpace(d.ErrorMessage) ? null : d.ErrorMessage,
                 RebootRequired = d.RebootRequired,
-                AttemptedAt   = DateTime.TryParse(d.AttemptedAt, out var dt) ? dt : DateTime.UtcNow
+                AttemptedAt    = DateTime.TryParse(d.AttemptedAt, out var dt) ? dt : DateTime.UtcNow
             }).ToList();
         }
         catch (Exception ex)
         {
-            LogConfig.ServiceLog.Error(ex, "WindowsUpdateWorker: failed to parse PS output. Raw: {Json}", json);
+            LogConfig.ServiceLog.Error(ex,
+                "WindowsUpdateWorker: failed to parse PS output. Raw: {Json}", json);
             return [];
         }
     }
 
-    /// <summary>
-    /// Runs a PowerShell script string using powershell.exe and captures all output.
-    /// ExecutionPolicy is bypassed for this process only.
-    /// </summary>
     private static async Task<(int ExitCode, string Stdout, string Stderr)> RunPowerShellAsync(
         string script, CancellationToken cancellationToken)
     {
-        // Write the script to a temp file to avoid command-line length limits.
         var tempScript = Path.Combine(Path.GetTempPath(), $"wuworker_{Guid.NewGuid():N}.ps1");
         await File.WriteAllTextAsync(tempScript, script, cancellationToken);
 
@@ -239,31 +196,21 @@ public static class WindowsUpdateWorker
         }
         finally
         {
-            // Clean up the temp script file.
             try { File.Delete(tempScript); } catch { /* best effort */ }
         }
     }
 
-    /// <summary>
-    /// Logs one update result to the dedicated update-history sink.
-    /// </summary>
     private static void LogHistoryEntry(UpdateResult r)
     {
         if (r.Status == UpdateStatus.Succeeded)
-        {
             LogConfig.HistoryLog.Information(
                 "WINDOWS-UPDATE | KB={KB} | Title={Title} | RebootRequired={Reboot} | {At:O}",
                 r.Identifier, r.Title, r.RebootRequired, r.AttemptedAt);
-        }
         else
-        {
             LogConfig.HistoryLog.Warning(
                 "WINDOWS-UPDATE | KB={KB} | Title={Title} | Status=Failed | Error={Err} | {At:O}",
                 r.Identifier, r.Title, r.ErrorMessage, r.AttemptedAt);
-        }
     }
-
-    // ── Private DTO used only for JSON deserialisation ───────────────────────
 
     private sealed class WuUpdateDto
     {

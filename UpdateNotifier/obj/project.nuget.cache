@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "umIqJaQUiPQ=",
+  "dgSpecHash": "SW39ToZCmz8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateNotifier\\UpdateNotifier.csproj",
+  "projectFilePath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateNotifier\\UpdateNotifier.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\serilog\\4.3.1\\serilog.4.3.1.nupkg.sha512",
