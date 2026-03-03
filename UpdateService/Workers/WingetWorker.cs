@@ -266,7 +266,7 @@ try {
     $stdout   = Get-Content $outFile -Raw -ErrorAction SilentlyContinue
     $stderr   = Get-Content $errFile -Raw -ErrorAction SilentlyContinue
 
-    Write-Output "EXIT:$exitCode"
+    Write-Output ""EXIT:$exitCode""
     Write-Output 'STDOUT_START'
     if ($stdout) { Write-Output $stdout }
     Write-Output 'STDOUT_END'
