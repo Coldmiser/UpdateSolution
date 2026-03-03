@@ -55,6 +55,7 @@ UpdateSolution/
 | .NET 10 SDK | `dotnet --version` should show `10.x.x` |
 | winget | Shipped with Windows 10 1809+ / Windows 11 |
 | PowerShell 5.1+ | For PSWindowsUpdate; module auto-installed on first run |
+| PSWriteColor module | Required by Build-And-Publish.ps1 — `Install-Module PSWriteColor -Scope CurrentUser` |
 | Administrator rights | Required to install the service |
 
 ---

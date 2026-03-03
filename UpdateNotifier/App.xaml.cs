@@ -60,8 +60,9 @@ public partial class App : Application
             };
 
             // Merge args from both sources.
+            // GetCommandLineArgs()[0] is the exe path itself — skip it.
             var allArgs = e.Args
-                .Concat(Environment.GetCommandLineArgs())
+                .Concat(Environment.GetCommandLineArgs().Skip(1))
                 .Select(a => a.Trim())
                 .ToArray();
 
