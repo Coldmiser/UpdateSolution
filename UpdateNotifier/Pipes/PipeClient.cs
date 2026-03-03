@@ -85,6 +85,7 @@ public sealed class PipeClient : IDisposable
 
     /// <summary>
     /// Reads a length-prefixed JSON message from the pipe.
+    /// Rejects messages whose declared body length exceeds <see cref="AppConstants.MaxPipeMessageBytes"/>.
     /// </summary>
     private async Task<PipeMessage?> ReadMessageAsync(CancellationToken ct)
     {
@@ -95,6 +96,11 @@ public sealed class PipeClient : IDisposable
             var lenBuf = new byte[4];
             await _pipe.ReadExactlyAsync(lenBuf, ct);
             var bodyLen = BitConverter.ToInt32(lenBuf);
+
+            if (bodyLen <= 0 || bodyLen > AppConstants.MaxPipeMessageBytes)
+                throw new InvalidDataException(
+                    $"Pipe message body length {bodyLen} is outside the valid range " +
+                    $"[1, {AppConstants.MaxPipeMessageBytes}].");
 
             var bodyBuf = new byte[bodyLen];
             await _pipe.ReadExactlyAsync(bodyBuf, ct);

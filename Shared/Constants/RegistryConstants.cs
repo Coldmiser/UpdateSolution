@@ -45,4 +45,18 @@ public static class RegistryConstants
     /// REG_DWORD — update interval in minutes (default 60).
     /// </summary>
     public const string UpdateIntervalMinutes = "UpdateIntervalMinutes";
+
+    /// <summary>
+    /// REG_SZ — URL template for the SHA-256 hash file of the update ZIP.
+    /// Use {0} as the version placeholder.
+    /// Defaults to <see cref="AppConstants.DefaultHashFileUrlTemplate"/>.
+    /// </summary>
+    public const string HashFileUrlTemplate = "HashFileUrlTemplate";
+
+    /// <summary>
+    /// REG_SZ — minimum Serilog log level for both service and notifier logs.
+    /// Accepted values (case-insensitive): Verbose, Debug, Information, Warning, Error, Fatal.
+    /// Defaults to "Information".
+    /// </summary>
+    public const string LogMinimumLevel = "LogMinimumLevel";
 }

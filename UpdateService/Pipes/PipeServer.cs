@@ -40,6 +40,7 @@ public sealed class PipeServer
     /// Notifies the logged-in user that a reboot is required.
     /// Launches the WPF notifier, sends the update details, and waits for
     /// the user's decision.  Re-queues a snooze timer if the user defers.
+    /// Abandons after 96 consecutive failed attempts (≈ 24 hours with no active user session).
     /// </summary>
     public async Task NotifyRebootRequiredAsync(
         List<UpdateResult> results, CancellationToken cancellationToken)
@@ -55,6 +56,11 @@ public sealed class PipeServer
         };
 
         // Keep looping until the user chooses "Reboot Now" (snoozeMinutes == 0).
+        // Cap consecutive failures so the outer update loop is not blocked indefinitely
+        // when there is never an active user session (e.g. a headless/RDP-only server).
+        const int maxConsecutiveFailures = 96; // 96 × 15 min ≈ 24 hours
+        var consecutiveFailures = 0;
+
         while (true)
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -63,13 +69,23 @@ public sealed class PipeServer
 
             if (response is null)
             {
-                // Notifier did not respond (crashed, timed out, or no user session).
-                // Retry after 15 minutes.
+                consecutiveFailures++;
+                if (consecutiveFailures >= maxConsecutiveFailures)
+                {
+                    LogConfig.ServiceLog.Error(
+                        "PipeServer: {N} consecutive notification failures (~24 h). " +
+                        "Giving up — reboot must be triggered manually.", consecutiveFailures);
+                    return;
+                }
+
                 LogConfig.ServiceLog.Warning(
-                    "PipeServer: no response received — retrying notification in 15 minutes.");
+                    "PipeServer: no response received ({N}/{Max}) — retrying in 15 minutes.",
+                    consecutiveFailures, maxConsecutiveFailures);
                 await Task.Delay(TimeSpan.FromMinutes(15), cancellationToken);
                 continue;
             }
+
+            consecutiveFailures = 0; // reset on any successful interaction
 
             if (response.SnoozeMinutes == 0)
             {
@@ -179,12 +195,18 @@ public sealed class PipeServer
 
     /// <summary>
     /// Reads a length-prefixed JSON message from the pipe and deserialises it.
+    /// Rejects messages whose declared body length exceeds <see cref="AppConstants.MaxPipeMessageBytes"/>.
     /// </summary>
     private static async Task<PipeMessage?> ReadMessageAsync(PipeStream pipe, CancellationToken ct)
     {
         var lenBuf = new byte[4];
         await pipe.ReadExactlyAsync(lenBuf, ct);
         var bodyLen = BitConverter.ToInt32(lenBuf);
+
+        if (bodyLen <= 0 || bodyLen > AppConstants.MaxPipeMessageBytes)
+            throw new InvalidDataException(
+                $"Pipe message body length {bodyLen} is outside the valid range " +
+                $"[1, {AppConstants.MaxPipeMessageBytes}].");
 
         var bodyBuf = new byte[bodyLen];
         await pipe.ReadExactlyAsync(bodyBuf, ct);

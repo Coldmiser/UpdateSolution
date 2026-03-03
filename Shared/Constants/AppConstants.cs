@@ -17,6 +17,12 @@ public static class AppConstants
     /// <summary>Timeout (ms) the WPF client waits when connecting to the pipe.</summary>
     public const int PipeConnectTimeoutMs = 10_000;
 
+    /// <summary>
+    /// Maximum allowed byte length of a single pipe message body (1 MiB).
+    /// Any message claiming to be larger than this is rejected to prevent OOM.
+    /// </summary>
+    public const int MaxPipeMessageBytes = 1_048_576;
+
     // ── Service Identity ────────────────────────────────────────────────────────
 
     /// <summary>Windows service short name (no spaces).</summary>
@@ -59,6 +65,13 @@ public static class AppConstants
     /// </summary>
     public const string DefaultUpdateZipUrlTemplate =
         "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/CapTG-Update-{0}.zip";
+
+    /// <summary>
+    /// URL template for the SHA-256 hash file of the update ZIP.  {0} is replaced with the version.
+    /// The file must contain only the lower-case hex SHA-256 digest of the ZIP (64 characters).
+    /// </summary>
+    public const string DefaultHashFileUrlTemplate =
+        "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/CapTG-Update-{0}.zip.sha256";
 
     /// <summary>Local directory where the update ZIP is extracted before applying.</summary>
     public const string UpdateStagingDirectory = @"C:\ProgramData\CapTG\UpdateStaging";

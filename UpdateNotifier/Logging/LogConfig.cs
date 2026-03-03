@@ -4,6 +4,7 @@
 // so both programs write to the same folder.
 
 using Serilog;
+using Serilog.Events;
 using Shared.Constants;
 using Shared.Helpers;
 using System.IO;
@@ -30,8 +31,15 @@ public static class LogConfig
 
         Directory.CreateDirectory(logDir);
 
+        // Minimum level is registry-overridable so IT can enable verbose logging
+        // for a single machine without redeploying. Defaults to Information.
+        var levelStr = RegistryHelper.GetString(RegistryConstants.LogMinimumLevel, "Information");
+        var minLevel = Enum.TryParse<LogEventLevel>(levelStr, ignoreCase: true, out var parsed)
+            ? parsed
+            : LogEventLevel.Information;
+
         Log = new LoggerConfiguration()
-            .MinimumLevel.Verbose()             // capture absolutely everything
+            .MinimumLevel.Is(minLevel)
             .Enrich.WithThreadId()
             .Enrich.FromLogContext()
             .WriteTo.File(
@@ -43,7 +51,9 @@ public static class LogConfig
                     "(Thread {ThreadId}) {Message:lj}{NewLine}{Exception}")
             .CreateLogger();
 
-        Log.Information("UpdateNotifier logging initialised. Directory: {Dir}", logDir);
+        Log.Information(
+            "UpdateNotifier logging initialised. Directory: {Dir} MinimumLevel: {Level}",
+            logDir, minLevel);
     }
 
     /// <summary>Flushes and disposes the logger. Call on application exit.</summary>

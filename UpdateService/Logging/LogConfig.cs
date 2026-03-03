@@ -7,6 +7,7 @@
 
 using Serilog;
 using Serilog.Core;
+using Serilog.Events;
 using Shared.Constants;
 using Shared.Helpers;
 
@@ -47,9 +48,15 @@ public static class LogConfig
         // Ensure the log directory exists before Serilog tries to create files there.
         Directory.CreateDirectory(logDir);
 
+        // ── Minimum log level (registry-overridable, defaults to Information) ──
+        var levelStr = RegistryHelper.GetString(RegistryConstants.LogMinimumLevel, "Information");
+        var minLevel = Enum.TryParse<LogEventLevel>(levelStr, ignoreCase: true, out var parsed)
+            ? parsed
+            : LogEventLevel.Information;
+
         // ── Operational / service log ────────────────────────────────────────
         ServiceLog = new LoggerConfiguration()
-            .MinimumLevel.Verbose()                         // log absolutely everything
+            .MinimumLevel.Is(minLevel)
             .Enrich.WithThreadId()
             .Enrich.WithMachineName()
             .Enrich.FromLogContext()
@@ -76,7 +83,8 @@ public static class LogConfig
                     "{Timestamp:yyyy-MM-dd HH:mm:ss} | {Level:u3} | {Message:lj}{NewLine}{Exception}")
             .CreateLogger();
 
-        ServiceLog.Information("Logging initialized. Directory: {LogDir}", logDir);
+        ServiceLog.Information(
+            "Logging initialized. Directory: {LogDir} MinimumLevel: {Level}", logDir, minLevel);
     }
 
     /// <summary>Flushes and disposes both loggers. Call on service shutdown.</summary>

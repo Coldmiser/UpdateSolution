@@ -1,7 +1,7 @@
 // UpdateService/Workers/WingetWorker.cs
 using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
+using System.Text.Json;
 using Shared.Models;
 using UpdateService.Logging;
 
@@ -49,8 +49,10 @@ public static class WingetWorker
     {
         var ids = new List<string>();
 
+        // --output json produces structured data rather than the tabular text format,
+        // which is fragile across winget versions. Available since winget 1.4.
         var (exitCode, stdout, stderr) = await RunWingetAsync(
-            "upgrade --include-unknown --accept-source-agreements",
+            "upgrade --include-unknown --accept-source-agreements --output json",
             cancellationToken);
 
         if (exitCode == -1)
@@ -64,15 +66,39 @@ public static class WingetWorker
             return ids;
         }
 
-        foreach (var line in stdout.Split('\n'))
+        var json = stdout.Trim();
+        if (string.IsNullOrEmpty(json))
+            return ids;
+
+        try
         {
-            var parts = Regex.Split(line.Trim(), @"\s{2,}");
-            if (parts.Length >= 2
-                && !parts[1].StartsWith("Id", StringComparison.OrdinalIgnoreCase)
-                && !string.IsNullOrWhiteSpace(parts[1]))
+            using var doc  = JsonDocument.Parse(json);
+            var root       = doc.RootElement;
+
+            // winget JSON schema: { "Sources": [ { "Packages": [ { "PackageIdentifier": "..." } ] } ] }
+            if (!root.TryGetProperty("Sources", out var sources))
+                return ids;
+
+            foreach (var source in sources.EnumerateArray())
             {
-                ids.Add(parts[1].Trim());
+                if (!source.TryGetProperty("Packages", out var packages))
+                    continue;
+
+                foreach (var pkg in packages.EnumerateArray())
+                {
+                    if (pkg.TryGetProperty("PackageIdentifier", out var idProp))
+                    {
+                        var id = idProp.GetString();
+                        if (!string.IsNullOrWhiteSpace(id))
+                            ids.Add(id);
+                    }
+                }
             }
+        }
+        catch (JsonException ex)
+        {
+            LogConfig.ServiceLog.Warning(
+                ex, "WingetWorker: failed to parse winget JSON output. Raw: {Raw}", stdout);
         }
 
         return ids;

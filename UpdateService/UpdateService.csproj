@@ -5,6 +5,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-UpdateService-4ba30774-4b4e-44a0-ba10-fc673ba9c0fd</UserSecretsId>
+
+    <!-- Single-file publish settings — mirrors the flags passed by Build-And-Publish.ps1
+         so that Visual Studio publish profiles pick up the correct defaults. -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
 
   <ItemGroup>
