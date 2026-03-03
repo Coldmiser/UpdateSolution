@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="CapTG Update Service Setup"
+BeginPrompt="Do you want to install CapTG Update Service?"
+RunProgram="install.cmd"
+;!@InstallEnd@!
