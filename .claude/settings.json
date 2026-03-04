@@ -1,0 +1,26 @@
+{
+  "allowedTools": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Bash(git status:*)",
+    "Bash(git log:*)",
+    "Bash(git diff:*)",
+    "Bash(git show:*)",
+    "Bash(git branch:*)",
+    "Bash(git remote:*)",
+    "Bash(ls:*)",
+    "Bash(ls -la:*)",
+    "Bash(cat:*)",
+    "Bash(pwd:*)",
+    "Bash(echo:*)",
+    "Bash(find:*)",
+    "Bash(head:*)",
+    "Bash(tail:*)",
+    "Bash(wc:*)",
+    "Bash(which:*)",
+    "Bash(type:*)",
+    "Bash(env:*)",
+    "Bash(printenv:*)"
+  ]
+}
