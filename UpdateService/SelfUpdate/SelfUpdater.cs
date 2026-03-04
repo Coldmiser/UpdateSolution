@@ -1,10 +1,9 @@
 // UpdateService/SelfUpdate/SelfUpdater.cs
 // Checks a plain-text version manifest hosted on the internet.
-// If a newer version is available it downloads a ZIP, stages it, and
-// runs an upgrade script that stops the service, replaces files, and restarts.
-// The version file must contain ONLY a semantic version string, e.g.:  1.2.3
+// If the remote version differs from the running version, downloads the
+// installer EXE and launches it.  The installer stops the service, replaces
+// files, and restarts the service automatically.
 
-using System.IO.Compression;
 using System.Reflection;
 using Shared.Constants;
 using Shared.Helpers;
@@ -21,7 +20,7 @@ public sealed class SelfUpdater
 
     private readonly HttpClient _http;
     private readonly string     _versionFileUrl;
-    private readonly string     _zipUrlTemplate;
+    private readonly string     _installerUrl;
     private readonly Version    _currentVersion;
 
     // ── Constructor ──────────────────────────────────────────────────────────
@@ -31,8 +30,8 @@ public sealed class SelfUpdater
         _http           = http;
         _versionFileUrl = RegistryHelper.GetString(
             RegistryConstants.VersionFileUrl, AppConstants.DefaultVersionFileUrl);
-        _zipUrlTemplate = RegistryHelper.GetString(
-            RegistryConstants.UpdateZipUrlTemplate, AppConstants.DefaultUpdateZipUrlTemplate);
+        _installerUrl   = RegistryHelper.GetString(
+            RegistryConstants.InstallerUrl, AppConstants.DefaultInstallerUrl);
 
         // Read the assembly's informational version (e.g. "1.0.0") at runtime.
         var infoVer = Assembly.GetExecutingAssembly()
@@ -45,9 +44,9 @@ public sealed class SelfUpdater
     // ── Public API ───────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Checks the remote version manifest.  If a newer version is available,
-    /// downloads and applies the update.  The service will be restarted
-    /// automatically by the SCM recovery policy after the upgrade script stops it.
+    /// Checks the remote version manifest.  If the remote version differs from
+    /// the running version, downloads and launches the installer EXE.
+    /// The installer stops the service, replaces files, and restarts it.
     /// </summary>
     public async Task CheckAndApplyAsync(CancellationToken cancellationToken)
     {
@@ -82,89 +81,52 @@ public sealed class SelfUpdater
         }
 
         LogConfig.ServiceLog.Information(
-            "SelfUpdater: new version {Remote} available — beginning upgrade.", remoteVersion);
+            "SelfUpdater: new version {Remote} available — downloading installer.", remoteVersion);
 
-        await DownloadAndApplyAsync(remoteVersion.ToString(), cancellationToken);
+        await DownloadAndRunInstallerAsync(cancellationToken);
     }
 
     // ── Private helpers ──────────────────────────────────────────────────────
 
     /// <summary>
-    /// Downloads the update ZIP, extracts it to a staging directory, then
-    /// executes an upgrade batch script that handles the hot-swap while the
-    /// service is briefly stopped.
+    /// Downloads the installer EXE to the staging directory and launches it.
+    /// The installer handles stopping the service, replacing files, and restarting.
     /// </summary>
-    private async Task DownloadAndApplyAsync(string version, CancellationToken cancellationToken)
+    private async Task DownloadAndRunInstallerAsync(CancellationToken cancellationToken)
     {
-        var zipUrl     = string.Format(_zipUrlTemplate, version);
-        var stagingDir = AppConstants.UpdateStagingDirectory;
-        var zipPath    = Path.Combine(stagingDir, $"CapTG-Update-{version}.zip");
+        var stagingDir    = AppConstants.UpdateStagingDirectory;
+        var installerPath = Path.Combine(stagingDir, "__CapTG_Updater_Latest.exe");
 
-        // Create (or clean) the staging directory.
+        // Prepare staging directory.
         if (Directory.Exists(stagingDir))
             Directory.Delete(stagingDir, recursive: true);
         Directory.CreateDirectory(stagingDir);
 
         // ── Download ──────────────────────────────────────────────────────────
-        LogConfig.ServiceLog.Information("SelfUpdater: downloading {Url}", zipUrl);
+        LogConfig.ServiceLog.Information("SelfUpdater: downloading installer from {Url}", _installerUrl);
         try
         {
-            await using var stream = await _http.GetStreamAsync(zipUrl, cancellationToken);
-            await using var file   = File.Create(zipPath);
+            await using var stream = await _http.GetStreamAsync(_installerUrl, cancellationToken);
+            await using var file   = File.Create(installerPath);
             await stream.CopyToAsync(file, cancellationToken);
         }
         catch (Exception ex)
         {
-            LogConfig.ServiceLog.Error(ex, "SelfUpdater: download failed.");
+            LogConfig.ServiceLog.Error(ex, "SelfUpdater: installer download failed.");
             return;
         }
 
-        // ── Extract ───────────────────────────────────────────────────────────
-        LogConfig.ServiceLog.Information("SelfUpdater: extracting {Zip}", zipPath);
-        try
-        {
-            ZipFile.ExtractToDirectory(zipPath, stagingDir, overwriteFiles: true);
-            File.Delete(zipPath); // no longer needed
-        }
-        catch (Exception ex)
-        {
-            LogConfig.ServiceLog.Error(ex, "SelfUpdater: extraction failed.");
-            return;
-        }
+        // ── Launch installer ──────────────────────────────────────────────────
+        LogConfig.ServiceLog.Information("SelfUpdater: launching installer at {Path}", installerPath);
 
-        // ── Write and launch upgrade batch script ─────────────────────────────
-        // The script runs outside the service process so it can replace the
-        // service executable while the service itself is stopped.
-        var serviceBin = AppConstants.ServiceName;  // used in sc commands
-        var targetDir  = Path.GetDirectoryName(
-            System.Diagnostics.Process.GetCurrentProcess().MainModule!.FileName)!;
-
-        var batchPath = Path.Combine(stagingDir, "apply_update.cmd");
-        var batchContent = $@"@echo off
-:: Generated by SelfUpdater — do not edit manually.
-timeout /t 3 /nobreak > nul
-sc stop ""{serviceBin}""
-timeout /t 5 /nobreak > nul
-robocopy ""{stagingDir}"" ""{targetDir}"" /E /IS /IT /IM /XF apply_update.cmd
-sc start ""{serviceBin}""
-del /F /Q ""%~f0""
-";
-        await File.WriteAllTextAsync(batchPath, batchContent, cancellationToken);
-
-        LogConfig.ServiceLog.Information(
-            "SelfUpdater: launching upgrade script at {Path}", batchPath);
-
-        // Launch the batch file as a detached, hidden process.
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
         {
-            FileName        = "cmd.exe",
-            Arguments       = $"/c \"{batchPath}\"",
+            FileName        = installerPath,
             CreateNoWindow  = true,
             UseShellExecute = false
         });
 
-        // The SCM will restart us automatically after the script stops the service.
         LogConfig.ServiceLog.Information(
-            "SelfUpdater: upgrade initiated. Service will restart momentarily.");
+            "SelfUpdater: installer launched. Service will be replaced momentarily.");
     }
 }

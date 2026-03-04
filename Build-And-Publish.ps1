@@ -93,7 +93,27 @@ Write-Host "   UpdateNotifier.exe`n"
 Write-Host "To install the service (run as Administrator):"
 Write-Host "   $deployDir\UpdateService.exe --install`n"
 
+$not = "not "
+
 if ($exeVer1 -eq $exever2){
 	Write-Color "`n✅  Updating version control to version: ", $ver -Color Green, Yellow
 	$Ver  | Out-File -FilePath VersionControl.dat
+	$not = ""
+}
+
+$title = 'Do you wish to create an installer?'
+$msg = "$Ver has$not been created, do you wish to continue?"
+$options = '&Yes', '&No' # The '&' makes the letter a shortcut
+$default = 1 # 0 is Yes, 1 is No (based on index in $options array)
+
+$result = $Host.UI.PromptForChoice($title, $msg, $options, $default)
+
+switch ($result) {
+    0 {
+#		"You selected Yes."
+		.\publish\Installer\create_installer.bat
+	}
+	1 {
+		"You selected No."
+	}
 }

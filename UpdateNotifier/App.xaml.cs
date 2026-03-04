@@ -154,7 +154,7 @@ public partial class App : Application
             return;
         }
 
-        _snoozeManager = new SnoozeManager();
+        _snoozeManager = new SnoozeManager(message.SnoozeCount);
         _viewModel     = new MainViewModel(_snoozeManager);
         _viewModel.LoadFromMessage(message);
         _viewModel.UserDecided += async (_, choice) => await HandleUserDecisionAsync(choice);

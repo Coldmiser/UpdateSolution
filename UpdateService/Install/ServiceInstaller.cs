@@ -56,7 +56,7 @@ public static class ServiceInstaller
         RegistryHelper.EnsureKeyExists();
         RegistryHelper.SetString(RegistryConstants.LogDirectory,      AppConstants.DefaultLogDirectory);
         RegistryHelper.SetString(RegistryConstants.VersionFileUrl,    AppConstants.DefaultVersionFileUrl);
-        RegistryHelper.SetString(RegistryConstants.UpdateZipUrlTemplate, AppConstants.DefaultUpdateZipUrlTemplate);
+        RegistryHelper.SetString(RegistryConstants.InstallerUrl,         AppConstants.DefaultInstallerUrl);
 
         // 5. Start the service immediately.
         RunSc($@"start ""{AppConstants.ServiceName}""");

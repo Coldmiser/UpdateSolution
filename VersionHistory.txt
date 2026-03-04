@@ -2,8 +2,8 @@ Version <version>
 Version <version>
 Version <version>
 
-Version  0.26.165.427
-2026-03-02
+Version  0.26.167.606
+2026-03-03
 - Rewrote WindowsUpdateWorker.cs as the service was not installing and running Add-WUServiceManager 
 - UserProcessLauncher.cs — WTSGetActiveConsoleSessionId was declared with DllImport("Wtsapi32.dll") but it actually lives in kernel32.dll. 
 	This is what caused the EntryPointNotFoundException and prevented the notifier from ever launching.  
@@ -13,6 +13,14 @@ Version  0.26.165.427
 - WindowsUpdateWorker.cs — the PowerShell pipeline with 2>&1 was mixing progress strings and error records in with the actual 
 	update objects. The foreach loop was then trying to cast those strings to [int] via $u.ResultCode, throwing an exception for 
 	every item and marking all 12 updates as Failed. The fix filters the pipeline output to only objects
+- Removed duplicate <ProjectReference> for Shared.csproj (was listed twice)
+- Removed the second (older) <PackageReference> block — it had Serilog 4.2.0, Sinks.File 6.0.0, Sinks.Console 6.0.0
+- Kept the first (newer) block: Serilog 4.3.1, Sinks.File 7.0.0, Sinks.Console 6.1.1, Enrichers.Thread 4.0.0
+- Also standardized indentation (tabs → spaces) in the file
+- The named pipe created by the SYSTEM service had a default DACL that only granted SYSTEM access.
+  The notifier — running as the logged-in user — was hitting UnauthorizedAccessException on every connect attempt. The
+  pipe now explicitly grants AuthenticatedUsers ReadWrite access, which covers any interactively logged-in user
+  regardless of their account name.
 
 Version 0.26.151.658
 2026-02-25

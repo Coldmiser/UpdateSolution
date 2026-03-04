@@ -142,7 +142,9 @@ public static class WingetWorker
         catch { /* fall through */ }
 
         // 2. WindowsApps folder — where App Installer places winget on Win 10/11.
-        var windowsApps = @"C:\Program Files\WindowsApps";
+        var windowsApps = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
+            "WindowsApps");
         if (Directory.Exists(windowsApps))
         {
             var match = Directory
@@ -156,7 +158,10 @@ public static class WingetWorker
         }
 
         // 3. SYSTEM profile WindowsApps fallback.
-        var systemPath = @"C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\WindowsApps\winget.exe";
+        var systemPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.Windows),
+            "System32", "config", "systemprofile", "AppData", "Local",
+            "Microsoft", "WindowsApps", "winget.exe");
         if (File.Exists(systemPath))
             return systemPath;
 
@@ -249,8 +254,8 @@ public static class WingetWorker
         // WINGET_PATH and WINGET_ARGS are replaced after the fact.
         const string template = @"
 $ProgressPreference = 'SilentlyContinue'
-$env:LOCALAPPDATA = 'C:\Windows\System32\config\systemprofile\AppData\Local'
-$env:APPDATA      = 'C:\Windows\System32\config\systemprofile\AppData\Roaming'
+$env:LOCALAPPDATA = ""$env:SystemRoot\System32\config\systemprofile\AppData\Local""
+$env:APPDATA      = ""$env:SystemRoot\System32\config\systemprofile\AppData\Roaming""
 
 $outFile = [System.IO.Path]::GetTempFileName()
 $errFile = [System.IO.Path]::GetTempFileName()

@@ -8,6 +8,8 @@
 //   5. Either schedules the next notification or initiates a reboot.
 
 using System.IO.Pipes;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
 using Shared.Constants;
@@ -55,9 +57,14 @@ public sealed class PipeServer
         };
 
         // Keep looping until the user chooses "Reboot Now" (snoozeMinutes == 0).
+        int snoozeCount = 0;
         while (true)
         {
             cancellationToken.ThrowIfCancellationRequested();
+
+            // Tell the notifier how many times the user has already snoozed so it
+            // can restore the correct remaining options on each relaunch.
+            message.SnoozeCount = snoozeCount;
 
             var response = await RunOneNotificationCycleAsync(message, cancellationToken);
 
@@ -80,8 +87,10 @@ public sealed class PipeServer
             }
 
             // User chose to snooze.
+            snoozeCount++;
             LogConfig.ServiceLog.Information(
-                "PipeServer: user snoozed for {Min} minutes.", response.SnoozeMinutes);
+                "PipeServer: user snoozed for {Min} minutes (snoozeCount={Count}).",
+                response.SnoozeMinutes, snoozeCount);
             await Task.Delay(TimeSpan.FromMinutes(response.SnoozeMinutes), cancellationToken);
             // Loop back to show the notification again.
         }
@@ -97,13 +106,28 @@ public sealed class PipeServer
     private async Task<PipeMessage?> RunOneNotificationCycleAsync(
         PipeMessage outbound, CancellationToken cancellationToken)
     {
-        // Create the pipe first so the notifier can connect immediately after launch.
-        using var pipeServer = new NamedPipeServerStream(
+        // Create the pipe with a security descriptor that allows any authenticated
+        // user to connect. Without this, the default DACL only permits SYSTEM,
+        // and the notifier (running as the logged-in user) gets UnauthorizedAccessException.
+        var pipeSecurity = new PipeSecurity();
+        pipeSecurity.AddAccessRule(new PipeAccessRule(
+            new SecurityIdentifier(WellKnownSidType.LocalSystemSid, null),
+            PipeAccessRights.FullControl,
+            AccessControlType.Allow));
+        pipeSecurity.AddAccessRule(new PipeAccessRule(
+            new SecurityIdentifier(WellKnownSidType.AuthenticatedUserSid, null),
+            PipeAccessRights.ReadWrite,
+            AccessControlType.Allow));
+
+        using var pipeServer = NamedPipeServerStreamAcl.Create(
             AppConstants.PipeName,
             PipeDirection.InOut,
             maxNumberOfServerInstances: 1,
-            transmissionMode: PipeTransmissionMode.Byte,
-            options: PipeOptions.Asynchronous);
+            PipeTransmissionMode.Byte,
+            PipeOptions.Asynchronous,
+            inBufferSize: 0,
+            outBufferSize: 0,
+            pipeSecurity);
 
         LogConfig.ServiceLog.Information("PipeServer: pipe created — launching notifier.");
 

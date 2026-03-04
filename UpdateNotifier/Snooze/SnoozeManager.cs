@@ -25,14 +25,32 @@ public sealed class SnoozeManager
     // ── Constructor ──────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Initialises the manager with the full set of snooze tiers.
+    /// Initialises the manager with the full set of snooze tiers, then removes the
+    /// longest options once for each previous snooze so the list reflects what the
+    /// user has already consumed across earlier notifier launches.
     /// </summary>
-    public SnoozeManager()
+    /// <param name="previousSnoozeCount">
+    /// Number of times the user has already snoozed in this notification cycle
+    /// (supplied by the service via <see cref="Shared.Models.PipeMessage.SnoozeCount"/>).
+    /// </param>
+    public SnoozeManager(int previousSnoozeCount = 0)
     {
         // Start from the canonical full list (longest → Reboot Now).
         _available = [.. SnoozeOption.AllTiers];
+
+        // Re-apply the removals from previous snooze cycles.
+        for (int i = 0; i < previousSnoozeCount; i++)
+        {
+            var toRemove = _available.FirstOrDefault(o => o.Duration > TimeSpan.FromMinutes(15));
+            if (toRemove is not null)
+                _available.Remove(toRemove);
+            else
+                break; // only 15min + Reboot Now remain — nothing left to remove
+        }
+
         LogConfig.Log.Information(
-            "SnoozeManager initialised with {Count} options.", _available.Count);
+            "SnoozeManager initialised with {Count} options (previousSnoozeCount={N}).",
+            _available.Count, previousSnoozeCount);
     }
 
     // ── Public API ───────────────────────────────────────────────────────────

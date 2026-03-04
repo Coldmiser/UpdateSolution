@@ -33,7 +33,9 @@ public static class AppConstants
     // ── Logging ─────────────────────────────────────────────────────────────────
 
     /// <summary>Default log directory (overridable from the registry).</summary>
-    public const string DefaultLogDirectory = @"C:\ProgramData\CapTG\Logs";
+    public static readonly string DefaultLogDirectory = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+        "CapTG", "Logs");
 
     /// <summary>Service operational log file name template (Serilog rolling).</summary>
     public const string ServiceLogFileName = "UpdateService-.log";
@@ -54,14 +56,15 @@ public static class AppConstants
         "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/VersionControl.dat";
 
     /// <summary>
-    /// URL template for the update ZIP.  {0} is replaced with the version string.
-    /// E.g. https://updates.captg.example.com/releases/1.2.3/CapTG-Update-1.2.3.zip
+    /// URL of the installer EXE to download and run when a newer version is available.
     /// </summary>
-    public const string DefaultUpdateZipUrlTemplate =
-        "https://raw.githubusercontent.com/Coldmiser/UpdateSolution/refs/heads/main/CapTG-Update-{0}.zip";
+    public const string DefaultInstallerUrl =
+        "https://github.com/Coldmiser/UpdateSolution/releases/download/Installer/__CapTG_Updater_Latest.exe";
 
     /// <summary>Local directory where the update ZIP is extracted before applying.</summary>
-    public const string UpdateStagingDirectory = @"C:\ProgramData\CapTG\UpdateStaging";
+    public static readonly string UpdateStagingDirectory = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+        "CapTG", "UpdateStaging");
 
     // ── Notifier Executable ─────────────────────────────────────────────────────
 

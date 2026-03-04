@@ -29,11 +29,10 @@ public static class RegistryConstants
     public const string VersionFileUrl = "VersionFileUrl";
 
     /// <summary>
-    /// REG_SZ — URL template for the update ZIP download.
-    /// Use {0} as the version placeholder.
-    /// Defaults to <see cref="AppConstants.DefaultUpdateZipUrlTemplate"/>.
+    /// REG_SZ — URL of the installer EXE to download and run on self-update.
+    /// Defaults to <see cref="AppConstants.DefaultInstallerUrl"/>.
     /// </summary>
-    public const string UpdateZipUrlTemplate = "UpdateZipUrlTemplate";
+    public const string InstallerUrl = "InstallerUrl";
 
     /// <summary>
     /// REG_SZ — full path to the UpdateNotifier.exe.

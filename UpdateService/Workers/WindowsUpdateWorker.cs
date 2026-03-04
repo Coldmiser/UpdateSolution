@@ -1,6 +1,7 @@
 // UpdateService/Workers/WindowsUpdateWorker.cs
 using System.Diagnostics;
 using System.Text.Json;
+using Microsoft.Win32;
 using Shared.Models;
 using UpdateService.Logging;
 
@@ -21,11 +22,29 @@ public static class WindowsUpdateWorker
 
         var results = ParseResults(stdout);
 
+        // If nothing installed this cycle but the system already has a pending reboot
+        // (from a previous cycle), inject a sentinel so the orchestrator re-prompts
+        // the user to reboot — which unblocks WUA from installing the queued updates.
+        if (!results.Any(r => r.Status == UpdateStatus.Succeeded) && IsRebootPending())
+        {
+            LogConfig.ServiceLog.Information(
+                "WindowsUpdateWorker: no updates installed — system reboot is already pending.");
+            results.Add(new UpdateResult
+            {
+                Identifier     = "PendingReboot",
+                Title          = "Reboot pending from a previous update cycle",
+                Status         = UpdateStatus.Succeeded,
+                RebootRequired = true,
+                AttemptedAt    = DateTime.UtcNow
+            });
+        }
+
         LogConfig.ServiceLog.Information(
-            "WindowsUpdateWorker: pass complete. Total={T} Succeeded={S} Failed={F}",
+            "WindowsUpdateWorker: pass complete. Total={T} Succeeded={S} Failed={F} Skipped={K}",
             results.Count,
             results.Count(r => r.Status == UpdateStatus.Succeeded),
-            results.Count(r => r.Status == UpdateStatus.Failed));
+            results.Count(r => r.Status == UpdateStatus.Failed),
+            results.Count(r => r.Status == UpdateStatus.Skipped));
 
         foreach (var r in results)
             LogHistoryEntry(r);
@@ -93,7 +112,11 @@ public static class WindowsUpdateWorker
             -Install `
             -ErrorAction Continue 2>&1
 
-        $results = @()
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
 
         foreach ($u in $rawOutput) {
             if ($null -eq $u -or $u -isnot [PSObject]) { continue }
@@ -103,7 +126,9 @@ public static class WindowsUpdateWorker
             $resultCode = 0
             try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
             $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
-            $status    = if ($succeeded) { 'Succeeded' } else { 'Failed' }
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
 
             $kb = ''
             try {
@@ -115,15 +140,17 @@ public static class WindowsUpdateWorker
             $needsReboot = $false
             try { $needsReboot = [bool]$u.RebootRequired } catch {}
 
-            $results += [PSCustomObject]@{
+            $byKey[$u.Title] = [PSCustomObject]@{
                 Identifier     = $kb
                 Title          = [string]$u.Title
                 Status         = $status
-                ErrorMessage   = if ($succeeded) { '' } else { 'ResultCode=' + $resultCode }
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
                 RebootRequired = $needsReboot
                 AttemptedAt    = (Get-Date -Format 'o')
             }
         }
+
+        $results = @($byKey.Values)
 
         if ($results.Count -eq 0) {
             Write-Output '[]'
@@ -206,10 +233,39 @@ public static class WindowsUpdateWorker
             LogConfig.HistoryLog.Information(
                 "WINDOWS-UPDATE | KB={KB} | Title={Title} | RebootRequired={Reboot} | {At:O}",
                 r.Identifier, r.Title, r.RebootRequired, r.AttemptedAt);
+        else if (r.Status == UpdateStatus.Skipped)
+            LogConfig.HistoryLog.Information(
+                "WINDOWS-UPDATE | KB={KB} | Title={Title} | Status=Skipped | {At:O}",
+                r.Identifier, r.Title, r.AttemptedAt);
         else
             LogConfig.HistoryLog.Warning(
                 "WINDOWS-UPDATE | KB={KB} | Title={Title} | Status=Failed | Error={Err} | {At:O}",
                 r.Identifier, r.Title, r.ErrorMessage, r.AttemptedAt);
+    }
+
+    /// <summary>
+    /// Checks Windows registry keys that WUA sets when a reboot is required
+    /// before further updates can be installed.
+    /// </summary>
+    private static bool IsRebootPending()
+    {
+        try
+        {
+            using var wuKey = Registry.LocalMachine.OpenSubKey(
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired");
+            if (wuKey != null) return true;
+
+            using var cbsKey = Registry.LocalMachine.OpenSubKey(
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending");
+            if (cbsKey != null) return true;
+
+            using var smKey = Registry.LocalMachine.OpenSubKey(
+                @"SYSTEM\CurrentControlSet\Control\Session Manager");
+            if (smKey?.GetValue("PendingFileRenameOperations") != null) return true;
+        }
+        catch { /* best effort */ }
+
+        return false;
     }
 
     private sealed class WuUpdateDto

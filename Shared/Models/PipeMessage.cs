@@ -63,6 +63,14 @@ public sealed class PipeMessage
     [JsonPropertyName("snoozeMinutes")]
     public int SnoozeMinutes { get; set; }
 
+    /// <summary>
+    /// Number of times the user has snoozed in the current notification cycle.
+    /// Used by the notifier to restore the correct remaining options on relaunch.
+    /// Populated only for <see cref="MessageType.RebootRequired"/>.
+    /// </summary>
+    [JsonPropertyName("snoozeCount")]
+    public int SnoozeCount { get; set; }
+
     /// <summary>UTC time this message was created.</summary>
     [JsonPropertyName("timestamp")]
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;

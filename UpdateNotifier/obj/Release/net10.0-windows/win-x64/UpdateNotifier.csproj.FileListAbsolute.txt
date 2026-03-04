@@ -405,13 +405,11 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Release\net10.0-windows\win-x64\Shared.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Release\net10.0-windows\win-x64\Shared.pdb
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier.csproj.AssemblyReference.cache
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\MainWindow.g.cs
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\Views\MainWindow.g.cs
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\App.g.cs
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\GeneratedInternalTypeHelper.g.cs
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier_MarkupCompile.cache
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier_MarkupCompile.lref
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\MainWindow.baml
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\Views\MainWindow.baml
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier.g.resources
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier.GeneratedMSBuildEditorConfig.editorconfig
