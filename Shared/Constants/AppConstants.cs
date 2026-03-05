@@ -59,7 +59,7 @@ public static class AppConstants
     /// URL of the installer EXE to download and run when a newer version is available.
     /// </summary>
     public const string DefaultInstallerUrl =
-        "https://github.com/Coldmiser/UpdateSolution/releases/download/Installer/__CapTG_Updater_Latest.exe";
+        "https://github.com/Coldmiser/UpdateSolution/releases/latest/download/__CapTG_Updater_Latest.exe";
 
     /// <summary>Local directory where the update ZIP is extracted before applying.</summary>
     public static readonly string UpdateStagingDirectory = Path.Combine(

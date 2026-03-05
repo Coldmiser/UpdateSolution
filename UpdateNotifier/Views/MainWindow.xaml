@@ -11,7 +11,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:UpdateNotifier.ViewModels"
         xmlns:views="clr-namespace:UpdateNotifier.Views"
-        Title="System Update — Reboot Required"
+        Title="System Update Reboot Required"
         Width="520" Height="Auto" SizeToContent="Height"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -91,7 +91,7 @@
                        RenderOptions.BitmapScalingMode="HighQuality" />
 
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="Capital Technology Group — System Update"
+                    <TextBlock Text="Capital Technology Group System Update"
                                Foreground="White"
                                FontSize="18"
                                FontWeight="Bold" />

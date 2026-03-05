@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "Shared/0.26.170.540": {
+      "Shared/0.26.170.673": {
         "runtime": {
           "Shared.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "Shared/0.26.170.540": {
+    "Shared/0.26.170.673": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
