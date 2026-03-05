@@ -798,7 +798,7 @@
           }
         }
       },
-      "Shared/0.26.170.673": {
+      "Shared/0.26.173.578": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -1591,7 +1591,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Shared/0.26.170.673": {
+      "Shared/0.26.173.578": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -2822,7 +2822,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Shared/0.26.170.673": {
+    "Shared/0.26.173.578": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -2839,14 +2839,14 @@
       "Serilog.Extensions.Hosting >= 10.0.0",
       "Serilog.Sinks.Console >= 6.1.1",
       "Serilog.Sinks.File >= 7.0.0",
-      "Shared >= 0.26.170.673"
+      "Shared >= 0.26.173.578"
     ]
   },
   "packageFolders": {
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.26.170.673",
+    "version": "0.26.173.578",
     "restore": {
       "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
       "projectName": "UpdateService",
