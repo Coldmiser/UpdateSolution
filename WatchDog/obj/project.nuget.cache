@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "s7gAuNPfxsY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.3\\system.diagnostics.eventlog.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\system.serviceprocess.servicecontroller\\10.0.3\\system.serviceprocess.servicecontroller.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

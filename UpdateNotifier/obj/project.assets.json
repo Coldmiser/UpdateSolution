@@ -72,7 +72,7 @@
           }
         }
       },
-      "Shared/0.26.176.387": {
+      "Shared/0.26.176.607": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -154,7 +154,7 @@
           }
         }
       },
-      "Shared/0.26.176.387": {
+      "Shared/0.26.176.607": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -317,7 +317,7 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "Shared/0.26.176.387": {
+    "Shared/0.26.176.607": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -330,14 +330,14 @@
       "Serilog.Enrichers.Thread >= 4.0.0",
       "Serilog.Sinks.Console >= 6.1.1",
       "Serilog.Sinks.File >= 7.0.0",
-      "Shared >= 0.26.176.387"
+      "Shared >= 0.26.176.607"
     ]
   },
   "packageFolders": {
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.26.176.387",
+    "version": "0.26.176.607",
     "restore": {
       "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateNotifier\\UpdateNotifier.csproj",
       "projectName": "UpdateNotifier",
