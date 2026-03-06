@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {},
     ".NETCoreApp,Version=v10.0/win-x64": {
-      "UpdateService/0.26.173.700": {
+      "UpdateService/0.26.176.387": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "10.0.3",
           "Microsoft.Extensions.Hosting.WindowsServices": "10.0.3",
@@ -17,7 +17,7 @@
           "Serilog.Extensions.Hosting": "10.0.0",
           "Serilog.Sinks.Console": "6.1.1",
           "Serilog.Sinks.File": "7.0.0",
-          "Shared": "0.26.173.700",
+          "Shared": "0.26.176.387",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.3"
         },
         "runtime": {
@@ -1254,18 +1254,18 @@
           }
         }
       },
-      "Shared/0.26.173.700": {
+      "Shared/0.26.176.387": {
         "runtime": {
           "Shared.dll": {
-            "assemblyVersion": "0.26.173.700",
-            "fileVersion": "0.26.173.700"
+            "assemblyVersion": "0.26.176.387",
+            "fileVersion": "0.26.176.387"
           }
         }
       }
     }
   },
   "libraries": {
-    "UpdateService/0.26.173.700": {
+    "UpdateService/0.26.176.387": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1541,7 +1541,7 @@
       "path": "system.serviceprocess.servicecontroller/10.0.3",
       "hashPath": "system.serviceprocess.servicecontroller.10.0.3.nupkg.sha512"
     },
-    "Shared/0.26.173.700": {
+    "Shared/0.26.176.387": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
