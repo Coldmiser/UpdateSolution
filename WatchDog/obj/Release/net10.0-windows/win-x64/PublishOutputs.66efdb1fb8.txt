@@ -1,0 +1,3 @@
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\WatchDog.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\Shared.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\WatchDog.exe

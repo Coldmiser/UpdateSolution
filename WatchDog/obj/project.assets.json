@@ -59,7 +59,7 @@
           }
         }
       },
-      "Shared/1.0.0": {
+      "Shared/0.26.184.496": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -113,7 +113,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Shared/1.0.0": {
+      "Shared/0.26.184.496": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -249,7 +249,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Shared/1.0.0": {
+    "Shared/0.26.184.496": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -258,7 +258,7 @@
   "projectFileDependencyGroups": {
     "net10.0-windows7.0": [
       "Microsoft.NET.ILLink.Tasks >= 10.0.3",
-      "Shared >= 1.0.0",
+      "Shared >= 0.26.184.496",
       "System.ServiceProcess.ServiceController >= 10.0.3"
     ]
   },
@@ -266,13 +266,13 @@
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.26.184.496",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
+      "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
       "projectName": "WatchDog",
-      "projectPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
+      "projectPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
       "packagesPath": "C:\\Users\\sbutski\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\obj\\",
+      "outputPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sbutski\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -287,8 +287,8 @@
         "net10.0-windows7.0": {
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj"
+            "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj"
             }
           }
         }

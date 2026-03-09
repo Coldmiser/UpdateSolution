@@ -59,6 +59,22 @@ dotnet publish "$PSScriptRoot\UpdateNotifier\UpdateNotifier.csproj" `
 if ($LASTEXITCODE -ne 0) { throw "UpdateNotifier publish failed." }
 Write-Host "UpdateNotifier published OK." -ForegroundColor Green
 
+# ── Publish WatchDog ──────────────────────────────────────────────────────────
+Write-Host "`nPublishing WatchDog..." -ForegroundColor Yellow
+dotnet publish "$PSScriptRoot\WatchDog\WatchDog.csproj" `
+    --configuration $Configuration `
+    --runtime win-x64 `
+    --self-contained true `
+	-p:WarningLevel=0  `
+	-p:IncludeSourceRevisionInInformationalVersion=false `
+	-p:Version=`"$Ver`" `
+    -p:PublishSingleFile=true `
+    -p:EnableCompressionInSingleFile=true `
+    --output "$OutDir\WatchDog"
+
+if ($LASTEXITCODE -ne 0) { throw "WatchDog publish failed." }
+Write-Host "WatchDog published OK." -ForegroundColor Green
+
 # ── Merge into a single deployment folder ────────────────────────────────────
 # The service looks for UpdateNotifier.exe in its own directory,
 # so both EXEs must live together.
@@ -69,6 +85,7 @@ New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
 # Copy ALL files from both publish outputs so native WPF DLLs are included.
 Copy-Item "$OutDir\UpdateService\*"  $deployDir -Recurse -Force
 Copy-Item "$OutDir\UpdateNotifier\*" $deployDir -Recurse -Force
+Copy-Item "$OutDir\WatchDog\*"       $deployDir -Recurse -Force
 
 # Copy the company logo next to the exe so LoadLogo() can find it.
 # The logo is loaded from disk at runtime (not embedded) to avoid a WPF
@@ -86,16 +103,19 @@ $exeVer1 = (Get-Item -Path "$deployDir\UpdateService.exe").VersionInfo.ProductVe
 write-Color "Service version:        ", $exeVer1 -Color White, Yellow
 $exeVer2 = (Get-Item -Path "$deployDir\UpdateNotifier.exe").VersionInfo.ProductVersion
 write-Color "Notifier version:        ", $exeVer2 -Color White, Yellow
+$exeVer3 = (Get-Item -Path "$deployDir\WatchDog.exe").VersionInfo.ProductVersion
+write-Color "WatchDog version:        ", $exeVer3 -Color White, Yellow
 
 Write-Color "`n✅  Deploy folder ready: $deployDir" -Color Green
 Write-Host "   UpdateService.exe"
-Write-Host "   UpdateNotifier.exe`n"
+Write-Host "   UpdateNotifier.exe"
+Write-Host "   WatchDog.exe`n"
 Write-Host "To install the service (run as Administrator):"
 Write-Host "   $deployDir\UpdateService.exe --install`n"
 
 $not = "not "
 
-if ($exeVer1 -eq $exever2){
+if ($exeVer1 -eq $exeVer2 -and $exeVer1 -eq $exeVer3){
 	Write-Color "`n✅  Updating version control to version: ", $ver -Color Green, Yellow
 	$Ver  | Out-File -FilePath VersionControl.dat
 	$not = ""

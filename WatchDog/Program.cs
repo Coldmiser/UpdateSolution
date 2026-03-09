@@ -49,12 +49,44 @@ static (int ExitCode, string Output) RunProcess(string exe, string arguments)
     return (proc.ExitCode, output.Trim());
 }
 
-// ── --run: check service and start if needed ──────────────────────────────────
+// ── --run: ensure service is installed and running ────────────────────────────
 
 static void Run()
 {
     try
     {
+        // Check whether the service is registered with the SCM at all.
+        bool installed = ServiceController.GetServices()
+            .Any(s => s.ServiceName.Equals(ServiceName, StringComparison.OrdinalIgnoreCase));
+
+        if (!installed)
+        {
+            Log($"Service '{ServiceName}' is not installed. Attempting to install...");
+
+            var updateServiceExe = Path.Combine(
+                Path.GetDirectoryName(Environment.ProcessPath)!,
+                "UpdateService.exe");
+
+            if (!File.Exists(updateServiceExe))
+            {
+                Log($"ERROR: Cannot install — UpdateService.exe not found at: {updateServiceExe}");
+                Environment.Exit(1);
+                return;
+            }
+
+            var (installExit, installOutput) = RunProcess(updateServiceExe, "--install");
+            if (installExit != 0)
+            {
+                Log($"ERROR: Install failed (exit {installExit}): {installOutput}");
+                Environment.Exit(installExit);
+                return;
+            }
+
+            // UpdateService --install starts the service itself, so we're done.
+            Log($"Service installed and started. Output: {installOutput}");
+            return;
+        }
+
         using var sc = new ServiceController(ServiceName);
         var status = sc.Status;
         if (status == ServiceControllerStatus.Running)
