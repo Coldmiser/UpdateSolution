@@ -99,8 +99,12 @@ public partial class App : Application
         {
             Type            = MessageType.RebootRequired,
             UpdateSummary   = "3 update(s) applied successfully.",
-            KbNumbers       = ["KB5034441", "KB5032189", "KB890830"],
-            UpdatedPackages = ["Microsoft.VisualStudioCode", "Notepad++.Notepad++", "Google.Chrome"],
+            KbNumbers       = [
+                "2025-03 Cumulative Update for Windows 11 Version 24H2 (KB5034441)",
+                "2025-03 Cumulative Update for .NET Framework 3.5 and 4.8.1 (KB5032189)",
+                "Windows Malicious Software Removal Tool x64 (KB890830)"
+            ],
+            UpdatedPackages = ["Visual Studio Code", "Notepad++", "Google Chrome"],
             Timestamp       = DateTime.UtcNow
         };
 

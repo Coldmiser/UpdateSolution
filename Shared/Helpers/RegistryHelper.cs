@@ -73,4 +73,16 @@ public static class RegistryHelper
             RegistryConstants.RootKeyPath, writable: true);
         key?.SetValue(valueName, value, RegistryValueKind.String);
     }
+
+    /// <summary>
+    /// Writes a string value only if the value does not already exist.
+    /// Used for defaults that admins may customise — reinstalling will not overwrite them.
+    /// </summary>
+    public static void SetStringIfAbsent(string valueName, string value)
+    {
+        using var key = Registry.LocalMachine.CreateSubKey(
+            RegistryConstants.RootKeyPath, writable: true);
+        if (key is not null && key.GetValue(valueName) is null)
+            key.SetValue(valueName, value, RegistryValueKind.String);
+    }
 }

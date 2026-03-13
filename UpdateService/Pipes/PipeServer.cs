@@ -131,6 +131,19 @@ public sealed class PipeServer
 
         LogConfig.ServiceLog.Information("PipeServer: pipe created — launching notifier.");
 
+        // Kill any stale notifier processes before launching a fresh one,
+        // so the user never sees more than one popup at a time.
+        foreach (var stale in System.Diagnostics.Process.GetProcessesByName("UpdateNotifier"))
+        {
+            try
+            {
+                stale.Kill();
+                LogConfig.ServiceLog.Warning("PipeServer: killed stale notifier process (PID {Pid}).", stale.Id);
+            }
+            catch { /* already exited — ignore */ }
+            finally { stale.Dispose(); }
+        }
+
         // Launch the notifier as the interactive user.
         if (!UserProcessLauncher.LaunchAsActiveUser(_notifierPath))
         {

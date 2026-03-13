@@ -128,10 +128,33 @@ $default = 1 # 0 is Yes, 1 is No (based on index in $options array)
 
 $result = $Host.UI.PromptForChoice($title, $msg, $options, $default)
 
+# ── Publish Installer ────────────────────────────────────────────────────
 switch ($result) {
     0 {
 #		"You selected Yes."
+
+		#Create_Installer batch file option
 		.\publish\Installer\create_installer.bat
+
+		#WiX Toolset option
+		<#
+		wix build "$PSScriptRoot\Installer.wxs" `
+			-d Version="$Ver" `
+			-d SourceDir="$PSScriptRoot\publish\Deploy" `
+			-o "$PSScriptRoot\publish\__CapTG_Updater_Latest.msi"
+		if ($LASTEXITCODE -ne 0) { throw "Installer build failed." }
+		#>
+
+		Write-Color "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅" -Color Green
+		Write-Color "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅" -Color Green
+		Write-Color "✅✅✅                                          ✅✅✅" -Color Green
+		Write-Color "✅✅✅                                          ✅✅✅" -Color Green
+		Write-Color "✅✅✅","     Published version:  ", "$Ver     ", "✅✅✅" -Color Green, White, Yellow, Green
+		Write-Color "✅✅✅                                          ✅✅✅" -Color Green
+		Write-Color "✅✅✅                                          ✅✅✅" -Color Green
+		Write-Color "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅" -Color Green
+		Write-Color "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅" -Color Green
+
 	}
 	1 {
 		"You selected No."

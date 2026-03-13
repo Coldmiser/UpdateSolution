@@ -110,39 +110,50 @@ public sealed class UpdateOrchestrator
     /// </summary>
     public static string BuildSummary(List<UpdateResult> results)
     {
-        var succeeded  = results.Where(r => r.Status == UpdateStatus.Succeeded).ToList();
-        var failed     = results.Where(r => r.Status == UpdateStatus.Failed).ToList();
+        // Exclude the PendingReboot sentinel — it is a system state, not an actual update.
+        var actual    = results.Where(r => r.Identifier != "PendingReboot").ToList();
+        var succeeded = actual.Count(r => r.Status == UpdateStatus.Succeeded);
+        var failed    = actual.Count(r => r.Status == UpdateStatus.Failed);
 
-        var lines = new List<string>
-        {
-            $"{succeeded.Count} update(s) applied successfully."
-        };
+        var lines = new List<string>();
 
-        if (failed.Count > 0)
-            lines.Add($"{failed.Count} update(s) failed and will be retried next cycle.");
+        if (succeeded > 0)
+            lines.Add($"{succeeded} update(s) applied successfully.");
+        else if (results.Any(r => r.Identifier == "PendingReboot"))
+            lines.Add("A restart is required to complete previously installed updates.");
 
-        return string.Join("  ", lines);
+        if (failed > 0)
+            lines.Add($"{failed} update(s) failed and will be retried next cycle.");
+
+        return lines.Count > 0 ? string.Join("  ", lines) : "Updates have been applied.";
     }
 
     /// <summary>
-    /// Extracts KB numbers from a result set (Windows Update items only).
+    /// Extracts Windows patch display names from a result set (KB-identified items only).
+    /// Returns the full Title (e.g. "2024-12 Cumulative Update for Windows 11…") when available,
+    /// falling back to the KB identifier.
     /// </summary>
     public static List<string> ExtractKbNumbers(List<UpdateResult> results) =>
         results
             .Where(r => r.Identifier.StartsWith("KB", StringComparison.OrdinalIgnoreCase)
                      && r.Status == UpdateStatus.Succeeded)
-            .Select(r => r.Identifier)
+            .Select(r => !string.IsNullOrWhiteSpace(r.Title) ? r.Title : r.Identifier)
+            .Where(s => !string.IsNullOrWhiteSpace(s))
             .Distinct()
             .ToList();
 
     /// <summary>
-    /// Extracts winget package IDs from a result set.
+    /// Extracts winget package display names from a result set.
+    /// Returns the friendly application name (Title) when available, falling back to the package ID.
+    /// Excludes the internal PendingReboot sentinel.
     /// </summary>
     public static List<string> ExtractPackageIds(List<UpdateResult> results) =>
         results
             .Where(r => !r.Identifier.StartsWith("KB", StringComparison.OrdinalIgnoreCase)
+                     && r.Identifier != "PendingReboot"
                      && r.Status == UpdateStatus.Succeeded)
-            .Select(r => r.Identifier)
+            .Select(r => !string.IsNullOrWhiteSpace(r.Title) ? r.Title : r.Identifier)
+            .Where(s => !string.IsNullOrWhiteSpace(s))
             .Distinct()
             .ToList();
 }

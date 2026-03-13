@@ -44,7 +44,7 @@ namespace UpdateNotifier {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.5.0")]
         public static void Main() {
             UpdateNotifier.App app = new UpdateNotifier.App();
             app.Run();

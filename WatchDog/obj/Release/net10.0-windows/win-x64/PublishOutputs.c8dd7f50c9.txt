@@ -1,0 +1,3 @@
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\WatchDog.pdb
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\Shared.pdb
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\publish\WatchDog\WatchDog.exe

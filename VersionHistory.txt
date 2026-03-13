@@ -1,6 +1,25 @@
 Version <version>
 Version <version>
-Version <version>
+
+Version 0.26.194.382
+2026-03-13
+- Rewriting installer with Wix Toolset to create a MSI.
+- Resolved issue with Notifier popping up multiple times at once
+- Resolved issue with Notifier that the updates that were done were not listed.
+- Modified Watchdog to install Task Scheduler to run once an hour to make sure the service is running.
+- Resolved issue from updating software through WINGET by creating an exclusion list in the registry
+- Modified the UpdaterService to not be so agressive with WINGET as it was attempting to update failed updates too often
+- Install() now branches on ServiceExists():
+- Upgrade path (service already registered): sc stop → WaitForServiceStop() → sc config to update binPath/start type
+	no delete/recreate, so the SCM never sees a missing service
+- Fresh install path: sc create as before
+- Description, failure-recovery, and registry seeding run on both paths (all idempotent)
+- ServiceExists() — runs sc query <name> and returns true on exit code 0, false on 1060 (service not found)
+- WaitForServiceStop() — polls sc query every second for up to 30 seconds waiting for STATE: STOPPED in the output,
+	then logs and continues if the timeout expires. This prevents a race where the installer tries to replace the .exe
+	while the process is still shutting down.
+- Registry seeding switched from SetString → SetStringIfAbsent across the board, so admin-customized LogDirectory,
+	VersionFileUrl, and InstallerUrl values are no longer reset on every upgrade.
 
 Version  0.26.167.606
 2026-03-03

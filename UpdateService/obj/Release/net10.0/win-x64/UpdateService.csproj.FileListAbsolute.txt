@@ -226,7 +226,6 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\hostfxr.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\hostpolicy.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore.dll
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore_amd64_amd64_10.0.326.7603.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordbi.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscorrc.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\msquic.dll
@@ -474,7 +473,6 @@ C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\hostfxr.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\hostpolicy.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore.dll
-C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore_amd64_amd64_10.0.326.7603.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordbi.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscorrc.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\msquic.dll
@@ -492,3 +490,5 @@ C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\UpdateService.pdb
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\UpdateService.genruntimeconfig.cache
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\obj\Release\net10.0\win-x64\ref\UpdateService.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore_amd64_amd64_10.0.426.12010.dll
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\bin\Release\net10.0\win-x64\mscordaccore_amd64_amd64_10.0.526.15411.dll

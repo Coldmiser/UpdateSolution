@@ -9,12 +9,45 @@ namespace UpdateService.Workers;
 
 public static class WingetWorker
 {
+    private const int WingetIntervalDays = 7;
+
     public static async Task<List<UpdateResult>> RunAsync(CancellationToken cancellationToken)
     {
         var results = new List<UpdateResult>();
+
+        // Throttle: only run winget upgrades once per week.
+        var lastRunRaw = Shared.Helpers.RegistryHelper
+            .GetString(Shared.Constants.RegistryConstants.WingetLastRunUtc, string.Empty);
+        if (!string.IsNullOrWhiteSpace(lastRunRaw)
+            && DateTime.TryParse(lastRunRaw, null,
+                System.Globalization.DateTimeStyles.RoundtripKind, out var lastRun)
+            && (DateTime.UtcNow - lastRun).TotalDays < WingetIntervalDays)
+        {
+            LogConfig.ServiceLog.Information(
+                "WingetWorker: skipping — last run was {Last:O} (less than {Days} days ago).",
+                lastRun, WingetIntervalDays);
+            return results;
+        }
+
         LogConfig.ServiceLog.Information("WingetWorker: starting upgrade pass.");
 
         var availableUpgrades = await ListAvailableUpgradesAsync(cancellationToken);
+
+        // Filter out any package IDs listed in the registry exclusion list.
+        var exclusions = Shared.Helpers.RegistryHelper
+            .GetString(Shared.Constants.RegistryConstants.WingetExclusions, string.Empty)
+            .Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        if (exclusions.Count > 0)
+        {
+            var before = availableUpgrades.Count;
+            availableUpgrades.RemoveAll(p => exclusions.Contains(p.Id));
+            var skipped = before - availableUpgrades.Count;
+            if (skipped > 0)
+                LogConfig.ServiceLog.Information(
+                    "WingetWorker: skipped {Count} excluded package(s).", skipped);
+        }
 
         if (availableUpgrades.Count == 0)
         {
@@ -25,10 +58,10 @@ public static class WingetWorker
         LogConfig.ServiceLog.Information(
             "WingetWorker: {Count} package(s) queued for upgrade.", availableUpgrades.Count);
 
-        foreach (var pkg in availableUpgrades)
+        foreach (var (name, id) in availableUpgrades)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            var result = await UpgradePackageAsync(pkg, cancellationToken);
+            var result = await UpgradePackageAsync(id, name, cancellationToken);
             results.Add(result);
             LogHistoryEntry(result);
         }
@@ -39,29 +72,34 @@ public static class WingetWorker
             results.Count(r => r.Status == UpdateStatus.Failed),
             results.Count(r => r.Status == UpdateStatus.Skipped));
 
+        // Record the timestamp so the next run is throttled for 7 days.
+        Shared.Helpers.RegistryHelper.SetString(
+            Shared.Constants.RegistryConstants.WingetLastRunUtc,
+            DateTime.UtcNow.ToString("O"));
+
         return results;
     }
 
     // ── Private helpers ──────────────────────────────────────────────────────
 
-    private static async Task<List<string>> ListAvailableUpgradesAsync(
+    private static async Task<List<(string Name, string Id)>> ListAvailableUpgradesAsync(
         CancellationToken cancellationToken)
     {
-        var ids = new List<string>();
+        var packages = new List<(string Name, string Id)>();
 
         var (exitCode, stdout, stderr) = await RunWingetAsync(
             "upgrade --include-unknown --accept-source-agreements",
             cancellationToken);
 
         if (exitCode == -1)
-            return ids; // winget not found — already logged
+            return packages; // winget not found — already logged
 
         if (exitCode != 0 && exitCode != 3010)
         {
             LogConfig.ServiceLog.Warning(
                 "WingetWorker: listing upgrades returned exit code {Code}. Stderr: {Err}",
                 exitCode, stderr);
-            return ids;
+            return packages;
         }
 
         foreach (var line in stdout.Split('\n'))
@@ -71,15 +109,17 @@ public static class WingetWorker
                 && !parts[1].StartsWith("Id", StringComparison.OrdinalIgnoreCase)
                 && !string.IsNullOrWhiteSpace(parts[1]))
             {
-                ids.Add(parts[1].Trim());
+                var name = parts[0].Trim();
+                var id   = parts[1].Trim();
+                packages.Add((name, id));
             }
         }
 
-        return ids;
+        return packages;
     }
 
     private static async Task<UpdateResult> UpgradePackageAsync(
-        string packageId, CancellationToken cancellationToken)
+        string packageId, string packageName, CancellationToken cancellationToken)
     {
         LogConfig.ServiceLog.Information("WingetWorker: upgrading package '{Id}'.", packageId);
 
@@ -104,10 +144,12 @@ public static class WingetWorker
                 "WingetWorker: '{Id}' upgrade failed (exit {Code}). Stderr: {Err}",
                 packageId, exitCode, stderr);
 
+        var displayName = !string.IsNullOrWhiteSpace(packageName) ? packageName : packageId;
+
         return new UpdateResult
         {
             Identifier     = packageId,
-            Title          = packageId,
+            Title          = displayName,
             Status         = succeeded ? UpdateStatus.Succeeded : UpdateStatus.Failed,
             ErrorMessage   = succeeded ? null : string.Concat("winget exit code ", exitCode, ": ", stderr),
             RebootRequired = rebootNeeded,

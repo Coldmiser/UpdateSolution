@@ -44,4 +44,16 @@ public static class RegistryConstants
     /// REG_DWORD — update interval in minutes (default 60).
     /// </summary>
     public const string UpdateIntervalMinutes = "UpdateIntervalMinutes";
+
+    /// <summary>
+    /// REG_SZ — semicolon-separated list of winget package IDs to skip during upgrades.
+    /// Example: "Syncthing.Syncthing;SomeOther.Package"
+    /// </summary>
+    public const string WingetExclusions = "WingetExclusions";
+
+    /// <summary>
+    /// REG_SZ — ISO 8601 UTC timestamp of the last winget upgrade pass.
+    /// Used to enforce a once-per-week throttle on winget upgrades.
+    /// </summary>
+    public const string WingetLastRunUtc = "WingetLastRunUtc";
 }

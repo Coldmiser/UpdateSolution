@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AHky4hd/EMI=",
+  "dgSpecHash": "UCzTlk15dAw=",
   "success": true,
   "projectFilePath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
   "expectedPackageFiles": [
@@ -33,7 +33,7 @@
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.options\\10.0.3\\microsoft.extensions.options.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\10.0.3\\microsoft.extensions.options.configurationextensions.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.3\\microsoft.extensions.primitives.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.5\\microsoft.net.illink.tasks.10.0.5.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\serilog\\4.3.0\\serilog.4.3.0.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\serilog.enrichers.environment\\3.0.1\\serilog.enrichers.environment.3.0.1.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\serilog.enrichers.thread\\4.0.0\\serilog.enrichers.thread.4.0.0.nupkg.sha512",
@@ -43,9 +43,9 @@
     "C:\\Users\\sbutski\\.nuget\\packages\\serilog.sinks.file\\7.0.0\\serilog.sinks.file.7.0.0.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.3\\system.diagnostics.eventlog.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\system.serviceprocess.servicecontroller\\10.0.3\\system.serviceprocess.servicecontroller.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.5\\microsoft.netcore.app.runtime.win-x64.10.0.5.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.5.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.5\\microsoft.aspnetcore.app.runtime.win-x64.10.0.5.nupkg.sha512"
   ],
   "logs": []
 }

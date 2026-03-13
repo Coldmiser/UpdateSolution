@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\" && dotnet build UpdateService/UpdateService.csproj UpdateNotifier/UpdateNotifier.csproj Shared/Shared.csproj -c Release 2>&1 | tail -5)",
+      "Bash(cd \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\" && dotnet build UpdateService/UpdateService.csproj -c Release 2>&1 | tail -5 && dotnet build Shared/Shared.csproj -c Release 2>&1 | tail -3)"
+    ]
+  }
+}

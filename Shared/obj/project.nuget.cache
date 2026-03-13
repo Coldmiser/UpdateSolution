@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LpBjconSQUc=",
+  "dgSpecHash": "s+h0nZgetnM=",
   "success": true,
   "projectFilePath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.3\\microsoft.net.illink.tasks.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.3\\microsoft.netcore.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.3.nupkg.sha512",
-    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.3\\microsoft.aspnetcore.app.runtime.win-x64.10.0.3.nupkg.sha512"
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.5\\microsoft.net.illink.tasks.10.0.5.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.5\\microsoft.netcore.app.runtime.win-x64.10.0.5.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.5.nupkg.sha512",
+    "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.5\\microsoft.aspnetcore.app.runtime.win-x64.10.0.5.nupkg.sha512"
   ],
   "logs": []
 }

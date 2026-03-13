@@ -12,11 +12,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("WatchDog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.26.184.496")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.184.496")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.26.194.425")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.194.425")]
 [assembly: System.Reflection.AssemblyProductAttribute("WatchDog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WatchDog")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.26.184.496")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.26.194.425")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

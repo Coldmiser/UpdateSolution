@@ -55,6 +55,14 @@ static void Run()
 {
     try
     {
+        // Ensure the scheduled task exists — register it if missing.
+        var (taskQueryExit, _) = RunProcess("schtasks.exe", $"/query /tn \"{TaskName}\"");
+        if (taskQueryExit != 0)
+        {
+            Log("Scheduled task not found — registering now.");
+            Install();
+        }
+
         // Check whether the service is registered with the SCM at all.
         bool installed = ServiceController.GetServices()
             .Any(s => s.ServiceName.Equals(ServiceName, StringComparison.OrdinalIgnoreCase));
@@ -91,7 +99,7 @@ static void Run()
         var status = sc.Status;
         if (status == ServiceControllerStatus.Running)
         {
-            Log($"Service '{ServiceName}' is already running.");
+//            Log($"Service '{ServiceName}' is already running.");
             return;
         }
 
