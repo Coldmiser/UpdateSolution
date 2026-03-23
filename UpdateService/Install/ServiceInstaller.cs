@@ -85,7 +85,7 @@ public static class ServiceInstaller
         RegistryHelper.SetStringIfAbsent(RegistryConstants.LogDirectory,   AppConstants.DefaultLogDirectory);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.VersionFileUrl, AppConstants.DefaultVersionFileUrl);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.InstallerUrl,   AppConstants.DefaultInstallerUrl);
-        RegistryHelper.SetStringIfAbsent(RegistryConstants.WingetExclusions, "Syncthing.Syncthing");
+        //RegistryHelper.SetStringIfAbsent(RegistryConstants.WingetExclusions, "Syncthing.Syncthing");
 
         // Start (or restart) the service.
         RunSc($@"start ""{AppConstants.ServiceName}""");

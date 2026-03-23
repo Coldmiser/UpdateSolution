@@ -1,0 +1,3 @@
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\Uninstall\Uninstall.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\Uninstall\Shared.pdb
+C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\publish\Uninstall\Uninstall.exe

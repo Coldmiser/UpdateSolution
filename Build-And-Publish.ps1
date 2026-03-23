@@ -75,6 +75,22 @@ dotnet publish "$PSScriptRoot\WatchDog\WatchDog.csproj" `
 if ($LASTEXITCODE -ne 0) { throw "WatchDog publish failed." }
 Write-Host "WatchDog published OK." -ForegroundColor Green
 
+# ── Publish Uninstall ──────────────────────────────────────────────────────────
+Write-Host "`nPublishing Uninstall..." -ForegroundColor Yellow
+dotnet publish "$PSScriptRoot\Uninstall\Uninstall.csproj" `
+    --configuration $Configuration `
+    --runtime win-x64 `
+    --self-contained true `
+	-p:WarningLevel=0  `
+	-p:IncludeSourceRevisionInInformationalVersion=false `
+	-p:Version=`"$Ver`" `
+    -p:PublishSingleFile=true `
+    -p:EnableCompressionInSingleFile=true `
+    --output "$OutDir\Uninstall"
+
+if ($LASTEXITCODE -ne 0) { throw "Uninstall publish failed." }
+Write-Host "Uninstall published OK." -ForegroundColor Green
+
 # ── Merge into a single deployment folder ────────────────────────────────────
 # The service looks for UpdateNotifier.exe in its own directory,
 # so both EXEs must live together.
@@ -86,6 +102,7 @@ New-Item -ItemType Directory -Force -Path $deployDir | Out-Null
 Copy-Item "$OutDir\UpdateService\*"  $deployDir -Recurse -Force
 Copy-Item "$OutDir\UpdateNotifier\*" $deployDir -Recurse -Force
 Copy-Item "$OutDir\WatchDog\*"       $deployDir -Recurse -Force
+Copy-Item "$OutDir\Uninstall\*"      $deployDir -Recurse -Force
 
 # Copy the company logo next to the exe so LoadLogo() can find it.
 # The logo is loaded from disk at runtime (not embedded) to avoid a WPF
@@ -100,24 +117,29 @@ if (Test-Path $logoSrc) {
 }
 
 $exeVer1 = (Get-Item -Path "$deployDir\UpdateService.exe").VersionInfo.ProductVersion
-write-Color "Service version:        ", $exeVer1 -Color White, Yellow
+write-Color "Service version:         ", $exeVer1 -Color White, Yellow
 $exeVer2 = (Get-Item -Path "$deployDir\UpdateNotifier.exe").VersionInfo.ProductVersion
 write-Color "Notifier version:        ", $exeVer2 -Color White, Yellow
 $exeVer3 = (Get-Item -Path "$deployDir\WatchDog.exe").VersionInfo.ProductVersion
 write-Color "WatchDog version:        ", $exeVer3 -Color White, Yellow
+$exeVer4 = (Get-Item -Path "$deployDir\Uninstall.exe").VersionInfo.ProductVersion
+write-Color "Uninstall version:       ", $exeVer4 -Color White, Yellow
 
 Write-Color "`n✅  Deploy folder ready: $deployDir" -Color Green
 Write-Host "   UpdateService.exe"
 Write-Host "   UpdateNotifier.exe"
-Write-Host "   WatchDog.exe`n"
+Write-Host "   WatchDog.exe"
+Write-Host "   Uninstall.exe`n"
 Write-Host "To install the service (run as Administrator):"
 Write-Host "   $deployDir\UpdateService.exe --install`n"
 
 $not = "not "
 
-if ($exeVer1 -eq $exeVer2 -and $exeVer1 -eq $exeVer3){
+if ($exeVer1 -eq $exeVer2 -and $exeVer1 -eq $exeVer3 -and $exeVer1 -eq $exeVer4){
 	Write-Color "`n✅  Updating version control to version: ", $ver -Color Green, Yellow
 	$Ver  | Out-File -FilePath VersionControl.dat
+	# Copy VersionControl.dat to the deploy folder so Uninstall.exe can read it at runtime.
+	Copy-Item "$PSScriptRoot\VersionControl.dat" $deployDir -Force
 	$not = ""
 }
 
