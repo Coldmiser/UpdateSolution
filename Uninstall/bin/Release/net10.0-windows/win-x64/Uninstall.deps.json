@@ -7,11 +7,11 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {},
     ".NETCoreApp,Version=v10.0/win-x64": {
-      "Uninstall/0.26.221.539": {
+      "Uninstall/0.26.230.591": {
         "dependencies": {
           "Serilog": "4.3.1",
           "Serilog.Sinks.File": "7.0.0",
-          "Shared": "0.26.221.539",
+          "Shared": "0.26.230.591",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.5"
         },
         "runtime": {
@@ -776,18 +776,18 @@
           }
         }
       },
-      "Shared/0.26.221.539": {
+      "Shared/0.26.230.591": {
         "runtime": {
           "Shared.dll": {
-            "assemblyVersion": "0.26.221.539",
-            "fileVersion": "0.26.221.539"
+            "assemblyVersion": "0.26.230.591",
+            "fileVersion": "0.26.230.591"
           }
         }
       }
     }
   },
   "libraries": {
-    "Uninstall/0.26.221.539": {
+    "Uninstall/0.26.230.591": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -811,7 +811,7 @@
       "path": "serilog.sinks.file/7.0.0",
       "hashPath": "serilog.sinks.file.7.0.0.nupkg.sha512"
     },
-    "Shared/0.26.221.539": {
+    "Shared/0.26.230.591": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -11,6 +11,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using UpdateNotifier.Logging;
 using UpdateNotifier.ViewModels;
 
@@ -139,6 +140,15 @@ public partial class MainWindow : Window
             // Logo failure must never prevent the notification window from showing.
             LogConfig.Log.Warning(ex, "MainWindow: logo load failed — continuing without logo.");
         }
+    }
+
+    // ── Hyperlink navigation ──────────────────────────────────────────────────
+
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+        System.Diagnostics.Process.Start(
+            new System.Diagnostics.ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+        e.Handled = true;
     }
 
     // ── ViewModel event handler ───────────────────────────────────────────────

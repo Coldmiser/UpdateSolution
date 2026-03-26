@@ -85,6 +85,10 @@ public static class ServiceInstaller
         RegistryHelper.SetStringIfAbsent(RegistryConstants.LogDirectory,   AppConstants.DefaultLogDirectory);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.VersionFileUrl, AppConstants.DefaultVersionFileUrl);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.InstallerUrl,   AppConstants.DefaultInstallerUrl);
+        // Seed LastRebootUtc so the 2-day gap applies from installation/upgrade.
+        // SetStringIfAbsent preserves an existing timestamp — subsequent upgrades
+        // won't reset a clock that is already ticking from a prior install or reboot.
+        RegistryHelper.SetStringIfAbsent(RegistryConstants.LastRebootUtc, DateTime.UtcNow.ToString("o"));
         //RegistryHelper.SetStringIfAbsent(RegistryConstants.WingetExclusions, "Syncthing.Syncthing");
 
         // Start (or restart) the service.

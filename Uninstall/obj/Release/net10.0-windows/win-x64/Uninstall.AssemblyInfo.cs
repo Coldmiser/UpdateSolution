@@ -12,11 +12,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uninstall")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.26.221.539")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.221.539")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.26.230.591")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.26.230.591")]
 [assembly: System.Reflection.AssemblyProductAttribute("Uninstall")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uninstall")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.26.221.539")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.26.230.591")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

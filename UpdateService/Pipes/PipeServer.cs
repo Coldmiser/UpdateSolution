@@ -13,6 +13,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
 using Shared.Constants;
+using Shared.Helpers;
 using Shared.Models;
 using UpdateService.Logging;
 using UpdateService.Process;
@@ -237,6 +238,7 @@ public sealed class PipeServer
     private static void InitiateReboot()
     {
         LogConfig.ServiceLog.Warning("PipeServer: executing system reboot in 30 seconds.");
+        RegistryHelper.SetString(RegistryConstants.LastRebootUtc, DateTime.UtcNow.ToString("o"));
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
         {
             FileName        = "shutdown.exe",

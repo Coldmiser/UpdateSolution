@@ -3,6 +3,8 @@
 // aggregates results, decides whether a reboot is needed, then signals
 // the PipeServer to notify the logged-in user.
 
+using Shared.Constants;
+using Shared.Helpers;
 using Shared.Models;
 using UpdateService.Logging;
 
@@ -91,9 +93,33 @@ public sealed class UpdateOrchestrator
 
         if (needsReboot)
         {
-            LogConfig.ServiceLog.Information(
-                "UpdateOrchestrator: reboot is required — notifying logged-in user.");
-            await _onRebootRequired(allResults);
+            // Enforce a minimum 2-day gap between forced reboots.
+            // Use the more recent of the registry timestamp and the actual Windows
+            // boot time so that a manual reboot also resets the clock.
+            var systemBootTime = DateTime.UtcNow - TimeSpan.FromMilliseconds(Environment.TickCount64);
+
+            var lastRebootStr = RegistryHelper.GetString(RegistryConstants.LastRebootUtc, string.Empty);
+            var registryTime  = string.IsNullOrEmpty(lastRebootStr) ? DateTime.MinValue
+                : DateTime.TryParse(lastRebootStr, null,
+                      System.Globalization.DateTimeStyles.RoundtripKind, out var parsed)
+                      ? parsed : DateTime.MinValue;
+
+            var effectiveLastReboot = registryTime > systemBootTime ? registryTime : systemBootTime;
+            var hoursSince          = (DateTime.UtcNow - effectiveLastReboot).TotalHours;
+
+            if ((DateTime.UtcNow - effectiveLastReboot) < TimeSpan.FromDays(2))
+            {
+                LogConfig.ServiceLog.Information(
+                    "UpdateOrchestrator: reboot required but last reboot was {H:F1} hours ago — " +
+                    "skipping notification until 2-day minimum has elapsed.",
+                    hoursSince);
+            }
+            else
+            {
+                LogConfig.ServiceLog.Information(
+                    "UpdateOrchestrator: reboot is required — notifying logged-in user.");
+                await _onRebootRequired(allResults);
+            }
         }
         else
         {

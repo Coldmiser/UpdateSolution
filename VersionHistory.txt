@@ -1,12 +1,15 @@
-Version <version>
-
-Version 0.26.221.437
+Version 0.26.230.591
 2026-03-23
 - Created uninstall.exe and worked on removal method of this installer
 - Created a "/yes" parameter for the uninstall.exe to allow for unattended uninstallation
 	Parameter not added to the uninstall string in the registry to bypass accidental removal
+- Wix Toolset has still not been implemented due to bugs in the installer
+- parameter was added to UpdateNotifier for testing purposes "--test" will bring up the notifier
+- Updated notifier to include company website and phone number
+- Updated UpdateOrchestrator to force a 2 day wait between forced reboots
+	Too many reboots were getting annoying and would prevent implementation
 
-Version 0.26.194.382
+Version 0.26.194.425
 2026-03-13
 - Rewriting installer with Wix Toolset to create a MSI.
 - Resolved issue with Notifier popping up multiple times at once

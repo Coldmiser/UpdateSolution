@@ -95,6 +95,14 @@
                                Foreground="White"
                                FontSize="18"
                                FontWeight="Bold" />
+                    <TextBlock FontSize="12">
+                        <Hyperlink NavigateUri="https://www.captg.com"
+                                   RequestNavigate="Hyperlink_RequestNavigate"
+                                   Foreground="#B8CCE8">https://www.captg.com</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Text="(501) 375-1111"
+                               Foreground="#B8CCE8"
+                               FontSize="12" />
                     <TextBlock Text="Reboot Required"
                                Foreground="#B8CCE8"
                                FontSize="12" />

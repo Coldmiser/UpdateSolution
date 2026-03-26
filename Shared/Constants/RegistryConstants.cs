@@ -56,4 +56,10 @@ public static class RegistryConstants
     /// Used to enforce a once-per-week throttle on winget upgrades.
     /// </summary>
     public const string WingetLastRunUtc = "WingetLastRunUtc";
+
+    /// <summary>
+    /// REG_SZ — ISO 8601 UTC timestamp of the last service-initiated reboot.
+    /// Used to enforce a minimum 2-day gap between forced reboots.
+    /// </summary>
+    public const string LastRebootUtc = "LastRebootUtc";
 }
