@@ -7,11 +7,13 @@
 //   4. Receives the user's snooze/reboot-now response.
 //   5. Either schedules the next notification or initiates a reboot.
 
+using System.Globalization;
 using System.IO.Pipes;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
+using Microsoft.Win32;
 using Shared.Constants;
 using Shared.Helpers;
 using Shared.Models;
@@ -47,6 +49,22 @@ public sealed class PipeServer
     public async Task NotifyRebootRequiredAsync(
         List<UpdateResult> results, CancellationToken cancellationToken)
     {
+        // Servers never show the notifier UI — they reboot silently at the
+        // configured RebootTime. This runs in the service (SYSTEM) so it works
+        // with no user logged in and always has shutdown privilege.
+        if (IsServerInstall())
+        {
+            var rebootAt = GetNextServerRebootTime();
+            LogConfig.ServiceLog.Information(
+                "PipeServer: server install — silent reboot scheduled for {RebootAt}.", rebootAt);
+
+            await Task.Delay(rebootAt - DateTime.Now, cancellationToken);
+
+            LogConfig.ServiceLog.Information("PipeServer: server reboot time reached.");
+            InitiateReboot();
+            return;
+        }
+
         // Build the message we will send to the WPF notifier.
         var message = new PipeMessage
         {
@@ -79,6 +97,14 @@ public sealed class PipeServer
                 continue;
             }
 
+            if (response.SnoozeMinutes == AppConstants.ScheduledRebootSentinel)
+            {
+                // User chose "Reboot at 5:30 PM" — the service now owns the
+                // schedule; no further input is required from the user.
+                await RunScheduledRebootAsync(cancellationToken);
+                return;
+            }
+
             if (response.SnoozeMinutes == 0)
             {
                 // User chose "Reboot Now".
@@ -100,12 +126,150 @@ public sealed class PipeServer
     // ── Private helpers ──────────────────────────────────────────────────────
 
     /// <summary>
+    /// Handles the "Reboot at 5:30 PM" choice. Persists the target time to the
+    /// registry (so sleep, power-off, or a service restart cannot lose it),
+    /// waits until 5 minutes before the scheduled time, shows the short
+    /// countdown warning, honours a single 5-minute delay if requested, then
+    /// forces the reboot — no user interaction is required after selection.
+    /// </summary>
+    private async Task RunScheduledRebootAsync(CancellationToken cancellationToken)
+    {
+        // Next occurrence of 5:30 PM local time (today, or tomorrow if passed).
+        var now    = DateTime.Now;
+        var target = DateTime.Today.Add(AppConstants.ScheduledRebootTime);
+        if (target <= now)
+            target = target.AddDays(1);
+
+        // Persist so the schedule survives sleep / power-off / service restart.
+        // If the machine is off or asleep at the scheduled time, the service
+        // finds this overdue value on wake/startup and reboots then.
+        RegistryHelper.SetString(
+            RegistryConstants.ScheduledRebootUtc, target.ToUniversalTime().ToString("o"));
+
+        LogConfig.ServiceLog.Information(
+            "PipeServer: user scheduled reboot for {Target} — persisted to registry.", target);
+
+        await RunScheduledRebootCoreAsync(target, cancellationToken);
+    }
+
+    /// <summary>
+    /// Checks the registry for a scheduled reboot that was persisted before a
+    /// sleep, power-off, or service restart and has not happened yet. Called
+    /// by <c>UpdateBackgroundService</c> at service start. When one exists,
+    /// this resumes the countdown (overdue targets reboot after a fresh
+    /// 5-minute warning) and does not return until the reboot is initiated.
+    /// </summary>
+    public async Task ResumeScheduledRebootIfPendingAsync(CancellationToken cancellationToken)
+    {
+        var raw = RegistryHelper.GetString(RegistryConstants.ScheduledRebootUtc, string.Empty);
+        if (string.IsNullOrEmpty(raw))
+            return;
+
+        if (!DateTime.TryParse(raw, null,
+                System.Globalization.DateTimeStyles.RoundtripKind, out var targetUtc))
+        {
+            LogConfig.ServiceLog.Warning(
+                "PipeServer: ScheduledRebootUtc value '{Raw}' is unparseable — clearing it.", raw);
+            RegistryHelper.DeleteValue(RegistryConstants.ScheduledRebootUtc);
+            return;
+        }
+
+        var target = targetUtc.ToLocalTime();
+        LogConfig.ServiceLog.Information(
+            "PipeServer: pending scheduled reboot found for {Target} (machine was off, asleep, " +
+            "or service restarted) — resuming.", target);
+
+        await RunScheduledRebootCoreAsync(target, cancellationToken);
+    }
+
+    /// <summary>
+    /// Core of the scheduled-reboot flow: waits for the warning time, shows the
+    /// countdown popup, honours one 5-minute delay, then forces the reboot.
+    /// If the target has already passed (machine was asleep or powered off at
+    /// 5:30), the reboot runs now — after a fresh full-length warning so the
+    /// user who just woke the machine isn't rebooted without notice.
+    /// </summary>
+    private async Task RunScheduledRebootCoreAsync(
+        DateTime target, CancellationToken cancellationToken)
+    {
+        // Overdue (woke up / booted after the scheduled time): reboot now,
+        // preceded by the standard 5-minute warning window.
+        if (target <= DateTime.Now)
+        {
+            target = DateTime.Now.AddMinutes(AppConstants.ScheduledRebootWarningMinutes);
+            RegistryHelper.SetString(
+                RegistryConstants.ScheduledRebootUtc, target.ToUniversalTime().ToString("o"));
+            LogConfig.ServiceLog.Information(
+                "PipeServer: scheduled reboot time already passed — rebooting at {Target} " +
+                "after the standard warning.", target);
+        }
+
+        var warnAt = target.AddMinutes(-AppConstants.ScheduledRebootWarningMinutes);
+
+        // Wait until 5 minutes before the reboot. (If the machine sleeps during
+        // this wait, the delay completes on wake and the overdue path above has
+        // already ensured a sane target on service restart.)
+        if (warnAt > DateTime.Now)
+            await Task.Delay(warnAt - DateTime.Now, cancellationToken);
+
+        // Show the countdown warning. The response window only lasts until the
+        // reboot time — if the notifier fails to launch, no one is logged in,
+        // or the user does nothing, the reboot proceeds regardless.
+        var warnMessage = new PipeMessage
+        {
+            Type        = MessageType.RebootImminent,
+            RebootAtUtc = target.ToUniversalTime(),
+            Timestamp   = DateTime.UtcNow
+        };
+
+        var responseWindow = target - DateTime.Now;
+        if (responseWindow < TimeSpan.FromSeconds(5))
+            responseWindow = TimeSpan.FromSeconds(5);
+
+        var response = await RunOneNotificationCycleAsync(
+            warnMessage, cancellationToken, responseWindow);
+
+        if (response is not null && response.SnoozeMinutes > 0)
+        {
+            // User clicked "Delay 5 Minutes" — one delay only, then force.
+            target = target.AddMinutes(AppConstants.ScheduledRebootDelayMinutes);
+            RegistryHelper.SetString(
+                RegistryConstants.ScheduledRebootUtc, target.ToUniversalTime().ToString("o"));
+            LogConfig.ServiceLog.Information(
+                "PipeServer: user delayed scheduled reboot by {Min} minutes — new time {Target}.",
+                AppConstants.ScheduledRebootDelayMinutes, target);
+        }
+        else
+        {
+            LogConfig.ServiceLog.Information(
+                "PipeServer: no delay requested (response={Resp}) — reboot proceeds at {Target}.",
+                response?.SnoozeMinutes.ToString() ?? "none", target);
+        }
+
+        var remaining = target - DateTime.Now;
+        if (remaining > TimeSpan.Zero)
+            await Task.Delay(remaining, cancellationToken);
+
+        // Clear the persisted schedule BEFORE rebooting so the machine does not
+        // find a stale overdue entry (and reboot again) after it comes back up.
+        RegistryHelper.DeleteValue(RegistryConstants.ScheduledRebootUtc);
+
+        LogConfig.ServiceLog.Information("PipeServer: scheduled reboot time reached — initiating reboot.");
+        InitiateReboot();
+    }
+
+    /// <summary>
     /// Launches the notifier, waits for it to connect, exchanges one
     /// request/response pair, and returns the user's decision.
     /// Returns null if communication fails.
     /// </summary>
+    /// <param name="responseTimeout">
+    /// How long to wait for the user's response. Defaults to 8 hours for the
+    /// normal reboot prompt; the pre-reboot countdown passes its short window.
+    /// </param>
     private async Task<PipeMessage?> RunOneNotificationCycleAsync(
-        PipeMessage outbound, CancellationToken cancellationToken)
+        PipeMessage outbound, CancellationToken cancellationToken,
+        TimeSpan? responseTimeout = null)
     {
         // Create the pipe with a security descriptor that allows any authenticated
         // user to connect. Without this, the default DACL only permits SYSTEM,
@@ -169,11 +333,11 @@ public sealed class PipeServer
 
         LogConfig.ServiceLog.Information("PipeServer: notifier connected.");
 
-        // ── Send RebootRequired message ──────────────────────────────────────
+        // ── Send outbound message ────────────────────────────────────────────
         try
         {
             await WriteMessageAsync(pipeServer, outbound, cancellationToken);
-            LogConfig.ServiceLog.Debug("PipeServer: RebootRequired message sent.");
+            LogConfig.ServiceLog.Debug("PipeServer: {Type} message sent.", outbound.Type);
         }
         catch (Exception ex)
         {
@@ -185,7 +349,9 @@ public sealed class PipeServer
         try
         {
             using var responseCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            responseCts.CancelAfter(TimeSpan.FromHours(8)); // give the user plenty of time
+            // Default 8 hours gives the user plenty of time on the normal prompt;
+            // the pre-reboot countdown passes its own short window instead.
+            responseCts.CancelAfter(responseTimeout ?? TimeSpan.FromHours(8));
 
             var response = await ReadMessageAsync(pipeServer, responseCts.Token);
             LogConfig.ServiceLog.Information(
@@ -232,17 +398,68 @@ public sealed class PipeServer
     }
 
     /// <summary>
-    /// Calls shutdown.exe to reboot the machine in 30 seconds,
-    /// giving processes time to save and close.
+    /// Returns true when HKLM\SOFTWARE\CapTG\InstType is "Server".
+    /// </summary>
+    private static bool IsServerInstall()
+    {
+        try
+        {
+            using var key = Registry.LocalMachine.OpenSubKey(RegistryConstants.CapTgKeyPath);
+            return key?.GetValue(RegistryConstants.InstType) is string s &&
+                   s.Equals("Server", StringComparison.OrdinalIgnoreCase);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Reads RebootTime (e.g. "4:00am") from HKLM\SOFTWARE\CapTG and returns
+    /// the next occurrence of that local time of day (today or tomorrow).
+    /// Defaults to 4:00 AM when the value is missing or unparseable.
+    /// </summary>
+    private static DateTime GetNextServerRebootTime()
+    {
+        var raw = string.Empty;
+        try
+        {
+            using var key = Registry.LocalMachine.OpenSubKey(RegistryConstants.CapTgKeyPath);
+            raw = key?.GetValue(RegistryConstants.RebootTime) as string ?? string.Empty;
+        }
+        catch { /* fall through to the default below */ }
+
+        // Parse with the invariant culture so "4:00am" works on any system locale.
+        string[] formats = ["h:mmtt", "h:mm tt", "hh:mmtt", "hh:mm tt", "H:mm", "HH:mm"];
+        if (!DateTime.TryParseExact(raw.Trim().ToUpperInvariant(), formats,
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed))
+        {
+            LogConfig.ServiceLog.Warning(
+                "PipeServer: RebootTime '{Raw}' is missing or unparseable — defaulting to 4:00 AM.",
+                raw);
+            parsed = new DateTime(1, 1, 1, 4, 0, 0);
+        }
+
+        var now  = DateTime.Now;
+        var next = DateTime.Today.Add(parsed.TimeOfDay);
+        if (next <= now)
+            next = next.AddDays(1);
+
+        return next;
+    }
+
+    /// <summary>
+    /// Calls shutdown.exe to reboot the machine in 5 seconds,
+    /// giving processes a moment to save and close.
     /// </summary>
     private static void InitiateReboot()
     {
-        LogConfig.ServiceLog.Warning("PipeServer: executing system reboot in 30 seconds.");
+        LogConfig.ServiceLog.Warning("PipeServer: executing system reboot in 5 seconds.");
         RegistryHelper.SetString(RegistryConstants.LastRebootUtc, DateTime.UtcNow.ToString("o"));
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
         {
             FileName        = "shutdown.exe",
-            Arguments       = "/r /t 30 /c \"CapTG Update Service: Restarting to apply updates.\"",
+            Arguments       = "/r /t 5 /c \"CapTG Update Service: Restarting to apply updates.\"",
             CreateNoWindow  = true,
             UseShellExecute = false
         });

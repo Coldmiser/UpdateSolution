@@ -243,30 +243,134 @@ public static class WindowsUpdateWorker
                 r.Identifier, r.Title, r.ErrorMessage, r.AttemptedAt);
     }
 
+    // ── Pending-reboot registry indicators ───────────────────────────────────
+
+    private const string WuRebootKeyPath =
+        @"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired";
+    private const string CbsRebootKeyPath =
+        @"SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending";
+    private const string SessionManagerKeyPath =
+        @"SYSTEM\CurrentControlSet\Control\Session Manager";
+
+    // Snapshot of the three pending-reboot registry indicators taken when the
+    // service starts. An indicator that was already present at startup and has
+    // not changed since is considered stale — it does not, on its own, trigger
+    // a reboot suggestion. Null until CaptureRebootBaseline() runs, in which
+    // case any present indicator counts as pending (legacy behavior).
+    private static (string? Wu, string? Cbs, string? Pfro)? _rebootBaseline;
+
+    /// <summary>
+    /// Records the current state of the pending-reboot registry indicators.
+    /// Called once at service start by <c>UpdateBackgroundService</c>.
+    /// </summary>
+    public static void CaptureRebootBaseline()
+    {
+        var snapshot = ReadRebootIndicators();
+        _rebootBaseline = snapshot;
+
+        LogConfig.ServiceLog.Information(
+            "WindowsUpdateWorker: pending-reboot baseline captured at service start. " +
+            "WU-RebootRequired={Wu} CBS-RebootPending={Cbs} PendingFileRenameOperations={Pfro}",
+            snapshot.Wu  is null ? "absent" : "present",
+            snapshot.Cbs is null ? "absent" : "present",
+            snapshot.Pfro is null ? "absent" : "present");
+    }
+
     /// <summary>
     /// Checks Windows registry keys that WUA sets when a reboot is required
-    /// before further updates can be installed.
+    /// before further updates can be installed. An indicator only counts as
+    /// pending when it is present AND has appeared or changed since the
+    /// baseline captured at service start — pre-existing, unchanged flags are
+    /// treated as stale and ignored.
     /// </summary>
     private static bool IsRebootPending()
     {
+        var current  = ReadRebootIndicators();
+        var baseline = _rebootBaseline;
+
+        var wuPending   = IsIndicatorPending(current.Wu,   baseline?.Wu);
+        var cbsPending  = IsIndicatorPending(current.Cbs,  baseline?.Cbs);
+        var pfroPending = IsIndicatorPending(current.Pfro, baseline?.Pfro);
+
+        // Log indicators that are present but suppressed as stale, for auditability.
+        if (!wuPending && current.Wu != null)
+            LogConfig.ServiceLog.Information(
+                "WindowsUpdateWorker: WU RebootRequired key present but unchanged since service start — ignoring as stale.");
+        if (!cbsPending && current.Cbs != null)
+            LogConfig.ServiceLog.Information(
+                "WindowsUpdateWorker: CBS RebootPending key present but unchanged since service start — ignoring as stale.");
+        if (!pfroPending && current.Pfro != null)
+            LogConfig.ServiceLog.Information(
+                "WindowsUpdateWorker: PendingFileRenameOperations present but unchanged since service start — ignoring as stale.");
+
+        return wuPending || cbsPending || pfroPending;
+    }
+
+    /// <summary>
+    /// An indicator is pending when it exists now and either was absent at
+    /// baseline (appeared after service start), no baseline was captured,
+    /// or its contents have changed since the baseline.
+    /// </summary>
+    private static bool IsIndicatorPending(string? current, string? baseline)
+    {
+        if (current is null) return false;   // indicator absent — nothing pending
+        if (baseline is null) return true;   // appeared after start (or no baseline)
+        return !string.Equals(current, baseline, StringComparison.Ordinal);
+    }
+
+    /// <summary>
+    /// Reads a content fingerprint for each of the three indicators.
+    /// Null = indicator absent (or unreadable — best effort, as before).
+    /// </summary>
+    private static (string? Wu, string? Cbs, string? Pfro) ReadRebootIndicators()
+        => (FingerprintKey(WuRebootKeyPath),
+            FingerprintKey(CbsRebootKeyPath),
+            FingerprintPendingFileRenames());
+
+    /// <summary>
+    /// Returns a stable fingerprint of a registry key's subkey names and
+    /// values, or null when the key does not exist.
+    /// </summary>
+    private static string? FingerprintKey(string subKeyPath)
+    {
         try
         {
-            using var wuKey = Registry.LocalMachine.OpenSubKey(
-                @"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired");
-            if (wuKey != null) return true;
+            using var key = Registry.LocalMachine.OpenSubKey(subKeyPath);
+            if (key is null) return null;
 
-            using var cbsKey = Registry.LocalMachine.OpenSubKey(
-                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending");
-            if (cbsKey != null) return true;
+            var parts = new List<string>();
+            foreach (var name in key.GetSubKeyNames().OrderBy(n => n, StringComparer.OrdinalIgnoreCase))
+                parts.Add("K:" + name);
+            foreach (var name in key.GetValueNames().OrderBy(n => n, StringComparer.OrdinalIgnoreCase))
+                parts.Add("V:" + name + "=" + FormatRegistryValue(key.GetValue(name)));
 
-            using var smKey = Registry.LocalMachine.OpenSubKey(
-                @"SYSTEM\CurrentControlSet\Control\Session Manager");
-            if (smKey?.GetValue("PendingFileRenameOperations") != null) return true;
+            return string.Join("|", parts);
         }
-        catch { /* best effort */ }
-
-        return false;
+        catch { return null; /* best effort */ }
     }
+
+    /// <summary>
+    /// Returns the contents of Session Manager\PendingFileRenameOperations,
+    /// or null when the value is not set.
+    /// </summary>
+    private static string? FingerprintPendingFileRenames()
+    {
+        try
+        {
+            using var smKey = Registry.LocalMachine.OpenSubKey(SessionManagerKeyPath);
+            var value = smKey?.GetValue("PendingFileRenameOperations");
+            return value is null ? null : FormatRegistryValue(value);
+        }
+        catch { return null; /* best effort */ }
+    }
+
+    private static string FormatRegistryValue(object? value) => value switch
+    {
+        null              => string.Empty,
+        string[] multiSz  => string.Join("\n", multiSz),
+        byte[] bytes      => Convert.ToBase64String(bytes),
+        _                 => value.ToString() ?? string.Empty
+    };
 
     private sealed class WuUpdateDto
     {

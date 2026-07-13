@@ -1,0 +1,51 @@
+2026-06-14 03:59:42.186 -05:00 [ERR] (Thread 24) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 224
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 190
+2026-06-14 03:59:42.196 -05:00 [WRN] (Thread 24) PipeServer: no response received — retrying notification in 15 minutes.
+2026-06-14 04:14:42.206 -05:00 [INF] (Thread 24) PipeServer: pipe created — launching notifier.
+2026-06-14 04:14:42.221 -05:00 [WRN] (Thread 24) PipeServer: killed stale notifier process (PID 25280).
+2026-06-14 04:14:42.221 -05:00 [INF] (Thread 24) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-14 04:14:42.222 -05:00 [DBG] (Thread 24) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-14 04:14:42.222 -05:00 [DBG] (Thread 24) UserProcessLauncher: using session ID = 1.
+2026-06-14 04:14:42.228 -05:00 [INF] (Thread 24) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-14 04:14:42.228 -05:00 [DBG] (Thread 24) PipeServer: waiting for notifier to connect.
+2026-06-14 04:14:42.488 -05:00 [INF] (Thread 19) PipeServer: notifier connected.
+2026-06-14 04:14:42.497 -05:00 [DBG] (Thread 19) PipeServer: RebootRequired message sent.
+2026-06-14 12:14:42.436 -05:00 [ERR] (Thread 38) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 224
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 190
+2026-06-14 12:14:42.437 -05:00 [WRN] (Thread 38) PipeServer: no response received — retrying notification in 15 minutes.
+2026-06-14 12:29:42.436 -05:00 [INF] (Thread 38) PipeServer: pipe created — launching notifier.
+2026-06-14 12:29:42.443 -05:00 [WRN] (Thread 38) PipeServer: killed stale notifier process (PID 10964).
+2026-06-14 12:29:42.443 -05:00 [INF] (Thread 38) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-14 12:29:42.443 -05:00 [DBG] (Thread 38) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-14 12:29:42.443 -05:00 [DBG] (Thread 38) UserProcessLauncher: using session ID = 1.
+2026-06-14 12:29:42.450 -05:00 [INF] (Thread 38) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-14 12:29:42.450 -05:00 [DBG] (Thread 38) PipeServer: waiting for notifier to connect.
+2026-06-14 12:29:42.721 -05:00 [INF] (Thread 38) PipeServer: notifier connected.
+2026-06-14 12:29:42.729 -05:00 [DBG] (Thread 32) PipeServer: RebootRequired message sent.
+2026-06-14 20:29:42.677 -05:00 [ERR] (Thread 39) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 224
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 190
+2026-06-14 20:29:42.679 -05:00 [WRN] (Thread 39) PipeServer: no response received — retrying notification in 15 minutes.
+2026-06-14 20:44:42.679 -05:00 [INF] (Thread 39) PipeServer: pipe created — launching notifier.
+2026-06-14 20:44:42.685 -05:00 [WRN] (Thread 39) PipeServer: killed stale notifier process (PID 8096).
+2026-06-14 20:44:42.685 -05:00 [INF] (Thread 39) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-14 20:44:42.686 -05:00 [DBG] (Thread 39) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-14 20:44:42.686 -05:00 [DBG] (Thread 39) UserProcessLauncher: using session ID = 1.
+2026-06-14 20:44:42.693 -05:00 [INF] (Thread 39) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-14 20:44:42.693 -05:00 [DBG] (Thread 39) PipeServer: waiting for notifier to connect.
+2026-06-14 20:44:42.946 -05:00 [INF] (Thread 39) PipeServer: notifier connected.
+2026-06-14 20:44:42.954 -05:00 [DBG] (Thread 39) PipeServer: RebootRequired message sent.

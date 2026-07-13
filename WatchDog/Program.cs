@@ -11,7 +11,7 @@ using System.ServiceProcess;
 
 const string TaskName = @"\CapTG\CapTG Update Service Watchdog";
 const string ServiceName = Shared.Constants.AppConstants.ServiceName;
-const string LogPath     = @"C:\ProgramData\CapTG\Logs\watchdog.txt";
+const string LogPath     = @"C:\ProgramData\CapTG\UpdateService\logs\watchdog.txt";
 
 var mode = args.Length > 0 ? args[0].ToLowerInvariant() : "--run";
 

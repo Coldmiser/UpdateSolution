@@ -1,0 +1,19 @@
+2026-07-02 07:24:50 | INF | WINDOWS-UPDATE | KB= | Title=Microsoft Corporation AudioProcessingObject Driver Update (1.0.4.7057) | Status=Skipped | 2026-07-02T07:24:50.5464265-05:00
+2026-07-02 07:24:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T12:24:50.6618846Z
+2026-07-02 08:26:09 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T13:26:09.8802171Z
+2026-07-02 09:27:10 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T14:27:10.0210688Z
+2026-07-02 10:28:09 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T15:28:09.8827888Z
+2026-07-02 11:29:06 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T16:29:06.5415557Z
+2026-07-02 12:30:02 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T17:30:02.8405965Z
+2026-07-02 13:30:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T18:30:59.3948170Z
+2026-07-02 14:31:57 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T19:31:57.8940029Z
+2026-07-02 14:32:02 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-07-02T19:32:02.3811446Z
+2026-07-02 15:32:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T20:32:59.2946228Z
+2026-07-02 16:33:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T21:33:56.8732368Z
+2026-07-02 17:34:53 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T22:34:53.6278375Z
+2026-07-02 18:35:52 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-02T23:35:52.8955654Z
+2026-07-02 19:36:57 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-03T00:36:57.7742370Z
+2026-07-02 20:38:04 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-03T01:38:04.7438054Z
+2026-07-02 21:39:04 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-03T02:39:04.0897388Z
+2026-07-02 22:40:01 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-03T03:40:01.9221014Z
+2026-07-02 23:40:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-03T04:40:59.1510253Z

@@ -50,6 +50,26 @@ public sealed class UpdateBackgroundService : BackgroundService
             "UpdateBackgroundService: service started. Initial delay = {Delay}.",
             AppConstants.InitialDelay);
 
+        // Snapshot the pending-reboot registry indicators now, so flags that
+        // already existed at service start (and never change) are treated as
+        // stale and do not trigger reboot prompts on their own.
+        WindowsUpdateWorker.CaptureRebootBaseline();
+
+        // Honour a user-scheduled "Reboot at 5:30 PM" that was persisted before
+        // a sleep, power-off, or service restart. If the scheduled time was
+        // missed (machine off/asleep at 5:30), this reboots the PC now — after
+        // the standard 5-minute warning — and does not return until then.
+        try
+        {
+            await _pipeServer.ResumeScheduledRebootIfPendingAsync(stoppingToken);
+        }
+        catch (OperationCanceledException) { return; }
+        catch (Exception ex)
+        {
+            LogConfig.ServiceLog.Error(ex,
+                "UpdateBackgroundService: failed to resume pending scheduled reboot.");
+        }
+
         // Short delay after start so the system has time to settle.
         await Task.Delay(AppConstants.InitialDelay, stoppingToken);
 

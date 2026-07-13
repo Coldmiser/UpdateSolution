@@ -1,0 +1,25 @@
+2026-06-11 00:28:12 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T05:28:12.1414311Z
+2026-06-11 01:29:06 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T06:29:06.8387082Z
+2026-06-11 02:30:24 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T07:30:24.4444755Z
+2026-06-11 03:31:19 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T08:31:19.3192649Z
+2026-06-11 04:32:14 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T09:32:14.3943299Z
+2026-06-11 05:34:20 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T10:34:20.8755190Z
+2026-06-11 06:35:15 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T11:35:15.5915891Z
+2026-06-11 07:36:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T12:36:59.5895017Z
+2026-06-11 08:38:19 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T13:38:19.3443663Z
+2026-06-11 09:39:20 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T14:39:20.9521530Z
+2026-06-11 10:40:16 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T15:40:16.9599482Z
+2026-06-11 11:41:12 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T16:41:12.6946665Z
+2026-06-11 12:42:27 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T17:42:27.8163728Z
+2026-06-11 12:42:32 | WRN | WINGET | \ | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-11T17:42:32.4463385Z
+2026-06-11 12:42:33 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-11T17:42:33.7334026Z
+2026-06-11 13:43:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T18:43:29.7822530Z
+2026-06-11 14:44:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T19:44:26.1739495Z
+2026-06-11 15:45:23 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T20:45:23.0359028Z
+2026-06-11 16:46:23 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T21:46:23.6184835Z
+2026-06-11 17:47:17 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T22:47:17.5598196Z
+2026-06-11 18:50:47 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-11T23:50:47.0556404Z
+2026-06-11 19:51:54 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-12T00:51:54.0496124Z
+2026-06-11 20:53:16 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-12T01:53:16.1299665Z
+2026-06-11 21:58:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-12T02:58:22.2220121Z
+2026-06-11 22:59:18 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-12T03:59:18.0525421Z

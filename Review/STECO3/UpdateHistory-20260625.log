@@ -1,0 +1,11 @@
+2026-06-25 13:31:36 | WRN | WINGET | \ | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-25T18:31:36.8500713Z
+2026-06-25 13:31:38 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-25T18:31:38.1274168Z
+2026-06-25 15:33:41 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-25T20:33:41.3110783Z
+2026-06-25 16:34:37 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-25T21:34:37.8670746Z
+2026-06-25 17:35:35 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-25T22:35:35.1060109Z
+2026-06-25 18:36:30 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-25T23:36:30.7419231Z
+2026-06-25 19:37:27 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-26T00:37:27.5701056Z
+2026-06-25 20:38:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-26T01:38:29.7259457Z
+2026-06-25 21:39:52 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-26T02:39:52.0497401Z
+2026-06-25 22:41:10 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-26T03:41:10.8831533Z
+2026-06-25 23:42:07 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-26T04:42:07.8399488Z

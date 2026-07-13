@@ -137,33 +137,45 @@
                        Foreground="#374151"
                        Margin="0,0,0,12" />
 
-            <!-- KB Numbers (hidden when empty) -->
-            <StackPanel Visibility="{Binding KbListVisible,
-                                    Converter={StaticResource BoolToVis}}"
-                        Margin="0,0,0,8">
-                <TextBlock Text="Applied Windows updates:"
-                           FontSize="12" FontWeight="SemiBold"
-                           Foreground="#6B7280" />
-                <TextBlock Text="{Binding KbList}"
-                           TextWrapping="Wrap"
-                           FontSize="12"
-                           Foreground="#374151"
-                           Margin="8,2,0,0" />
-            </StackPanel>
+            <!-- Update lists — height-capped with a LEFT-side vertical scrollbar
+                 (outer RightToLeft flips the scrollbar side; inner panel flips
+                 back so the text renders normally) so a long list of updates
+                 never grows the window -->
+            <ScrollViewer MaxHeight="120"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled"
+                          FlowDirection="RightToLeft">
+                <StackPanel FlowDirection="LeftToRight">
 
-            <!-- Package list (hidden when empty) -->
-            <StackPanel Visibility="{Binding PackageListVisible,
-                                    Converter={StaticResource BoolToVis}}"
-                        Margin="0,0,0,8">
-                <TextBlock Text="Updated applications:"
-                           FontSize="12" FontWeight="SemiBold"
-                           Foreground="#6B7280" />
-                <TextBlock Text="{Binding PackageList}"
-                           TextWrapping="Wrap"
-                           FontSize="12"
-                           Foreground="#374151"
-                           Margin="8,2,0,0" />
-            </StackPanel>
+                    <!-- KB Numbers (hidden when empty) -->
+                    <StackPanel Visibility="{Binding KbListVisible,
+                                            Converter={StaticResource BoolToVis}}"
+                                Margin="0,0,0,8">
+                        <TextBlock Text="Applied Windows updates:"
+                                   FontSize="12" FontWeight="SemiBold"
+                                   Foreground="#6B7280" />
+                        <TextBlock Text="{Binding KbList}"
+                                   TextWrapping="Wrap"
+                                   FontSize="12"
+                                   Foreground="#374151"
+                                   Margin="8,2,0,0" />
+                    </StackPanel>
+
+                    <!-- Package list (hidden when empty) -->
+                    <StackPanel Visibility="{Binding PackageListVisible,
+                                            Converter={StaticResource BoolToVis}}"
+                                Margin="0,0,0,8">
+                        <TextBlock Text="Updated applications:"
+                                   FontSize="12" FontWeight="SemiBold"
+                                   Foreground="#6B7280" />
+                        <TextBlock Text="{Binding PackageList}"
+                                   TextWrapping="Wrap"
+                                   FontSize="12"
+                                   Foreground="#374151"
+                                   Margin="8,2,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
 
             <!-- Snooze note -->
             <TextBlock FontSize="12" Foreground="#9CA3AF"

@@ -846,5 +846,7 @@ C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier.pdb
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\UpdateNotifier.genruntimeconfig.cache
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\ref\UpdateNotifier.dll
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Release\net10.0-windows\win-x64\mscordaccore_amd64_amd64_10.0.426.12010.dll
 C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Release\net10.0-windows\win-x64\mscordaccore_amd64_amd64_10.0.526.15411.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\bin\Release\net10.0-windows\win-x64\mscordaccore_amd64_amd64_10.0.826.23019.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\Views\CountdownWindow.baml
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\obj\Release\net10.0-windows\win-x64\Views\CountdownWindow.g.cs

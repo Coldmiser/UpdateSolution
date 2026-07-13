@@ -1,0 +1,46 @@
+2026-07-10 01:38:15.671 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\Logs
+2026-07-10 01:38:15.694 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-07-10 01:38:15.694 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-07-10 01:38:15.703 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-07-10 01:38:15.707 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-07-10 01:38:15.744 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-07-10 01:38:15.747 -05:00 [INF] (Thread 2) SnoozeManager initialised with 4 options (previousSnoozeCount=2).
+2026-07-10 01:38:15.748 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=4
+2026-07-10 01:38:15.749 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-07-10 01:38:15.933 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-07-10 01:38:16.024 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-07-10 01:38:16.025 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 146).
+2026-07-10 01:38:16.040 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-07-10 01:38:16.043 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-07-10 08:20:21.911 -05:00 [INF] (Thread 2) MainViewModel: user confirmed choice: 'Snooze for 1 Hour' ("01:00:00").
+2026-07-10 08:20:21.911 -05:00 [INF] (Thread 2) SnoozeManager: user snoozed for "01:00:00". Options before removal: 4
+2026-07-10 08:20:21.912 -05:00 [INF] (Thread 2) SnoozeManager: removed option 'Snooze for 1 Hour'. Remaining: 3
+2026-07-10 08:20:21.912 -05:00 [INF] (Thread 2) App: user chose 'Snooze for 1 Hour' (60 min).
+2026-07-10 08:20:21.913 -05:00 [INF] (Thread 2) PipeClient: sending UserResponse — SnoozeMinutes=60.
+2026-07-10 08:20:21.918 -05:00 [INF] (Thread 2) MainWindow: user decided 'Snooze for 1 Hour'. Closing window.
+2026-07-10 08:20:21.933 -05:00 [DBG] (Thread 2) PipeClient: wrote 143 bytes to pipe.
+2026-07-10 08:20:21.935 -05:00 [DBG] (Thread 2) PipeClient: disposed.
+2026-07-10 08:20:21.936 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 0.
+2026-07-10 09:20:22.250 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\Logs
+2026-07-10 09:20:22.274 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-07-10 09:20:22.274 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-07-10 09:20:22.283 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-07-10 09:20:22.288 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-07-10 09:20:22.326 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-07-10 09:20:22.329 -05:00 [INF] (Thread 2) SnoozeManager initialised with 3 options (previousSnoozeCount=3).
+2026-07-10 09:20:22.330 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=3
+2026-07-10 09:20:22.330 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-07-10 09:20:22.522 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-07-10 09:20:22.618 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-07-10 09:20:22.618 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 146).
+2026-07-10 09:20:22.634 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-07-10 09:20:22.637 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-07-10 09:20:27.299 -05:00 [INF] (Thread 2) MainViewModel: user confirmed choice: 'Snooze for 30 Minutes' ("00:30:00").
+2026-07-10 09:20:27.300 -05:00 [INF] (Thread 2) SnoozeManager: user snoozed for "00:30:00". Options before removal: 3
+2026-07-10 09:20:27.301 -05:00 [INF] (Thread 2) SnoozeManager: removed option 'Snooze for 30 Minutes'. Remaining: 2
+2026-07-10 09:20:27.302 -05:00 [INF] (Thread 2) App: user chose 'Snooze for 30 Minutes' (30 min).
+2026-07-10 09:20:27.303 -05:00 [INF] (Thread 2) PipeClient: sending UserResponse — SnoozeMinutes=30.
+2026-07-10 09:20:27.307 -05:00 [INF] (Thread 2) MainWindow: user decided 'Snooze for 30 Minutes'. Closing window.
+2026-07-10 09:20:27.317 -05:00 [DBG] (Thread 2) PipeClient: wrote 143 bytes to pipe.
+2026-07-10 09:20:27.318 -05:00 [DBG] (Thread 2) PipeClient: disposed.
+2026-07-10 09:20:27.320 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 0.

@@ -8,6 +8,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Win32;
 using Shared.Constants;
 using Shared.Helpers;
 using UpdateService.Install;
@@ -39,6 +40,77 @@ if (args.Contains("--uninstall", StringComparer.OrdinalIgnoreCase))
     catch (Exception ex) { log.Fatal(ex, "Uninstallation failed."); return 1; }
     LogConfig.CloseAndFlush();
     return 0;
+}
+
+// ── Validate / auto-detect InstType registry entry ───────────────────────────
+// HKLM\SOFTWARE\CapTG\InstType must be "Server" or "Client".
+// If present with any other value, delete it and then auto-detect.
+// If absent, query InstallationType from the Windows NT CurrentVersion key and write it.
+void DetectAndWriteInstType(RegistryKey key)
+{
+    using var winNtKey = Registry.LocalMachine.OpenSubKey(
+        @"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+    var installationType = winNtKey?.GetValue("InstallationType") as string;
+
+    var detected = installationType switch
+    {
+        "Client"                    => "Client",
+        "Server" or "Server Core"   => "Server",
+        _                           => null
+    };
+
+    if (detected is not null)
+    {
+        key.SetValue(RegistryConstants.InstType, detected, RegistryValueKind.String);
+        log.Information(
+            "Detected InstallationType '{InstallationType}', wrote InstType = {InstType}.",
+            installationType, detected);
+
+        if (detected == "Server")
+        {
+            key.SetValue(RegistryConstants.RebootTime, "0400", RegistryValueKind.String);
+            log.Information("Server detected — wrote RebootTime = 4:00am.");
+        }
+    }
+    else
+    {
+        log.Warning(
+            "InstallationType '{InstallationType}' is unrecognized — InstType not written.",
+            installationType ?? "(null)");
+    }
+}
+
+try
+{
+    // CreateSubKey (not OpenSubKey) so the block still works if the key doesn't exist yet.
+    using var capTgKey = Registry.LocalMachine.CreateSubKey(
+        RegistryConstants.CapTgKeyPath, writable: true);
+
+    var instType = capTgKey.GetValue(RegistryConstants.InstType) as string;
+    if (instType is not null)
+    {
+        if (instType.Equals("Server", StringComparison.OrdinalIgnoreCase) ||
+            instType.Equals("Client", StringComparison.OrdinalIgnoreCase))
+        {
+            log.Information("InstType = {InstType}", instType);
+        }
+        else
+        {
+            log.Warning(
+                "InstType value '{InstType}' is invalid (expected Server or Client) — deleting entry.",
+                instType);
+            capTgKey.DeleteValue(RegistryConstants.InstType, throwOnMissingValue: false);
+            DetectAndWriteInstType(capTgKey);
+        }
+    }
+    else
+    {
+        DetectAndWriteInstType(capTgKey);
+    }
+}
+catch (Exception ex)
+{
+    log.Warning(ex, "Could not validate HKLM\\SOFTWARE\\CapTG\\InstType.");
 }
 
 // ── Resolve the path to the WPF notifier executable ──────────────────────────

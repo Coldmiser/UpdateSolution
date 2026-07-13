@@ -35,7 +35,7 @@ public static class AppConstants
     /// <summary>Default log directory (overridable from the registry).</summary>
     public static readonly string DefaultLogDirectory = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-        "CapTG", "Logs");
+        "CapTG", "UpdateService", "logs");
 
     /// <summary>Service operational log file name template (Serilog rolling).</summary>
     public const string ServiceLogFileName = "UpdateService-.log";
@@ -81,4 +81,28 @@ public static class AppConstants
 
     /// <summary>Delay before the very first update check after service start.</summary>
     public static readonly TimeSpan InitialDelay = TimeSpan.FromMinutes(2);
+
+    // ── Scheduled Reboot ("Reboot at 5:30 PM" option) ──────────────────────────
+
+    /// <summary>
+    /// Sentinel value sent as SnoozeMinutes when the user picks the scheduled
+    /// 5:30 PM reboot option. The service then owns the schedule — no further
+    /// user input is required.
+    /// </summary>
+    public const int ScheduledRebootSentinel = -1;
+
+    /// <summary>Local time of day for the scheduled reboot option (5:30 PM).</summary>
+    public static readonly TimeSpan ScheduledRebootTime = new(17, 30, 0);
+
+    /// <summary>
+    /// Minutes before the scheduled reboot that the countdown warning appears.
+    /// </summary>
+    public const int ScheduledRebootWarningMinutes = 5;
+
+    /// <summary>
+    /// Minutes the reboot is pushed back when the user clicks "Delay" on the
+    /// countdown warning. Only one delay is allowed; the reboot then proceeds
+    /// with no further interaction.
+    /// </summary>
+    public const int ScheduledRebootDelayMinutes = 5;
 }

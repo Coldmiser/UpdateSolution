@@ -1,0 +1,11 @@
+2026-05-11 09:00:49 | INF | WINDOWS-UPDATE | KB=KB5091596 | Title=2026-04 .NET 10.0.7 Security Update for x64 Client (KB5091596) | Status=Skipped | 2026-05-11T09:00:49.3615712-05:00
+2026-05-11 09:00:49 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-11T14:00:49.4657538Z
+2026-05-11 09:00:54 | WRN | WINGET | \ | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-11T14:00:54.0274876Z
+2026-05-11 09:01:04 | INF | WINGET | Microsoft.msodbcsql.17 | Status="Succeeded" | RebootRequired=false | 2026-05-11T14:01:04.4174723Z
+2026-05-11 09:01:13 | INF | WINGET | Microsoft.SQLServer.OLEDBDriver | Status="Succeeded" | RebootRequired=false | 2026-05-11T14:01:13.8084870Z
+2026-05-11 09:01:15 | WRN | WINGET | 14.44.35211.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-11T14:01:15.0950125Z
+2026-05-11 09:01:16 | WRN | WINGET | Microsoft.WindowsInstallationAssistant 1.4.19041.5003 1.4.19041.6448 winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-11T14:01:16.3672460Z
+2026-05-11 09:01:18 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335189:  | 2026-05-11T14:01:18.6470378Z
+2026-05-11 09:01:19 | WRN | WINGET | 14.44.35211.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-11T14:01:19.9156130Z
+2026-05-11 09:01:37 | WRN | WINGET | Microsoft.VCLibs.Desktop.14 | Status="Failed" | Error=winget exit code -2147024809:  | 2026-05-11T14:01:37.3962128Z
+2026-05-11 11:34:46 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-11T16:34:46.5702036Z

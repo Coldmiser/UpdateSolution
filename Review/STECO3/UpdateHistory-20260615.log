@@ -1,0 +1,18 @@
+2026-06-15 07:27:01 | INF | WINDOWS-UPDATE | KB= | Title=HP Firmware Driver Update (2.22.1.0) | Status=Skipped | 2026-06-15T07:27:01.4157569-05:00
+2026-06-15 07:27:01 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T12:27:01.5346810Z
+2026-06-15 08:28:01 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T13:28:01.5416373Z
+2026-06-15 09:29:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T14:29:26.7887618Z
+2026-06-15 10:30:24 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T15:30:24.9333730Z
+2026-06-15 11:31:20 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T16:31:20.5731996Z
+2026-06-15 12:32:16 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T17:32:16.8939951Z
+2026-06-15 13:33:32 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T18:33:32.3241438Z
+2026-06-15 14:34:34 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T19:34:34.8314855Z
+2026-06-15 15:35:30 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T20:35:30.4624064Z
+2026-06-15 16:36:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T21:36:25.9689630Z
+2026-06-15 17:37:28 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T22:37:28.7720627Z
+2026-06-15 18:38:35 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-15T23:38:35.5410523Z
+2026-06-15 19:41:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-16T00:41:25.1524151Z
+2026-06-15 20:42:30 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-16T01:42:30.0561474Z
+2026-06-15 21:43:27 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-16T02:43:27.3307165Z
+2026-06-15 22:44:44 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-16T03:44:44.1946667Z
+2026-06-15 23:45:39 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-16T04:45:39.0760929Z

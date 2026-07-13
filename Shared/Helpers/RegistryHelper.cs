@@ -85,4 +85,21 @@ public static class RegistryHelper
         if (key is not null && key.GetValue(valueName) is null)
             key.SetValue(valueName, value, RegistryValueKind.String);
     }
+
+    /// <summary>
+    /// Deletes a value from the CapTG registry key (no-op when absent).
+    /// </summary>
+    public static void DeleteValue(string valueName)
+    {
+        try
+        {
+            using var key = Registry.LocalMachine.OpenSubKey(
+                RegistryConstants.RootKeyPath, writable: true);
+            key?.DeleteValue(valueName, throwOnMissingValue: false);
+        }
+        catch
+        {
+            // Best effort — same rationale as the readers above.
+        }
+    }
 }

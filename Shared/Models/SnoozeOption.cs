@@ -15,9 +15,18 @@ public sealed class SnoozeOption
 
     /// <summary>
     /// How long to defer the reboot notification.
-    /// Zero (<see cref="TimeSpan.Zero"/>) represents "Reboot Now".
+    /// Zero (<see cref="TimeSpan.Zero"/>) represents "Reboot Now"
+    /// (or the scheduled-reboot option, discriminated by <see cref="IsScheduledReboot"/>).
     /// </summary>
     public TimeSpan Duration { get; init; }
+
+    /// <summary>
+    /// True for the "Reboot at 5:30 PM" option: the service schedules the
+    /// reboot at that time with a short warning popup beforehand — no further
+    /// user input is required. Duration is Zero so the snooze-tier removal
+    /// rules never remove it.
+    /// </summary>
+    public bool IsScheduledReboot { get; init; }
 
     /// <summary>
     /// The canonical ordered list of all possible snooze tiers,
@@ -30,6 +39,7 @@ public sealed class SnoozeOption
         new() { Label = "Snooze for 1 Hour",    Duration = TimeSpan.FromHours(1)   },
         new() { Label = "Snooze for 30 Minutes",Duration = TimeSpan.FromMinutes(30) },
         new() { Label = "Snooze for 15 Minutes",Duration = TimeSpan.FromMinutes(15) },
+        new() { Label = "Reboot at 5:30 PM",     Duration = TimeSpan.Zero, IsScheduledReboot = true },
         new() { Label = "Reboot Now",            Duration = TimeSpan.Zero            }
     ];
 }

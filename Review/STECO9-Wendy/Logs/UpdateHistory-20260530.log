@@ -1,0 +1,51 @@
+2026-05-30 00:32:51 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T00:32:50.9641331-05:00
+2026-05-30 00:32:51 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T00:32:50.9661321-05:00
+2026-05-30 00:32:51 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T05:32:51.0648270Z
+2026-05-30 01:33:50 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T01:33:50.6450864-05:00
+2026-05-30 01:33:50 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T01:33:50.6470855-05:00
+2026-05-30 01:33:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T06:33:50.7483367Z
+2026-05-30 02:35:01 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T02:35:01.2230629-05:00
+2026-05-30 02:35:01 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T02:35:01.2250631-05:00
+2026-05-30 02:35:01 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T07:35:01.3176083Z
+2026-05-30 03:35:59 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T03:35:58.9975084-05:00
+2026-05-30 03:35:59 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T03:35:58.9995098-05:00
+2026-05-30 03:35:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T08:35:59.0895070Z
+2026-05-30 04:37:00 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T04:37:00.2527134-05:00
+2026-05-30 04:37:00 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T04:37:00.2547131-05:00
+2026-05-30 04:37:00 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T09:37:00.3496682Z
+2026-05-30 05:37:59 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T05:37:59.4396999-05:00
+2026-05-30 05:37:59 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T05:37:59.4416999-05:00
+2026-05-30 05:37:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T10:37:59.5285280Z
+2026-05-30 06:39:00 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T06:39:00.6519503-05:00
+2026-05-30 06:39:00 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T06:39:00.6539500-05:00
+2026-05-30 06:39:00 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T11:39:00.7420428Z
+2026-05-30 07:40:00 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T07:40:00.4293212-05:00
+2026-05-30 07:40:00 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T07:40:00.4313190-05:00
+2026-05-30 07:40:00 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T12:40:00.5193976Z
+2026-05-30 08:40:58 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T08:40:58.5103933-05:00
+2026-05-30 08:40:58 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T08:40:58.5123921-05:00
+2026-05-30 08:40:58 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T13:40:58.6129469Z
+2026-05-30 09:41:56 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T09:41:56.3605265-05:00
+2026-05-30 09:41:56 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T09:41:56.3625263-05:00
+2026-05-30 09:41:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T14:41:56.4641096Z
+2026-05-30 10:42:56 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T10:42:56.3042297-05:00
+2026-05-30 10:42:56 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T10:42:56.3062297-05:00
+2026-05-30 10:42:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T15:42:56.3931250Z
+2026-05-30 11:44:12 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T11:44:12.0057408-05:00
+2026-05-30 11:44:12 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T11:44:12.0077406-05:00
+2026-05-30 11:44:12 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T16:44:12.1141822Z
+2026-05-30 12:45:09 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T12:45:09.1868986-05:00
+2026-05-30 12:45:09 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T12:45:09.1899006-05:00
+2026-05-30 12:45:09 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T17:45:09.2986059Z
+2026-05-30 13:46:08 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T13:46:08.8430182-05:00
+2026-05-30 13:46:08 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T13:46:08.8450183-05:00
+2026-05-30 13:46:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T18:46:08.9363844Z
+2026-05-30 14:47:07 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T14:47:07.1652666-05:00
+2026-05-30 14:47:07 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T14:47:07.1672664-05:00
+2026-05-30 14:47:07 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T19:47:07.2525450Z
+2026-05-30 15:48:05 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T15:48:04.9749253-05:00
+2026-05-30 15:48:05 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T15:48:04.9779307-05:00
+2026-05-30 15:48:05 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T20:48:05.0788113Z
+2026-05-30 16:49:03 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-05-30T16:49:03.6011394-05:00
+2026-05-30 16:49:03 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-05-30T16:49:03.6038948-05:00
+2026-05-30 16:49:03 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-30T21:49:03.6936869Z

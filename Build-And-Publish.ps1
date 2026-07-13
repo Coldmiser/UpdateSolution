@@ -16,7 +16,7 @@ Clear-Host
 $Year=(Get-Date).Year - 2000
 $DoY=(((Get-Date).DayOfYear) * 2.7).ToString("000")
 $Tm=((Get-Date).Hour * 41) + (Get-Date).Minute
-$Ver="0.$Year.$DoY.$Tm"
+$Ver="1.$Year.$DoY.$Tm"
 Write-Color "Publishing version:  ", "$Ver" -Color White, Yellow
 
 Set-StrictMode -Version Latest
@@ -157,6 +157,7 @@ switch ($result) {
 
 		#Create_Installer batch file option
 		.\publish\Installer\create_installer.bat
+		if ($LASTEXITCODE -ne 0) { throw "Installer build failed — create_installer.bat exit code $LASTEXITCODE." }
 
 		#WiX Toolset option
 		<#

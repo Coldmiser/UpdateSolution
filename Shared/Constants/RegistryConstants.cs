@@ -14,6 +14,9 @@ public static class RegistryConstants
     /// <summary>HKLM registry key path (no leading backslash).</summary>
     public const string RootKeyPath = @"SOFTWARE\CapTG\UpdateService";
 
+    /// <summary>HKLM registry key path of the CapTG parent key (no leading backslash).</summary>
+    public const string CapTgKeyPath = @"SOFTWARE\CapTG";
+
     // ── Value names ─────────────────────────────────────────────────────────────
 
     /// <summary>
@@ -62,4 +65,24 @@ public static class RegistryConstants
     /// Used to enforce a minimum 2-day gap between forced reboots.
     /// </summary>
     public const string LastRebootUtc = "LastRebootUtc";
+
+    /// <summary>
+    /// REG_SZ — ISO 8601 UTC timestamp of a user-scheduled "Reboot at 5:30 PM"
+    /// that has not happened yet. Persisted so the reboot survives a service
+    /// restart, sleep, or power-off: on service start, an overdue value causes
+    /// the reboot to run upon waking. Cleared when the reboot is initiated.
+    /// </summary>
+    public const string ScheduledRebootUtc = "ScheduledRebootUtc";
+
+    /// <summary>
+    /// REG_SZ under <see cref="CapTgKeyPath"/> — machine type: "Server" or "Client".
+    /// Auto-detected at service startup from Windows' own InstallationType value.
+    /// </summary>
+    public const string InstType = "InstType";
+
+    /// <summary>
+    /// REG_SZ under <see cref="CapTgKeyPath"/> — local time of day at which servers
+    /// are silently rebooted (e.g. "4:00am"). Written when InstType = Server is detected.
+    /// </summary>
+    public const string RebootTime = "RebootTime";
 }

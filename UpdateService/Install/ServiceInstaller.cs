@@ -66,6 +66,9 @@ public static class ServiceInstaller
 
         // These sc operations are idempotent — run them on both fresh install and upgrade.
 
+        // Move any legacy log files into the current log directory.
+        MigrateLegacyLogs();
+
         // Set the human-readable description shown in Services.msc.
         RunSc($@"description ""{AppConstants.ServiceName}"" "
             + $@"""{AppConstants.ServiceDescription}""");
@@ -85,10 +88,11 @@ public static class ServiceInstaller
         RegistryHelper.SetStringIfAbsent(RegistryConstants.LogDirectory,   AppConstants.DefaultLogDirectory);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.VersionFileUrl, AppConstants.DefaultVersionFileUrl);
         RegistryHelper.SetStringIfAbsent(RegistryConstants.InstallerUrl,   AppConstants.DefaultInstallerUrl);
-        // Seed LastRebootUtc so the 2-day gap applies from installation/upgrade.
-        // SetStringIfAbsent preserves an existing timestamp — subsequent upgrades
-        // won't reset a clock that is already ticking from a prior install or reboot.
-        RegistryHelper.SetStringIfAbsent(RegistryConstants.LastRebootUtc, DateTime.UtcNow.ToString("o"));
+        // LastRebootUtc is deliberately NOT seeded here — it is only written by
+        // the service when it initiates a reboot. Seeding it at install time made
+        // fresh installs suppress the reboot notification for 2 days even when
+        // Windows already had a reboot pending. The orchestrator still uses the
+        // actual system boot time as a floor for the 2-day gap.
         //RegistryHelper.SetStringIfAbsent(RegistryConstants.WingetExclusions, "Syncthing.Syncthing");
 
         // Start (or restart) the service.
@@ -118,6 +122,83 @@ public static class ServiceInstaller
     }
 
     // ── Private helpers ──────────────────────────────────────────────────────
+
+    /// <summary>
+    /// One-time migration: moves legacy UpdateService, UpdateNotifier,
+    /// UpdateHistory, and watchdog log files from the old default directory
+    /// (C:\ProgramData\CapTG\Logs) to the current default
+    /// (C:\ProgramData\CapTG\UpdateService\logs). Files that are in use are
+    /// skipped and picked up on the next install/upgrade. If the LogDirectory
+    /// registry value still points at the old default it is updated to the new
+    /// one; admin-customised paths are left alone.
+    /// </summary>
+    private static void MigrateLegacyLogs()
+    {
+        var oldDir = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+            "CapTG", "Logs");
+
+        try
+        {
+            if (Directory.Exists(oldDir))
+            {
+                Directory.CreateDirectory(AppConstants.DefaultLogDirectory);
+
+                string[] patterns =
+                    ["UpdateService-*.log", "UpdateNotifier-*.*", "UpdateHistory-*.log", "watchdog.txt"];
+
+                int moved = 0, skipped = 0;
+
+                foreach (var pattern in patterns)
+                {
+                    foreach (var file in Directory.GetFiles(oldDir, pattern))
+                    {
+                        var dest = Path.Combine(
+                            AppConstants.DefaultLogDirectory, Path.GetFileName(file));
+                        try
+                        {
+                            File.Move(file, dest, overwrite: true);
+                            moved++;
+                        }
+                        catch (Exception ex)
+                        {
+                            skipped++;
+                            LogConfig.ServiceLog.Warning(ex,
+                                "MigrateLegacyLogs: could not move {File} — it may be in use.",
+                                file);
+                        }
+                    }
+                }
+
+                if (moved > 0 || skipped > 0)
+                    LogConfig.ServiceLog.Information(
+                        "MigrateLegacyLogs: moved {Moved} file(s) from {OldDir} to {NewDir}; {Skipped} skipped.",
+                        moved, oldDir, AppConstants.DefaultLogDirectory, skipped);
+
+                // Remove the old directory once nothing is left in it.
+                if (Directory.GetFileSystemEntries(oldDir).Length == 0)
+                    Directory.Delete(oldDir);
+            }
+
+            // Point LogDirectory at the new default if it still references the
+            // old one — otherwise the service would recreate logs in the old dir.
+            var current = RegistryHelper.GetString(RegistryConstants.LogDirectory, string.Empty);
+            if (string.Equals(current.TrimEnd('\\'), oldDir.TrimEnd('\\'),
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                RegistryHelper.SetString(
+                    RegistryConstants.LogDirectory, AppConstants.DefaultLogDirectory);
+                LogConfig.ServiceLog.Information(
+                    "MigrateLegacyLogs: LogDirectory registry value updated to {NewDir}.",
+                    AppConstants.DefaultLogDirectory);
+            }
+        }
+        catch (Exception ex)
+        {
+            LogConfig.ServiceLog.Warning(ex,
+                "MigrateLegacyLogs: migration failed — continuing with installation.");
+        }
+    }
 
     /// <summary>
     /// Returns true if the named service is already registered with the SCM.

@@ -1,0 +1,827 @@
+2026-06-19 07:57:49.027 -05:00 [ERR] (Thread 84) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 224
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 190
+2026-06-19 07:57:49.087 -05:00 [WRN] (Thread 84) PipeServer: no response received — retrying notification in 15 minutes.
+2026-06-19 08:12:49.103 -05:00 [INF] (Thread 7) PipeServer: pipe created — launching notifier.
+2026-06-19 08:12:49.115 -05:00 [WRN] (Thread 7) PipeServer: killed stale notifier process (PID 36660).
+2026-06-19 08:12:49.115 -05:00 [INF] (Thread 7) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-19 08:12:49.116 -05:00 [DBG] (Thread 7) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-19 08:12:49.116 -05:00 [DBG] (Thread 7) UserProcessLauncher: using session ID = 1.
+2026-06-19 08:12:49.122 -05:00 [INF] (Thread 7) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-19 08:12:49.122 -05:00 [DBG] (Thread 7) PipeServer: waiting for notifier to connect.
+2026-06-19 08:12:49.384 -05:00 [INF] (Thread 7) PipeServer: notifier connected.
+2026-06-19 08:12:49.393 -05:00 [DBG] (Thread 84) PipeServer: RebootRequired message sent.
+2026-06-19 09:36:50.255 -05:00 [INF] (Thread 7) PipeServer: received UserResponse — SnoozeMinutes=360
+2026-06-19 09:36:50.256 -05:00 [INF] (Thread 7) PipeServer: user snoozed for 360 minutes (snoozeCount=1).
+2026-06-19 15:36:50.687 -05:00 [INF] (Thread 22) PipeServer: pipe created — launching notifier.
+2026-06-19 15:36:50.699 -05:00 [INF] (Thread 22) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-19 15:36:50.700 -05:00 [DBG] (Thread 22) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-19 15:36:50.700 -05:00 [DBG] (Thread 22) UserProcessLauncher: using session ID = 1.
+2026-06-19 15:36:50.742 -05:00 [INF] (Thread 22) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-19 15:36:50.742 -05:00 [DBG] (Thread 22) PipeServer: waiting for notifier to connect.
+2026-06-19 15:36:51.019 -05:00 [INF] (Thread 22) PipeServer: notifier connected.
+2026-06-19 15:36:51.028 -05:00 [DBG] (Thread 8) PipeServer: RebootRequired message sent.
+2026-06-19 15:37:04.290 -05:00 [INF] (Thread 8) PipeServer: received UserResponse — SnoozeMinutes=30
+2026-06-19 15:37:04.290 -05:00 [INF] (Thread 8) PipeServer: user snoozed for 30 minutes (snoozeCount=2).
+2026-06-19 16:07:04.341 -05:00 [INF] (Thread 8) PipeServer: pipe created — launching notifier.
+2026-06-19 16:07:04.348 -05:00 [INF] (Thread 8) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-06-19 16:07:04.350 -05:00 [DBG] (Thread 8) UserProcessLauncher: console session 1 has a valid user token.
+2026-06-19 16:07:04.350 -05:00 [DBG] (Thread 8) UserProcessLauncher: using session ID = 1.
+2026-06-19 16:07:04.357 -05:00 [INF] (Thread 8) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-06-19 16:07:04.357 -05:00 [DBG] (Thread 8) PipeServer: waiting for notifier to connect.
+2026-06-19 16:07:04.620 -05:00 [INF] (Thread 8) PipeServer: notifier connected.
+2026-06-19 16:07:04.629 -05:00 [DBG] (Thread 8) PipeServer: RebootRequired message sent.
+2026-06-19 16:07:11.192 -05:00 [INF] (Thread 15) PipeServer: received UserResponse — SnoozeMinutes=15
+2026-06-19 16:07:11.192 -05:00 [INF] (Thread 15) PipeServer: user snoozed for 15 minutes (snoozeCount=3).
+2026-06-19 16:13:58.416 -05:00 [INF] (Thread 15) UpdateBackgroundService: StopAsync called by SCM.
+2026-06-19 16:13:58.454 -05:00 [INF] (Thread 19) UpdateBackgroundService: stopping.
+2026-06-19 16:16:46.624 -05:00 [INF] (Thread 2) Logging initialized. Directory: C:\ProgramData\CapTG\Logs
+2026-06-19 16:16:46.661 -05:00 [INF] (Thread 2) CapTG UpdateService starting. Args: []
+2026-06-19 16:16:46.663 -05:00 [INF] (Thread 2) Notifier path: C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-06-19 16:16:46.750 -05:00 [INF] (Thread 2) Host built — handing control to the SCM.
+2026-06-19 16:16:46.789 -05:00 [INF] (Thread 10) UpdateBackgroundService: update interval = "01:00:00"
+2026-06-19 16:16:46.795 -05:00 [INF] (Thread 10) UpdateBackgroundService: StartAsync called by SCM.
+2026-06-19 16:16:46.796 -05:00 [INF] (Thread 8) UpdateBackgroundService: service started. Initial delay = "00:02:00".
+2026-06-19 16:18:46.805 -05:00 [INF] (Thread 13) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 16:18:47.317 -05:00 [INF] (Thread 14) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 16:18:47.318 -05:00 [INF] (Thread 14) SelfUpdater: already up to date.
+2026-06-19 16:18:47.323 -05:00 [INF] (Thread 14) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 16:18:47.325 -05:00 [INF] (Thread 14) WindowsUpdateWorker: starting update pass.
+2026-06-19 16:18:47.326 -05:00 [INF] (Thread 14) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 16:18:47.332 -05:00 [DBG] (Thread 13) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 16:19:02.287 -05:00 [INF] (Thread 14) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 16:19:02.289 -05:00 [DBG] (Thread 15) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 16:19:45.250 -05:00 [INF] (Thread 13) WindowsUpdateWorker: pass complete. Total=0 Succeeded=0 Failed=0 Skipped=0
+2026-06-19 16:19:45.259 -05:00 [INF] (Thread 13) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 16:19:45.260 -05:00 [INF] (Thread 13) UpdateOrchestrator: cycle complete. Total=0 Succeeded=0 Failed=0 RebootRequired=false
+2026-06-19 16:19:45.260 -05:00 [INF] (Thread 13) UpdateOrchestrator: no reboot required — cycle complete.
+2026-06-19 16:19:45.260 -05:00 [INF] (Thread 13) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 17:19:45.947 -05:00 [INF] (Thread 13) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 17:19:46.124 -05:00 [INF] (Thread 14) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 17:19:46.124 -05:00 [INF] (Thread 14) SelfUpdater: already up to date.
+2026-06-19 17:19:46.124 -05:00 [INF] (Thread 14) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 17:19:46.124 -05:00 [INF] (Thread 14) WindowsUpdateWorker: starting update pass.
+2026-06-19 17:19:46.124 -05:00 [INF] (Thread 14) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 17:19:46.125 -05:00 [DBG] (Thread 14) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 17:19:58.254 -05:00 [INF] (Thread 20) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 17:19:58.256 -05:00 [DBG] (Thread 20) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 17:20:41.114 -05:00 [INF] (Thread 17) WindowsUpdateWorker: pass complete. Total=0 Succeeded=0 Failed=0 Skipped=0
+2026-06-19 17:20:41.115 -05:00 [INF] (Thread 17) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 17:20:41.115 -05:00 [INF] (Thread 17) UpdateOrchestrator: cycle complete. Total=0 Succeeded=0 Failed=0 RebootRequired=false
+2026-06-19 17:20:41.115 -05:00 [INF] (Thread 17) UpdateOrchestrator: no reboot required — cycle complete.
+2026-06-19 17:20:41.115 -05:00 [INF] (Thread 17) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 18:20:41.198 -05:00 [INF] (Thread 19) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 18:20:41.428 -05:00 [INF] (Thread 19) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 18:20:41.428 -05:00 [INF] (Thread 19) SelfUpdater: already up to date.
+2026-06-19 18:20:41.428 -05:00 [INF] (Thread 19) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 18:20:41.428 -05:00 [INF] (Thread 19) WindowsUpdateWorker: starting update pass.
+2026-06-19 18:20:41.428 -05:00 [INF] (Thread 19) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 18:20:41.430 -05:00 [DBG] (Thread 19) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 18:20:52.750 -05:00 [INF] (Thread 19) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 18:20:52.751 -05:00 [DBG] (Thread 19) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 18:21:35.247 -05:00 [INF] (Thread 22) WindowsUpdateWorker: pass complete. Total=0 Succeeded=0 Failed=0 Skipped=0
+2026-06-19 18:21:35.247 -05:00 [INF] (Thread 22) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 18:21:35.247 -05:00 [INF] (Thread 22) UpdateOrchestrator: cycle complete. Total=0 Succeeded=0 Failed=0 RebootRequired=false
+2026-06-19 18:21:35.247 -05:00 [INF] (Thread 22) UpdateOrchestrator: no reboot required — cycle complete.
+2026-06-19 18:21:35.248 -05:00 [INF] (Thread 22) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 19:21:35.323 -05:00 [INF] (Thread 23) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 19:21:35.481 -05:00 [INF] (Thread 23) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 19:21:35.481 -05:00 [INF] (Thread 23) SelfUpdater: already up to date.
+2026-06-19 19:21:35.481 -05:00 [INF] (Thread 23) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 19:21:35.481 -05:00 [INF] (Thread 23) WindowsUpdateWorker: starting update pass.
+2026-06-19 19:21:35.481 -05:00 [INF] (Thread 23) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 19:21:35.482 -05:00 [DBG] (Thread 23) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 19:22:41.129 -05:00 [INF] (Thread 21) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 19:22:41.133 -05:00 [DBG] (Thread 21) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 19:23:25.261 -05:00 [INF] (Thread 26) WindowsUpdateWorker: pass complete. Total=0 Succeeded=0 Failed=0 Skipped=0
+2026-06-19 19:23:25.262 -05:00 [INF] (Thread 26) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 19:23:25.262 -05:00 [INF] (Thread 26) UpdateOrchestrator: cycle complete. Total=0 Succeeded=0 Failed=0 RebootRequired=false
+2026-06-19 19:23:25.262 -05:00 [INF] (Thread 26) UpdateOrchestrator: no reboot required — cycle complete.
+2026-06-19 19:23:25.262 -05:00 [INF] (Thread 26) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 20:23:25.326 -05:00 [INF] (Thread 26) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 20:23:25.515 -05:00 [INF] (Thread 26) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 20:23:25.515 -05:00 [INF] (Thread 26) SelfUpdater: already up to date.
+2026-06-19 20:23:25.515 -05:00 [INF] (Thread 26) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 20:23:25.515 -05:00 [INF] (Thread 26) WindowsUpdateWorker: starting update pass.
+2026-06-19 20:23:25.515 -05:00 [INF] (Thread 26) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 20:23:25.517 -05:00 [DBG] (Thread 26) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 20:23:39.069 -05:00 [INF] (Thread 26) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 20:23:39.070 -05:00 [DBG] (Thread 26) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 20:24:21.705 -05:00 [INF] (Thread 26) WindowsUpdateWorker: pass complete. Total=0 Succeeded=0 Failed=0 Skipped=0
+2026-06-19 20:24:21.705 -05:00 [INF] (Thread 26) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 20:24:21.706 -05:00 [INF] (Thread 26) UpdateOrchestrator: cycle complete. Total=0 Succeeded=0 Failed=0 RebootRequired=false
+2026-06-19 20:24:21.706 -05:00 [INF] (Thread 26) UpdateOrchestrator: no reboot required — cycle complete.
+2026-06-19 20:24:21.706 -05:00 [INF] (Thread 26) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 21:24:21.772 -05:00 [INF] (Thread 26) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 21:24:21.926 -05:00 [INF] (Thread 28) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 21:24:21.926 -05:00 [INF] (Thread 28) SelfUpdater: already up to date.
+2026-06-19 21:24:21.926 -05:00 [INF] (Thread 28) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 21:24:21.926 -05:00 [INF] (Thread 28) WindowsUpdateWorker: starting update pass.
+2026-06-19 21:24:21.926 -05:00 [INF] (Thread 28) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 21:24:21.930 -05:00 [DBG] (Thread 28) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 21:24:34.227 -05:00 [INF] (Thread 3) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 21:24:34.228 -05:00 [DBG] (Thread 3) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 21:25:18.105 -05:00 [INF] (Thread 30) WindowsUpdateWorker: no updates installed — system reboot is already pending.
+2026-06-19 21:25:18.106 -05:00 [INF] (Thread 30) WindowsUpdateWorker: pass complete. Total=1 Succeeded=1 Failed=0 Skipped=0
+2026-06-19 21:25:18.112 -05:00 [INF] (Thread 30) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 21:25:18.112 -05:00 [INF] (Thread 30) UpdateOrchestrator: cycle complete. Total=1 Succeeded=1 Failed=0 RebootRequired=true
+2026-06-19 21:25:18.113 -05:00 [INF] (Thread 30) UpdateOrchestrator: reboot required but last reboot was 5.2 hours ago — skipping notification until 2-day minimum has elapsed.
+2026-06-19 21:25:18.113 -05:00 [INF] (Thread 30) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 22:25:18.158 -05:00 [INF] (Thread 30) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 22:25:18.467 -05:00 [INF] (Thread 30) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 22:25:18.468 -05:00 [INF] (Thread 30) SelfUpdater: already up to date.
+2026-06-19 22:25:18.468 -05:00 [INF] (Thread 30) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 22:25:18.468 -05:00 [INF] (Thread 30) WindowsUpdateWorker: starting update pass.
+2026-06-19 22:25:18.468 -05:00 [INF] (Thread 30) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 22:25:18.470 -05:00 [DBG] (Thread 30) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 22:25:30.578 -05:00 [INF] (Thread 32) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 22:25:30.579 -05:00 [DBG] (Thread 32) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 22:26:14.017 -05:00 [INF] (Thread 30) WindowsUpdateWorker: no updates installed — system reboot is already pending.
+2026-06-19 22:26:14.017 -05:00 [INF] (Thread 30) WindowsUpdateWorker: pass complete. Total=1 Succeeded=1 Failed=0 Skipped=0
+2026-06-19 22:26:14.018 -05:00 [INF] (Thread 30) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 22:26:14.018 -05:00 [INF] (Thread 30) UpdateOrchestrator: cycle complete. Total=1 Succeeded=1 Failed=0 RebootRequired=true
+2026-06-19 22:26:14.018 -05:00 [INF] (Thread 30) UpdateOrchestrator: reboot required but last reboot was 6.2 hours ago — skipping notification until 2-day minimum has elapsed.
+2026-06-19 22:26:14.018 -05:00 [INF] (Thread 30) UpdateBackgroundService: next cycle in "01:00:00".
+2026-06-19 23:26:14.108 -05:00 [INF] (Thread 32) SelfUpdater: checking for updates. Current version: 0.26.230.591
+2026-06-19 23:26:14.241 -05:00 [INF] (Thread 32) SelfUpdater: remote version = 0.26.230.591.
+2026-06-19 23:26:14.241 -05:00 [INF] (Thread 32) SelfUpdater: already up to date.
+2026-06-19 23:26:14.241 -05:00 [INF] (Thread 32) UpdateOrchestrator: === Update cycle starting ===
+2026-06-19 23:26:14.241 -05:00 [INF] (Thread 32) WindowsUpdateWorker: starting update pass.
+2026-06-19 23:26:14.241 -05:00 [INF] (Thread 32) WindowsUpdateWorker: verifying PSWindowsUpdate module.
+2026-06-19 23:26:14.245 -05:00 [DBG] (Thread 32) WindowsUpdateWorker: running PS script: $ProgressPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'Stop'
+            try {
+                if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) {
+                    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope AllUsers | Out-Null
+                }
+                Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+                if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate -ErrorAction SilentlyContinue)) {
+                    Install-Module PSWindowsUpdate -Force -SkipPublisherCheck -Scope AllUsers | Out-Null
+                }
+                Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+                try {
+                    Add-WUServiceManager -MicrosoftUpdate -Confirm:$false -ErrorAction SilentlyContinue | Out-Null
+                } catch {}
+                Write-Output 'OK'
+            } catch {
+                Write-Output ('ERROR: ' + $_.Exception.Message)
+            }
+2026-06-19 23:26:25.804 -05:00 [INF] (Thread 31) WindowsUpdateWorker: PSWindowsUpdate module OK.
+2026-06-19 23:26:25.805 -05:00 [DBG] (Thread 31) WindowsUpdateWorker: running PS script: Import-Module PSWindowsUpdate -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'
+
+        # Force the Windows Update Agent to scan before installing.
+        # Fixes 0x80248007 (WU_E_DS_NODATA) on fresh builds or machines
+        # whose update data store has not been initialised yet.
+        try {
+            Start-Process -FilePath 'UsoClient.exe' `
+                -ArgumentList 'StartScan' `
+                -Wait -NoNewWindow -ErrorAction SilentlyContinue
+            Start-Sleep -Seconds 30
+        } catch {}
+
+        # 2>&1 merges stderr into the pipeline mixing strings with update
+        # objects -- we filter them out in the foreach loop below.
+        $rawOutput = Install-WindowsUpdate `
+            -MicrosoftUpdate `
+            -AcceptAll `
+            -IgnoreReboot `
+            -Install `
+            -ErrorAction Continue 2>&1
+
+        # Use a hashtable keyed on Title to keep only the LAST result per update.
+        # PSWindowsUpdate emits objects at multiple pipeline stages (search, download,
+        # install); overwriting ensures we capture the final post-install ResultCode
+        # rather than an early ResultCode=0 (NotStarted).
+        $byKey = @{}
+
+        foreach ($u in $rawOutput) {
+            if ($null -eq $u -or $u -isnot [PSObject]) { continue }
+            if (-not ($u.PSObject.Properties.Name -contains 'Title')) { continue }
+            if ([string]::IsNullOrWhiteSpace($u.Title)) { continue }
+
+            $resultCode = 0
+            try { $resultCode = [int]$u.ResultCode } catch { $resultCode = 4 }
+            $succeeded = ($resultCode -eq 2 -or $resultCode -eq 3)
+
+            # ResultCode=0 means NotStarted — treat as Skipped, not Failed.
+            $status = if ($succeeded) { 'Succeeded' } elseif ($resultCode -eq 0) { 'Skipped' } else { 'Failed' }
+
+            $kb = ''
+            try {
+                if ($u.KBArticleIDs -and $u.KBArticleIDs.Count -gt 0) {
+                    $kb = 'KB' + $u.KBArticleIDs[0]
+                }
+            } catch {}
+
+            $needsReboot = $false
+            try { $needsReboot = [bool]$u.RebootRequired } catch {}
+
+            $byKey[$u.Title] = [PSCustomObject]@{
+                Identifier     = $kb
+                Title          = [string]$u.Title
+                Status         = $status
+                ErrorMessage   = if ($succeeded -or $resultCode -eq 0) { '' } else { 'ResultCode=' + $resultCode }
+                RebootRequired = $needsReboot
+                AttemptedAt    = (Get-Date -Format 'o')
+            }
+        }
+
+        $results = @($byKey.Values)
+
+        if ($results.Count -eq 0) {
+            Write-Output '[]'
+        } else {
+            $results | ConvertTo-Json -Compress
+        }
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) WindowsUpdateWorker: no updates installed — system reboot is already pending.
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) WindowsUpdateWorker: pass complete. Total=1 Succeeded=1 Failed=0 Skipped=0
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) WingetWorker: skipping — last run was 2026-06-18T17:46:48.2583796Z (less than 7 days ago).
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) UpdateOrchestrator: cycle complete. Total=1 Succeeded=1 Failed=0 RebootRequired=true
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) UpdateOrchestrator: reboot required but last reboot was 7.2 hours ago — skipping notification until 2-day minimum has elapsed.
+2026-06-19 23:27:08.685 -05:00 [INF] (Thread 32) UpdateBackgroundService: next cycle in "01:00:00".

@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(cd \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\" && dotnet build UpdateService/UpdateService.csproj UpdateNotifier/UpdateNotifier.csproj Shared/Shared.csproj -c Release 2>&1 | tail -5)",
-      "Bash(cd \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\" && dotnet build UpdateService/UpdateService.csproj -c Release 2>&1 | tail -5 && dotnet build Shared/Shared.csproj -c Release 2>&1 | tail -3)"
+      "Bash(cd \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\" && dotnet build UpdateService/UpdateService.csproj -c Release 2>&1 | tail -5 && dotnet build Shared/Shared.csproj -c Release 2>&1 | tail -3)",
+      "PowerShell(Set-Location *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\"; & \"$env:windir\\\\Sysnative\\\\cmd.exe\" /c \".\\\\publish\\\\Installer\\\\create_installer.bat\" 2>&1 | Select-Object -Last 15)",
+      "PowerShell(dotnet build *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\"; & \"$env:windir\\\\Sysnative\\\\cmd.exe\" /c \".\\\\publish\\\\Installer\\\\create_installer.bat\" 2>&1 | Select-Object -Last 6; \"EXIT CODE: $LASTEXITCODE\")"
     ]
   }
 }

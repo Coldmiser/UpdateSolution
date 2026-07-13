@@ -1,3 +1,89 @@
+Version 1.26.524.632
+2026-07-06
+
+-  An option to reboot your computer at 5:30 has been added so no further interuptions in your day will occur
+
+-  Pending-reboot registry indicators are now baselined at service start, so pre-existing/unchanging flags no longer force a reboot prompt on their own
+   Files: UpdateService/Workers/WindowsUpdateWorker.cs
+          UpdateService/Service/UpdateBackgroundService.cs
+
+   Background: WindowsUpdateWorker.IsRebootPending() checks three registry locations that Windows Update / CBS use to signal a pending reboot:
+     - HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired
+     - HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending
+     - HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations
+   Previously, simple existence of any of these was treated as "reboot pending," which re-triggered the PendingReboot sentinel (and therefore a user prompt)
+   every update cycle for machines where one of these keys/values is present long-term and never actually clears (seen repeatedly in the some log reviews
+   where the same stale flag re-prompted for days).
+
+   What changed:
+   - Added WindowsUpdateWorker.CaptureRebootBaseline(), which snapshots a content fingerprint (subkey names + values, or the PendingFileRenameOperations
+     value contents) of all three indicators and logs present/absent for each. 
+   - UpdateBackgroundService.ExecuteAsync now calls CaptureRebootBaseline() once, at service start, before the update loop begins.
+   - IsRebootPending() now compares the current indicator state against that baseline. An indicator only counts as "pending" when it is present AND
+     either appeared after service start or its contents changed since the baseline was captured. An indicator that was already present at startup
+     and has not changed is logged as stale and ignored.
+   - If no baseline was ever captured (defensive fallback), behavior reverts to the old "present = pending" rule.
+
+   Why: Requested change so that these three registry keys are recorded at service startup, and a reboot is not suggested purely because one of them
+   is non-empty and unchanged — only new or changed indicators should trigger a prompt.
+
+   Known trade-off: the baseline is in-memory per service run. A service restart that is not a real reboot (e.g. self-update hot-swap) re-baselines
+   and will treat a then-legitimate pending flag as stale until it changes again. Flagged to the user; not addressed in this change (would require
+   persisting the baseline to the registry and only resetting it on an actual boot).
+
+- Updated UpdateOrchestrator to force a 3 day wait (72 hours) between forced reboots Users still complaining about too many reboots, so I extended it to 72 hours.
+
+Version 1.26.505.690
+2026-07-06
+
+- InstType Registry Validation on UpService Startup (UpdateService/Program.cs)
+	Added a block that runs immediately after logging is initialized, before the .NET host is built. It opens HKLM\SOFTWARE\CapTG and checks the InstType string value:
+	- Valid value ("Server" or "Client") — logs it and continues
+	- Invalid value — logs a warning, deletes the entry, then auto-detects (see below)
+	- Absent — auto-detects (see below)
+
+- Auto-Detection of Machine Type (UpdateService/Program.cs)
+	Extracted into a local function DetectAndWriteInstType. When InstType is missing or was just deleted, it queries HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\InstallationType and maps:
+
+	┌──────────────────────────┬──────────────────────────────┐
+	│     InstallationType     │       Written InstType       │
+	├──────────────────────────┼──────────────────────────────┤
+	│ "Client"                 │ "Client"                     │
+	├──────────────────────────┼──────────────────────────────┤
+	│ "Server" / "Server Core" │ "Server"                     │
+	├──────────────────────────┼──────────────────────────────┤
+	│ Anything else            │ Not written (warning logged) │
+	└──────────────────────────┴──────────────────────────────┘
+
+- Auto-Write of RebootTime for Servers (UpdateService/Program.cs)
+	When DetectAndWriteInstType writes InstType = Server, it also immediately writes RebootTime = 4:00am to HKLM\SOFTWARE\CapTG.
+
+- Server Silent-Reboot Mode in UpdateService (UpdateService/Pipes/PipeServer.cs)
+	NotifyRebootRequiredAsync checks InstType before launching the notifier. If the machine is a server:
+
+	- The notifier is never launched — no UI is ever shown
+	- The service reads RebootTime from HKLM\SOFTWARE\CapTG, parses it culture-invariantly (defaults to 4:00AM if missing or unparseable), and waits until the next occurrence of that time (rolling to tomorrow if it has already passed today)
+	- At the scheduled time the service reboots the machine via shutdown.exe
+	- Runs as SYSTEM inside the service, so it works with no user logged in and always has reboot privilege
+	(This logic was first prototyped in UpdateNotifier and moved into the service the same day.)
+
+- Faster reboot after choosing "Reboot Now" (UpdateService/Pipes/PipeServer.cs, UpdateNotifier/App.xaml.cs)
+	- shutdown.exe countdown reduced from 30 seconds to 5 seconds
+	- Fixed a race where the notifier's pipe response could be lost during app shutdown, causing the service to wait 15 minutes and re-prompt; the response is now sent after the window closes, with an explicit Shutdown() only after the send completes
+
+- Installer build guards (publish/Installer/create_installer.bat, Build-And-Publish.ps1)
+	- create_installer.bat now aborts with exit code 1 if 7-Zip is not installed or the payload archive was not created, instead of silently producing a payload-less 140 KB installer; on failure the previous __CapTG_Updater_Latest.exe is preserved
+	- Build-And-Publish.ps1 now checks create_installer.bat's exit code and stops with an error instead of showing the success banner
+
+---
+Files changed:
+- UpdateService/Program.cs — InstType validation, auto-detection, RebootTime write
+- UpdateService/Pipes/PipeServer.cs — server silent-reboot scheduling, 5-second reboot countdown
+- UpdateNotifier/App.xaml.cs — response-send race fix (explicit shutdown mode)
+- Shared/Constants/RegistryConstants.cs — new CapTgKeyPath, InstType, RebootTime constants
+- publish/Installer/create_installer.bat — 7-Zip and payload guards
+- Build-And-Publish.ps1 — installer exit-code check
+
 Version 0.26.230.591
 2026-03-23
 - Created uninstall.exe and worked on removal method of this installer
@@ -6,7 +92,7 @@ Version 0.26.230.591
 - Wix Toolset has still not been implemented due to bugs in the installer
 - parameter was added to UpdateNotifier for testing purposes "--test" will bring up the notifier
 - Updated notifier to include company website and phone number
-- Updated UpdateOrchestrator to force a 2 day wait between forced reboots
+- Updated UpdateOrchestrator to force a 2 day wait (48 hours) between forced reboots
 	Too many reboots were getting annoying and would prevent implementation
 
 Version 0.26.194.425

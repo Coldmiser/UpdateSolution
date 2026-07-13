@@ -1,0 +1,42 @@
+2026-06-07 06:00:27.441 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\Logs
+2026-06-07 06:00:27.462 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-06-07 06:00:27.463 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-06-07 06:00:27.471 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-06-07 06:00:27.475 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-06-07 06:00:27.511 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-06-07 06:00:27.552 -05:00 [INF] (Thread 2) SnoozeManager initialised with 6 options (previousSnoozeCount=0).
+2026-06-07 06:00:27.555 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=6
+2026-06-07 06:00:27.555 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-06-07 06:00:28.254 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-06-07 06:00:28.352 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-06-07 06:00:28.352 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 146).
+2026-06-07 06:00:28.368 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-06-07 06:00:28.371 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-06-07 14:15:28.215 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\Logs
+2026-06-07 14:15:28.237 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-06-07 14:15:28.238 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-06-07 14:15:28.246 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-06-07 14:15:28.251 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-06-07 14:15:28.301 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-06-07 14:15:28.303 -05:00 [INF] (Thread 2) SnoozeManager initialised with 6 options (previousSnoozeCount=0).
+2026-06-07 14:15:28.304 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=6
+2026-06-07 14:15:28.304 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-06-07 14:15:28.815 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-06-07 14:15:28.912 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-06-07 14:15:28.913 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 146).
+2026-06-07 14:15:28.929 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-06-07 14:15:28.931 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-06-07 22:30:28.997 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\Logs
+2026-06-07 22:30:29.018 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-06-07 22:30:29.018 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-06-07 22:30:29.027 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-06-07 22:30:29.031 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-06-07 22:30:29.067 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-06-07 22:30:29.069 -05:00 [INF] (Thread 2) SnoozeManager initialised with 6 options (previousSnoozeCount=0).
+2026-06-07 22:30:29.070 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=6
+2026-06-07 22:30:29.070 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-06-07 22:30:29.763 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-06-07 22:30:29.855 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-06-07 22:30:29.855 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 146).
+2026-06-07 22:30:29.871 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-06-07 22:30:29.874 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.

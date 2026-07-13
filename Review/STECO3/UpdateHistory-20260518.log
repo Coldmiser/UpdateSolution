@@ -1,0 +1,15 @@
+2026-05-18 17:08:40 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-18T22:08:40.7426494Z
+2026-05-18 17:08:45 | WRN | WINGET | \ | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-18T22:08:45.4651381Z
+2026-05-18 17:10:00 | INF | WINGET | Zoom.Zoom | Status="Succeeded" | RebootRequired=false | 2026-05-18T22:10:00.4229434Z
+2026-05-18 17:10:08 | INF | WINGET | Microsoft.Sqlcmd | Status="Succeeded" | RebootRequired=false | 2026-05-18T22:10:08.8434976Z
+2026-05-18 17:10:20 | INF | WINGET | Microsoft.msodbcsql.18 | Status="Succeeded" | RebootRequired=false | 2026-05-18T22:10:20.2482256Z
+2026-05-18 17:10:22 | WRN | WINGET | 14.44.35211.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-18T22:10:22.5489999Z
+2026-05-18 17:10:23 | WRN | WINGET | Microsoft.WindowsInstallationAssistant 1.4.19041.5003 1.4.19041.6448 winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-18T22:10:23.8392432Z
+2026-05-18 17:10:26 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335189:  | 2026-05-18T22:10:26.0930501Z
+2026-05-18 17:10:27 | WRN | WINGET | 14.44.35211.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-05-18T22:10:27.3646552Z
+2026-05-18 18:11:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-18T23:11:22.5440347Z
+2026-05-18 19:12:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-19T00:12:25.2291886Z
+2026-05-18 20:13:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-19T01:13:22.3778325Z
+2026-05-18 21:14:16 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-19T02:14:16.6597008Z
+2026-05-18 22:15:12 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-19T03:15:12.0414311Z
+2026-05-18 23:16:06 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-05-19T04:16:06.9604380Z

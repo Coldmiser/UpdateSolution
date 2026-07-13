@@ -1,0 +1,44 @@
+2026-06-24 01:00:18 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T01:00:17.9037757-05:00
+2026-06-24 01:00:18 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T01:00:17.9057762-05:00
+2026-06-24 01:00:18 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T01:00:17.9067738-05:00
+2026-06-24 01:00:18 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T06:00:18.0165337Z
+2026-06-24 02:01:45 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T02:01:45.6321611-05:00
+2026-06-24 02:01:45 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T02:01:45.6351240-05:00
+2026-06-24 02:01:45 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T02:01:45.6351240-05:00
+2026-06-24 02:01:45 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T07:01:45.7359509Z
+2026-06-24 03:03:20 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T03:03:20.7363743-05:00
+2026-06-24 03:03:20 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T03:03:20.7383743-05:00
+2026-06-24 03:03:20 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T03:03:20.7393744-05:00
+2026-06-24 03:03:20 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T08:03:20.8343951Z
+2026-06-24 04:05:08 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T04:05:08.3790142-05:00
+2026-06-24 04:05:08 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T04:05:08.3824309-05:00
+2026-06-24 04:05:08 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T04:05:08.3834363-05:00
+2026-06-24 04:05:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T09:05:08.4936359Z
+2026-06-24 05:06:27 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T05:06:27.5582799-05:00
+2026-06-24 05:06:27 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T05:06:27.5603867-05:00
+2026-06-24 05:06:27 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T05:06:27.5614885-05:00
+2026-06-24 05:06:27 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T10:06:27.6589193Z
+2026-06-24 06:08:03 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T06:08:03.2333125-05:00
+2026-06-24 06:08:03 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T06:08:03.2353126-05:00
+2026-06-24 06:08:03 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T06:08:03.2353126-05:00
+2026-06-24 06:08:03 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T11:08:03.3289295Z
+2026-06-24 07:09:21 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T07:09:21.8798977-05:00
+2026-06-24 07:09:21 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T07:09:21.8818981-05:00
+2026-06-24 07:09:21 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T07:09:21.8828981-05:00
+2026-06-24 07:09:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T12:09:21.9766508Z
+2026-06-24 08:10:49 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T08:10:49.2693543-05:00
+2026-06-24 08:10:49 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T08:10:49.2713555-05:00
+2026-06-24 08:10:49 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T08:10:49.2723899-05:00
+2026-06-24 08:10:49 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T13:10:49.3767418Z
+2026-06-24 09:12:13 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T09:12:13.8512410-05:00
+2026-06-24 09:12:13 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T09:12:13.8552377-05:00
+2026-06-24 09:12:13 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T09:12:13.8562765-05:00
+2026-06-24 09:12:13 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T14:12:13.9640681Z
+2026-06-24 10:14:05 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T10:14:05.4246498-05:00
+2026-06-24 10:14:05 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T10:14:05.4266506-05:00
+2026-06-24 10:14:05 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T10:14:05.4276525-05:00
+2026-06-24 10:14:05 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T15:14:05.5284211Z
+2026-06-24 11:15:36 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-24T11:15:36.4894767-05:00
+2026-06-24 11:15:36 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-24T11:15:36.4914890-05:00
+2026-06-24 11:15:36 | INF | WINDOWS-UPDATE | KB=KB5094126 | Title=Windows 11, version 25H2 | Status=Skipped | 2026-06-24T11:15:36.4924830-05:00
+2026-06-24 11:15:36 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-06-24T16:15:36.5882622Z

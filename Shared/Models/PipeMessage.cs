@@ -21,7 +21,13 @@ public enum MessageType
     Ping,
 
     /// <summary>UI → Service: keep-alive reply.</summary>
-    Pong
+    Pong,
+
+    /// <summary>
+    /// Service → UI: the scheduled reboot is minutes away — show the short
+    /// countdown warning with a single "Delay" option.
+    /// </summary>
+    RebootImminent
 }
 
 /// <summary>
@@ -57,11 +63,21 @@ public sealed class PipeMessage
 
     /// <summary>
     /// User's snooze choice in minutes.
-    /// 0 = "Reboot Now"; any positive value = snooze duration.
+    /// 0 = "Reboot Now"; any positive value = snooze duration;
+    /// <see cref="Shared.Constants.AppConstants.ScheduledRebootSentinel"/> (-1) =
+    /// "Reboot at 5:30 PM" (service schedules the reboot, no further input needed).
     /// Populated only for <see cref="MessageType.UserResponse"/>.
     /// </summary>
     [JsonPropertyName("snoozeMinutes")]
     public int SnoozeMinutes { get; set; }
+
+    /// <summary>
+    /// UTC time the scheduled reboot will occur.
+    /// Populated only for <see cref="MessageType.RebootImminent"/> so the
+    /// countdown window can display an accurate timer.
+    /// </summary>
+    [JsonPropertyName("rebootAtUtc")]
+    public DateTime RebootAtUtc { get; set; }
 
     /// <summary>
     /// Number of times the user has snoozed in the current notification cycle.

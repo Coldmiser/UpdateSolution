@@ -1,0 +1,35 @@
+2026-06-02 07:52:45 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T07:52:45.2360846-05:00
+2026-06-02 07:52:45 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T07:52:45.2380847-05:00
+2026-06-02 08:53:41 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T08:53:41.7842378-05:00
+2026-06-02 08:53:41 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T08:53:41.7862377-05:00
+2026-06-02 09:54:40 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T09:54:40.6669044-05:00
+2026-06-02 09:54:40 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T09:54:40.6696060-05:00
+2026-06-02 09:54:46 | WRN | WINGET | \ | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-02T14:54:46.4049101Z
+2026-06-02 09:54:47 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335189:  | 2026-06-02T14:54:47.6730346Z
+2026-06-02 09:54:48 | WRN | WINGET | 1.5.8 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-06-02T14:54:48.9338479Z
+2026-06-02 10:55:47 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T10:55:47.1343873-05:00
+2026-06-02 10:55:47 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T10:55:47.1363880-05:00
+2026-06-02 11:56:45 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T11:56:45.5236022-05:00
+2026-06-02 11:56:45 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T11:56:45.5270094-05:00
+2026-06-02 12:57:41 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T12:57:41.4120171-05:00
+2026-06-02 12:57:41 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T12:57:41.4140145-05:00
+2026-06-02 13:59:54 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T13:59:54.0757837-05:00
+2026-06-02 13:59:54 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T13:59:54.0797835-05:00
+2026-06-02 15:00:51 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T15:00:51.2591801-05:00
+2026-06-02 15:00:51 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T15:00:51.2612544-05:00
+2026-06-02 16:02:12 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T16:02:12.4207151-05:00
+2026-06-02 16:02:12 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T16:02:12.4226850-05:00
+2026-06-02 17:03:11 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T17:03:11.3546865-05:00
+2026-06-02 17:03:11 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T17:03:11.3566858-05:00
+2026-06-02 18:04:10 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T18:04:10.0792121-05:00
+2026-06-02 18:04:10 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T18:04:10.0814135-05:00
+2026-06-02 19:05:08 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T19:05:08.4682398-05:00
+2026-06-02 19:05:08 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T19:05:08.4702385-05:00
+2026-06-02 20:06:09 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T20:06:09.1568069-05:00
+2026-06-02 20:06:09 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T20:06:09.1588033-05:00
+2026-06-02 21:07:19 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T21:07:19.1323773-05:00
+2026-06-02 21:07:19 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T21:07:19.1343753-05:00
+2026-06-02 22:08:21 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T22:08:20.9184935-05:00
+2026-06-02 22:08:21 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T22:08:20.9199629-05:00
+2026-06-02 23:09:18 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29554.1001) | Status=Skipped | 2026-06-02T23:09:18.2705506-05:00
+2026-06-02 23:09:18 | INF | WINDOWS-UPDATE | KB= | Title=Brother - Printer - 1.11.0.0 | Status=Skipped | 2026-06-02T23:09:18.2725498-05:00

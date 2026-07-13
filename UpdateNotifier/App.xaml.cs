@@ -3,6 +3,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
+using Shared.Constants;
 using Shared.Models;
 using UpdateNotifier.Logging;
 using UpdateNotifier.Pipes;
@@ -45,6 +46,10 @@ public partial class App : Application
             base.OnStartup(e);
 //* EMERGENCY LOG            WriteEmergency("OnStartup: base.OnStartup completed.");
 
+            // The app must stay alive after the window closes until the pipe
+            // response has been sent — every exit path calls Shutdown() explicitly.
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
             // Configure Serilog.
             LogConfig.Configure();
 //* EMERGENCY LOG            WriteEmergency("OnStartup: LogConfig.Configure() completed.");
@@ -70,8 +75,14 @@ public partial class App : Application
 
             var isTestMode = allArgs.Any(a =>
                 a.Equals("--test", StringComparison.OrdinalIgnoreCase));
+            var isCountdownTestMode = allArgs.Any(a =>
+                a.Equals("--test-countdown", StringComparison.OrdinalIgnoreCase));
 
-            if (isTestMode)
+            if (isCountdownTestMode)
+            {
+                RunCountdownTestMode();
+            }
+            else if (isTestMode)
             {
  //* EMERGENCY LOG               WriteEmergency("OnStartup: entering test mode.");
                 await RunTestModeAsync();
@@ -151,9 +162,23 @@ public partial class App : Application
             return;
         }
 
-        if (message is null || message.Type != MessageType.RebootRequired)
+        if (message is null)
         {
-            LogConfig.Log.Error("Unexpected message type={T}.", message?.Type.ToString() ?? "null");
+            LogConfig.Log.Error("No message received from service.");
+            Shutdown(1);
+            return;
+        }
+
+        // Pre-reboot countdown warning — short window, single "Delay" option.
+        if (message.Type == MessageType.RebootImminent)
+        {
+            await RunCountdownModeAsync(message);
+            return;
+        }
+
+        if (message.Type != MessageType.RebootRequired)
+        {
+            LogConfig.Log.Error("Unexpected message type={T}.", message.Type);
             Shutdown(1);
             return;
         }
@@ -161,17 +186,99 @@ public partial class App : Application
         _snoozeManager = new SnoozeManager(message.SnoozeCount);
         _viewModel     = new MainViewModel(_snoozeManager);
         _viewModel.LoadFromMessage(message);
-        _viewModel.UserDecided += async (_, choice) => await HandleUserDecisionAsync(choice);
+
+        // Capture the choice here; the window closes itself when the user decides.
+        // The response is sent AFTER ShowDialog returns so the pipe write always
+        // completes before the application starts shutting down — sending from an
+        // async event handler raced against app exit and could drop the response,
+        // making the service wait 15 minutes and re-prompt.
+        SnoozeOption? decision = null;
+        _viewModel.UserDecided += (_, choice) => decision = choice;
 
         var window = new Views.MainWindow(_viewModel);
         MainWindow = window;
         window.ShowDialog();
+
+        if (decision is not null)
+            await HandleUserDecisionAsync(decision);
+
+        Shutdown(0);
+    }
+
+    // ── Countdown (reboot-imminent) mode ──────────────────────────────────────
+    /// <summary>
+    /// Shows the short pre-reboot countdown window. Sends back the delay
+    /// request (5) if the user clicks "Delay 5 Minutes"; otherwise sends 0 so
+    /// the service proceeds with the reboot. The window auto-closes when the
+    /// countdown expires — no interaction is required.
+    /// </summary>
+    private async Task RunCountdownModeAsync(PipeMessage message)
+    {
+        var rebootAtLocal = message.RebootAtUtc.ToLocalTime();
+        LogConfig.Log.Information(
+            "UpdateNotifier: reboot-imminent warning — reboot at {At}.", rebootAtLocal);
+
+        var window = new Views.CountdownWindow(rebootAtLocal);
+        MainWindow = window;
+        window.ShowDialog();
+
+        // Send the response AFTER the window closes (same race-avoidance
+        // pattern as normal mode — see RunNormalModeAsync).
+        var responseMinutes = window.DelayRequested
+            ? AppConstants.ScheduledRebootDelayMinutes
+            : 0;
+
+        LogConfig.Log.Information(
+            "UpdateNotifier: countdown result — DelayRequested={D}, sending {Min}.",
+            window.DelayRequested, responseMinutes);
+
+        if (_pipeClient is not null)
+        {
+            try
+            {
+                using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+                await _pipeClient.SendResponseAsync(responseMinutes, cts.Token);
+            }
+            catch (Exception ex)
+            {
+                LogConfig.Log.Error(ex, "Failed to send countdown response to service.");
+            }
+            finally
+            {
+                _pipeClient.Dispose();
+                _pipeClient = null;
+            }
+        }
+
+        Shutdown(0);
+    }
+
+    // ── Countdown test mode (--test-countdown) ────────────────────────────────
+    /// <summary>
+    /// Shows the countdown window with a mock 5-minute deadline, no service needed.
+    /// </summary>
+    private void RunCountdownTestMode()
+    {
+        LogConfig.Log.Information("UpdateNotifier: COUNTDOWN TEST MODE.");
+
+        var window = new Views.CountdownWindow(
+            DateTime.Now.AddMinutes(AppConstants.ScheduledRebootWarningMinutes));
+        MainWindow = window;
+        window.ShowDialog();
+
+        LogConfig.Log.Information(
+            "COUNTDOWN TEST MODE: DelayRequested={D}.", window.DelayRequested);
+        Shutdown(0);
     }
 
     // ── User decision handler ─────────────────────────────────────────────────
     private async Task HandleUserDecisionAsync(SnoozeOption choice)
     {
-        var snoozeMinutes = (int)choice.Duration.TotalMinutes;
+        // The scheduled-reboot option is conveyed by a sentinel value; all
+        // other options send their duration in minutes (0 = Reboot Now).
+        var snoozeMinutes = choice.IsScheduledReboot
+            ? AppConstants.ScheduledRebootSentinel
+            : (int)choice.Duration.TotalMinutes;
         LogConfig.Log.Information("App: user chose '{Label}' ({Min} min).", choice.Label, snoozeMinutes);
 
         if (_pipeClient is not null)

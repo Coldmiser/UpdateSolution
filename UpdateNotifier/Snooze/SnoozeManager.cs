@@ -1,10 +1,10 @@
 // UpdateNotifier/Snooze/SnoozeManager.cs
 // Maintains the ordered list of snooze tiers available to the user.
 // Rules:
-//   • "Reboot Now" (zero duration) is always the last option and is never removed.
-//   • "Snooze for 15 Minutes" is the shortest snooze and is also never removed.
+//   • Three options are PROTECTED and never removed:
+//       "Snooze for 15 Minutes", "Reboot at 5:30 PM", and "Reboot Now".
 //   • Every time the user snoozes, the LONGEST available snooze tier is permanently removed.
-//   • Once only "Snooze for 15 Minutes" and "Reboot Now" remain, those two stay forever.
+//   • Once only the three protected options remain, they stay forever.
 
 using Shared.Models;
 using UpdateNotifier.Logging;
@@ -39,13 +39,15 @@ public sealed class SnoozeManager
         _available = [.. SnoozeOption.AllTiers];
 
         // Re-apply the removals from previous snooze cycles.
+        // Only tiers longer than 15 minutes are removable — "Snooze for 15
+        // Minutes", "Reboot at 5:30 PM", and "Reboot Now" are always protected.
         for (int i = 0; i < previousSnoozeCount; i++)
         {
-            var toRemove = _available.FirstOrDefault(o => o.Duration > TimeSpan.FromMinutes(15));
+            var toRemove = _available.FirstOrDefault(IsRemovable);
             if (toRemove is not null)
                 _available.Remove(toRemove);
             else
-                break; // only 15min + Reboot Now remain — nothing left to remove
+                break; // only the protected options remain — nothing left to remove
         }
 
         LogConfig.Log.Information(
@@ -71,18 +73,11 @@ public sealed class SnoozeManager
             "SnoozeManager: user snoozed for {Duration}. Options before removal: {Count}",
             chosenDuration, _available.Count);
 
-        // "Reboot Now" (index last) and "15 Minutes" (index second-to-last) are protected.
-        // We need at least 3 options before we can remove one.
-        if (_available.Count <= 2)
-        {
-            LogConfig.Log.Debug(
-                "SnoozeManager: only minimum options remain — nothing removed.");
-            return;
-        }
-
-        // The longest snooze is always the first item (positive duration, not "Reboot Now").
-        var longest = _available.FirstOrDefault(o => o.Duration > TimeSpan.Zero);
-        if (longest is not null && longest.Duration > TimeSpan.FromMinutes(15))
+        // "Snooze for 15 Minutes", "Reboot at 5:30 PM", and "Reboot Now" are
+        // protected and never removed. The longest REMOVABLE snooze is always
+        // the first removable item (list is ordered longest-first).
+        var longest = _available.FirstOrDefault(IsRemovable);
+        if (longest is not null)
         {
             _available.Remove(longest);
             LogConfig.Log.Information(
@@ -91,12 +86,22 @@ public sealed class SnoozeManager
         }
         else
         {
-            LogConfig.Log.Debug("SnoozeManager: longest remaining option is 15 min — protected.");
+            LogConfig.Log.Debug(
+                "SnoozeManager: only protected options remain — nothing removed.");
         }
     }
 
     /// <summary>
-    /// Returns true when the user has exhausted all snooze tiers beyond 15 minutes.
+    /// Returns true when the user has exhausted all snooze tiers beyond 15 minutes
+    /// and only the three protected options remain.
     /// </summary>
-    public bool IsAtMinimum => _available.Count <= 2;
+    public bool IsAtMinimum => !_available.Any(IsRemovable);
+
+    /// <summary>
+    /// A tier may be removed only when it is a snooze longer than 15 minutes.
+    /// "Snooze for 15 Minutes", "Reboot at 5:30 PM" (scheduled), and
+    /// "Reboot Now" never match — they are permanently protected.
+    /// </summary>
+    private static bool IsRemovable(SnoozeOption option) =>
+        !option.IsScheduledReboot && option.Duration > TimeSpan.FromMinutes(15);
 }

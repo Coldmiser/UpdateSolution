@@ -93,7 +93,7 @@ public sealed class UpdateOrchestrator
 
         if (needsReboot)
         {
-            // Enforce a minimum 2-day gap between forced reboots.
+            // Enforce a minimum 3-day gap between forced reboots.
             // Use the more recent of the registry timestamp and the actual Windows
             // boot time so that a manual reboot also resets the clock.
             var systemBootTime = DateTime.UtcNow - TimeSpan.FromMilliseconds(Environment.TickCount64);
@@ -107,11 +107,11 @@ public sealed class UpdateOrchestrator
             var effectiveLastReboot = registryTime > systemBootTime ? registryTime : systemBootTime;
             var hoursSince          = (DateTime.UtcNow - effectiveLastReboot).TotalHours;
 
-            if ((DateTime.UtcNow - effectiveLastReboot) < TimeSpan.FromDays(2))
+            if ((DateTime.UtcNow - effectiveLastReboot) < TimeSpan.FromDays(3))
             {
                 LogConfig.ServiceLog.Information(
                     "UpdateOrchestrator: reboot required but last reboot was {H:F1} hours ago — " +
-                    "skipping notification until 2-day minimum has elapsed.",
+                    "skipping notification until 3-day minimum has elapsed.",
                     hoursSince);
             }
             else
