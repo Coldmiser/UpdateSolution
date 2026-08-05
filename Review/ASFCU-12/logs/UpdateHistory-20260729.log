@@ -1,0 +1,6 @@
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T19:19:11.2252533-05:00
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB=KB5101650 | Title=2026-07 Security Update (KB5101650) (26200.8875) | Status=Skipped | 2026-07-29T19:19:11.2312532-05:00
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB=KB5100998 | Title=2026-07 .NET Framework Security Update (KB5100998) | Status=Skipped | 2026-07-29T19:19:11.2302537-05:00
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB= | Title=Intel System Driver Update (2603.9.4.0) | Status=Skipped | 2026-07-29T19:19:11.2272544-05:00
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB= | Title=Intel SoftwareComponent Driver Update (267.102.85.0) | Status=Skipped | 2026-07-29T19:19:11.2292524-05:00
+2026-07-29 19:19:11 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T00:19:11.3550432Z

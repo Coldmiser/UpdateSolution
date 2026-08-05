@@ -3,6 +3,7 @@
 // aggregates results, decides whether a reboot is needed, then signals
 // the PipeServer to notify the logged-in user.
 
+using Microsoft.Win32;
 using Shared.Constants;
 using Shared.Helpers;
 using Shared.Models;
@@ -107,7 +108,13 @@ public sealed class UpdateOrchestrator
             var effectiveLastReboot = registryTime > systemBootTime ? registryTime : systemBootTime;
             var hoursSince          = (DateTime.UtcNow - effectiveLastReboot).TotalHours;
 
-            if ((DateTime.UtcNow - effectiveLastReboot) < TimeSpan.FromDays(3))
+            if (!IsTodayAllowedForReboot())
+            {
+                LogConfig.ServiceLog.Information(
+                    "UpdateOrchestrator: reboot required but today is not an allowed reboot day " +
+                    "per RebootDoW — skipping notification until the next allowed day.");
+            }
+            else if ((DateTime.UtcNow - effectiveLastReboot) < TimeSpan.FromDays(3))
             {
                 LogConfig.ServiceLog.Information(
                     "UpdateOrchestrator: reboot required but last reboot was {H:F1} hours ago — " +
@@ -126,6 +133,32 @@ public sealed class UpdateOrchestrator
             LogConfig.ServiceLog.Information(
                 "UpdateOrchestrator: no reboot required — cycle complete.");
         }
+    }
+
+    /// <summary>
+    /// Reads the RebootDoW bitmask from HKLM\SOFTWARE\CapTG and checks whether
+    /// today's day of week is permitted to show the reboot notifier. Bit index
+    /// matches <see cref="DateTime.DayOfWeek"/> (bit 0 = Sunday ... bit 6 = Saturday).
+    /// Defaults to <see cref="AppConstants.DefaultRebootDayOfWeekMask"/> (Mon-Fri)
+    /// when the value is missing or unreadable.
+    /// </summary>
+    private static bool IsTodayAllowedForReboot()
+    {
+        int mask;
+        try
+        {
+            using var key = Registry.LocalMachine.OpenSubKey(RegistryConstants.CapTgKeyPath);
+            mask = key?.GetValue(RegistryConstants.RebootDoW) is int m
+                ? m
+                : AppConstants.DefaultRebootDayOfWeekMask;
+        }
+        catch
+        {
+            mask = AppConstants.DefaultRebootDayOfWeekMask;
+        }
+
+        var todayBit = 1 << (int)DateTime.Now.DayOfWeek;
+        return (mask & todayBit) != 0;
     }
 
     // ── Static helper ────────────────────────────────────────────────────────

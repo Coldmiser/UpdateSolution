@@ -107,6 +107,18 @@ try
     {
         DetectAndWriteInstType(capTgKey);
     }
+
+    // Write the default RebootDoW mask if it isn't already present. Never
+    // overwrite an existing value — admins may have customised it.
+    if (capTgKey.GetValue(RegistryConstants.RebootDoW) is null)
+    {
+        capTgKey.SetValue(
+            RegistryConstants.RebootDoW,
+            AppConstants.DefaultRebootDayOfWeekMask,
+            RegistryValueKind.DWord);
+        log.Information(
+            "Wrote default RebootDoW = 0x{Mask:X} (Mon-Fri).", AppConstants.DefaultRebootDayOfWeekMask);
+    }
 }
 catch (Exception ex)
 {

@@ -105,4 +105,14 @@ public static class AppConstants
     /// with no further interaction.
     /// </summary>
     public const int ScheduledRebootDelayMinutes = 5;
+
+    // ── Reboot Day-of-Week Restriction ─────────────────────────────────────────
+
+    /// <summary>
+    /// Default value for <see cref="RegistryConstants.RebootDoW"/> when the registry
+    /// value is absent: Monday–Friday allowed, Sunday and Saturday blocked.
+    /// Bit 0 = Sunday, bit 1 = Monday, ... bit 6 = Saturday (matches
+    /// <see cref="DateTime.DayOfWeek"/>'s integer values), so 0x3E = 0b0111110.
+    /// </summary>
+    public const int DefaultRebootDayOfWeekMask = 0x3E;
 }

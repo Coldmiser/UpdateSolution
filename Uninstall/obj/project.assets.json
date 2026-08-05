@@ -40,7 +40,7 @@
           }
         }
       },
-      "Shared/1.26.524.632": {
+      "Shared/1.26.586.441": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -90,7 +90,7 @@
           }
         }
       },
-      "Shared/1.26.524.632": {
+      "Shared/1.26.586.441": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -207,7 +207,7 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "Shared/1.26.524.632": {
+    "Shared/1.26.586.441": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -218,14 +218,14 @@
       "Microsoft.NET.ILLink.Tasks >= 10.0.8",
       "Serilog >= 4.3.1",
       "Serilog.Sinks.File >= 7.0.0",
-      "Shared >= 1.26.524.632"
+      "Shared >= 1.26.586.441"
     ]
   },
   "packageFolders": {
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.26.524.632",
+    "version": "1.26.586.441",
     "restore": {
       "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\Uninstall.csproj",
       "projectName": "Uninstall",

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uninstall")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21c45b3b9138e1b0a18bba9c37b119ce37a9e550")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffda5b29468a7e44479e3ef7a5c205e719f7c08b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Uninstall")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uninstall")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

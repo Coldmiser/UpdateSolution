@@ -7,7 +7,14 @@
       "PowerShell(Test-Path *)",
       "PowerShell(Set-Location \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\"; & \"$env:windir\\\\Sysnative\\\\cmd.exe\" /c \".\\\\publish\\\\Installer\\\\create_installer.bat\" 2>&1 | Select-Object -Last 15)",
       "PowerShell(dotnet build *)",
-      "PowerShell(Set-Location \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\"; & \"$env:windir\\\\Sysnative\\\\cmd.exe\" /c \".\\\\publish\\\\Installer\\\\create_installer.bat\" 2>&1 | Select-Object -Last 6; \"EXIT CODE: $LASTEXITCODE\")"
+      "PowerShell(Set-Location \"C:\\\\Users\\\\SyncthingServiceAcct\\\\Syncthing\\\\CapTG_OneDrive\\\\Documents\\\\VSCode Solutions Folder\\\\UpdateSolution\"; & \"$env:windir\\\\Sysnative\\\\cmd.exe\" /c \".\\\\publish\\\\Installer\\\\create_installer.bat\" 2>&1 | Select-Object -Last 6; \"EXIT CODE: $LASTEXITCODE\")",
+      "PowerShell(Select-String -Path \"C:\\\\ProgramData\\\\CapTG\\\\UpdateService\\\\logs\\\\UpdateService-20260722.log\" -Pattern \"reboot required but last reboot\" | Select-Object -First 3 | ForEach-Object { $_.Line })",
+      "Bash(reg query *)",
+      "Bash(reg.exe query *)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(cmd.exe /c 'reg query \"HKLM\\\\SOFTWARE\\\\CapTG\" /s')",
+      "Bash(cmd.exe /c \"reg query \\\\\"HKLM\\\\SOFTWARE\\\\CapTG\\\\\" /s\")",
+      "Bash(echo \"EXIT=$?\")"
     ]
   }
 }

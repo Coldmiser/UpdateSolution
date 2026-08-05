@@ -7,9 +7,9 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {},
     ".NETCoreApp,Version=v10.0/win-x64": {
-      "WatchDog/1.26.524.632": {
+      "WatchDog/1.26.586.441": {
         "dependencies": {
-          "Shared": "1.26.524.632",
+          "Shared": "1.26.586.441",
           "System.ServiceProcess.ServiceController": "10.0.3",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.8"
         },
@@ -732,18 +732,18 @@
           }
         }
       },
-      "Shared/1.26.524.632": {
+      "Shared/1.26.586.441": {
         "runtime": {
           "Shared.dll": {
-            "assemblyVersion": "1.26.524.632",
-            "fileVersion": "1.26.524.632"
+            "assemblyVersion": "1.26.586.441",
+            "fileVersion": "1.26.586.441"
           }
         }
       }
     }
   },
   "libraries": {
-    "WatchDog/1.26.524.632": {
+    "WatchDog/1.26.586.441": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -767,7 +767,7 @@
       "path": "system.serviceprocess.servicecontroller/10.0.3",
       "hashPath": "system.serviceprocess.servicecontroller.10.0.3.nupkg.sha512"
     },
-    "Shared/1.26.524.632": {
+    "Shared/1.26.586.441": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

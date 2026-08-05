@@ -1,3 +1,17 @@
+Version 1.26.586.441
+2026-08-05
+
+- RebootDoW (DWORD) Registry Value — Day-of-Week Reboot Restriction (Shared/Constants/RegistryConstants.cs, Shared/Constants/AppConstants.cs, UpdateService/Program.cs, UpdateService/Workers/UpdateOrchestrator.cs)
+	Added a new HKLM\SOFTWARE\CapTG\RebootDoW REG_DWORD value that lets admins restrict which days of the week the reboot notifier is allowed to appear.
+
+	- Bitmask layout matches DateTime.DayOfWeek: bit 0 = Sunday, bit 1 = Monday, bit 2 = Tuesday, bit 3 = Wednesday, bit 4 = Thursday, bit 5 = Friday, bit 6 = Saturday. A set bit (1) means reboots are allowed that day.
+	- Default value is 0x3E (binary 0111110) — Monday through Friday allowed, Sunday and Saturday blocked.
+	- UpdateService/Program.cs writes the default value once at service startup if RebootDoW is absent; an existing value (admin-customized) is never overwritten.
+	- UpdateOrchestrator.RunCycleAsync now checks IsTodayAllowedForReboot() before invoking the reboot-required callback that launches the notifier. If today isn't an allowed day, the notification is skipped and logged; the check re-runs on the next hourly cycle, so an allowed day picks the prompt right back up.
+	- This gate only applies to the interactive notifier path used by client machines. Server installs (InstType = Server) already bypass the notifier entirely and reboot silently at their own scheduled RebootTime, so they are unaffected by RebootDoW.
+
+	Why: Requested change so IT can prevent the reboot prompt from appearing on specific days (e.g. weekends) even when updates that require a reboot have been applied.
+
 Version 1.26.524.632
 2026-07-06
 
@@ -36,11 +50,14 @@ Version 1.26.524.632
 Version 1.26.505.690
 2026-07-06
 
-- InstType Registry Validation on UpService Startup (UpdateService/Program.cs)
+- InstType (String) Registry Validation on UpService Startup (UpdateService/Program.cs)
 	Added a block that runs immediately after logging is initialized, before the .NET host is built. It opens HKLM\SOFTWARE\CapTG and checks the InstType string value:
 	- Valid value ("Server" or "Client") — logs it and continues
 	- Invalid value — logs a warning, deletes the entry, then auto-detects (see below)
 	- Absent — auto-detects (see below)
+
+- RebootTime (String) Registry Validation on specific reboot times.
+	- Valid value (0400) by default, but any time from a 24 hour clock would be valid (4 numbers only)
 
 - Auto-Detection of Machine Type (UpdateService/Program.cs)
 	Extracted into a local function DetectAndWriteInstType. When InstType is missing or was just deleted, it queries HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\InstallationType and maps:
