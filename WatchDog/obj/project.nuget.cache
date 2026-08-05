@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pmuV5dLcHD0=",
+  "dgSpecHash": "RR8XQQ8nJC8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
+  "projectFilePath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\WatchDog\\WatchDog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.8\\microsoft.net.illink.tasks.10.0.8.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\system.diagnostics.eventlog\\10.0.3\\system.diagnostics.eventlog.10.0.3.nupkg.sha512",

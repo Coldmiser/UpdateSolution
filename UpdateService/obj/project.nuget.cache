@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZYvU4bwr3rk=",
+  "dgSpecHash": "1ImSldNPF88=",
   "success": true,
-  "projectFilePath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
+  "projectFilePath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.3\\microsoft.extensions.configuration.10.0.3.nupkg.sha512",
     "C:\\Users\\sbutski\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.3\\microsoft.extensions.configuration.abstractions.10.0.3.nupkg.sha512",

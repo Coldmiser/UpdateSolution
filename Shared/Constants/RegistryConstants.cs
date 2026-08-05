@@ -87,8 +87,8 @@ public static class RegistryConstants
     public const string RebootTime = "RebootTime";
 
     /// <summary>
-    /// REG_DWORD under <see cref="CapTgKeyPath"/> — bitmask of which days of the week
-    /// the reboot notifier is allowed to appear. Bit index matches
+    /// REG_BINARY under <see cref="CapTgKeyPath"/> — single-byte bitmask of which days of
+    /// the week the reboot notifier is allowed to appear. Bit index matches
     /// <see cref="DateTime.DayOfWeek"/> (bit 0 = Sunday, bit 1 = Monday, ... bit 6 = Saturday).
     /// Defaults to <see cref="AppConstants.DefaultRebootDayOfWeekMask"/> (Mon–Fri) when absent.
     /// </summary>

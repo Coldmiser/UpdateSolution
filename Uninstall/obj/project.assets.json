@@ -40,7 +40,7 @@
           }
         }
       },
-      "Shared/1.26.586.441": {
+      "Shared/1.26.586.697": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -90,7 +90,7 @@
           }
         }
       },
-      "Shared/1.26.586.441": {
+      "Shared/1.26.586.697": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -207,7 +207,7 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "Shared/1.26.586.441": {
+    "Shared/1.26.586.697": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -218,20 +218,20 @@
       "Microsoft.NET.ILLink.Tasks >= 10.0.8",
       "Serilog >= 4.3.1",
       "Serilog.Sinks.File >= 7.0.0",
-      "Shared >= 1.26.586.441"
+      "Shared >= 1.26.586.697"
     ]
   },
   "packageFolders": {
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.26.586.441",
+    "version": "1.26.586.697",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\Uninstall.csproj",
+      "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\Uninstall.csproj",
       "projectName": "Uninstall",
-      "projectPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\Uninstall.csproj",
+      "projectPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\Uninstall.csproj",
       "packagesPath": "C:\\Users\\sbutski\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\obj\\",
+      "outputPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Uninstall\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sbutski\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -246,8 +246,8 @@
         "net10.0-windows7.0": {
           "targetAlias": "net10.0-windows",
           "projectReferences": {
-            "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\SyncthingServiceAcct\\Syncthing\\CapTG_OneDrive\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj"
+            "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj"
             }
           }
         }

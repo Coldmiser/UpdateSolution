@@ -148,8 +148,8 @@ public sealed class UpdateOrchestrator
         try
         {
             using var key = Registry.LocalMachine.OpenSubKey(RegistryConstants.CapTgKeyPath);
-            mask = key?.GetValue(RegistryConstants.RebootDoW) is int m
-                ? m
+            mask = key?.GetValue(RegistryConstants.RebootDoW) is byte[] { Length: > 0 } b
+                ? b[0]
                 : AppConstants.DefaultRebootDayOfWeekMask;
         }
         catch

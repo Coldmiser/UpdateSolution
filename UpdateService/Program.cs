@@ -110,12 +110,26 @@ try
 
     // Write the default RebootDoW mask if it isn't already present. Never
     // overwrite an existing value — admins may have customised it.
-    if (capTgKey.GetValue(RegistryConstants.RebootDoW) is null)
+    var rebootDoWValue = capTgKey.GetValue(RegistryConstants.RebootDoW);
+    if (rebootDoWValue is int legacyRebootDoWMask)
+    {
+        // Machines that already picked up version 1.26.586.441 have RebootDoW as a
+        // REG_DWORD (the type it originally shipped with). Convert it to REG_BINARY
+        // in place, preserving whatever mask value — default or admin-customised —
+        // was already there.
+        capTgKey.SetValue(
+            RegistryConstants.RebootDoW,
+            new byte[] { (byte)legacyRebootDoWMask },
+            RegistryValueKind.Binary);
+        log.Information(
+            "Migrated legacy REG_DWORD RebootDoW (0x{Mask:X}) to REG_BINARY.", legacyRebootDoWMask);
+    }
+    else if (rebootDoWValue is null)
     {
         capTgKey.SetValue(
             RegistryConstants.RebootDoW,
-            AppConstants.DefaultRebootDayOfWeekMask,
-            RegistryValueKind.DWord);
+            new byte[] { (byte)AppConstants.DefaultRebootDayOfWeekMask },
+            RegistryValueKind.Binary);
         log.Information(
             "Wrote default RebootDoW = 0x{Mask:X} (Mon-Fri).", AppConstants.DefaultRebootDayOfWeekMask);
     }
