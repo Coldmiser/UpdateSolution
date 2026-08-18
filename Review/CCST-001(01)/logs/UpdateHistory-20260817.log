@@ -1,0 +1,4 @@
+2026-08-17 07:59:32 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-17T12:59:32.6735495Z
+2026-08-17 09:01:05 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-17T14:01:05.1386415Z
+2026-08-17 10:05:13 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-17T15:05:13.8110476Z
+2026-08-17 11:50:42 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-17T16:50:42.5345759Z

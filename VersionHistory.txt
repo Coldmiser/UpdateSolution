@@ -1,3 +1,11 @@
+Version 1.26.621.524
+2026-08-18
+
+BUGFIX:  
+- The scheduled reboot was set for 5:30 PM, but the laptop went to sleep before then, and since .NET's Task.Delay only counts time when the machine is actually awake, the service's wait didn't fire until a few days later when the system came back online, using the original, now three-days-stale reboot time. That stale timestamp was sent to the notifier's countdown window, which auto-closes itself the instant it detects a time already in the past — but it did so before the app ever called ShowDialog() on it, causing a crash, and the machine rebooted unattended with no real warning shown to the user.
+
+- The fix has two parts: in PipeServer.cs, the service now re-validates the reboot target after its wait completes (not just before), so a sleep-interrupted wait triggers a fresh target and a real 5-minute warning instead of an instant stale one; and in App.xaml.cs, the notifier now checks if the target is already in the past and skips the countdown window entirely in that case, so a stale timestamp can never crash it again.
+
 Version 1.26.586.697
 2026-08-05
 

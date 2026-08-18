@@ -1,0 +1,18 @@
+2026-08-12 08:51:45.843 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-12 08:51:45.874 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-12 08:51:45.874 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-12 08:51:45.884 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-12 08:51:45.891 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-08-12 08:51:45.941 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootImminent".
+2026-08-12 08:51:45.946 -05:00 [INF] (Thread 2) UpdateNotifier: reboot-imminent warning — reboot at "2026-08-11T17:30:00.0000000-05:00".
+2026-08-12 08:51:46.177 -05:00 [INF] (Thread 2) CountdownWindow: countdown expired — closing.
+2026-08-12 08:51:46.177 -05:00 [INF] (Thread 2) CountdownWindow: shown — reboot scheduled for "2026-08-11T17:30:00.0000000-05:00".
+2026-08-12 08:51:46.180 -05:00 [FTL] (Thread 2) OnStartup fatal exception.
+System.InvalidOperationException: Cannot set Visibility or call Show, ShowDialog, or WindowInteropHelper.EnsureHandle after a Window has closed.
+   at System.Windows.Window.VerifyCanShow()
+   at System.Windows.Window.ShowDialog()
+   at UpdateNotifier.App.RunCountdownModeAsync(PipeMessage message) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 223
+   at UpdateNotifier.App.RunNormalModeAsync() in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 175
+   at UpdateNotifier.App.OnStartup(StartupEventArgs e) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 93
+2026-08-12 08:51:46.204 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 1.
+2026-08-12 08:51:46.204 -05:00 [DBG] (Thread 2) PipeClient: disposed.

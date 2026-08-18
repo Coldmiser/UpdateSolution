@@ -1,0 +1,20 @@
+2026-08-11 08:10:55 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T13:10:55.7821623Z
+2026-08-11 09:11:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T14:11:56.7849477Z
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=KB890830 | Title=Windows Malicious Software Removal Tool x64 - v5.144 (KB890830) | Status=Skipped | 2026-08-11T12:39:55.9322735-05:00
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=KB5122104 | Title=2026-08 .NET 8.0.30 Security Update for x64 Client (KB5122104) | Status=Skipped | 2026-08-11T12:39:55.9292732-05:00
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-11T12:39:55.9342735-05:00
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=KB5122106 | Title=2026-08 .NET 10.0.11 Security Update for x64 Client (KB5122106) | Status=Skipped | 2026-08-11T12:39:55.9292732-05:00
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-11T12:39:55.9332736-05:00
+2026-08-11 12:39:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T17:39:56.0657549Z
+2026-08-11 13:45:28 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-11T13:45:28.5808835-05:00
+2026-08-11 13:45:28 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-11T13:45:28.5808835-05:00
+2026-08-11 13:45:28 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T18:45:28.6835968Z
+2026-08-11 14:51:24 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-11T14:51:24.3500908-05:00
+2026-08-11 14:51:24 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-11T14:51:24.3490914-05:00
+2026-08-11 14:51:24 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T19:51:24.4603405Z
+2026-08-11 15:57:29 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-11T15:57:28.9596001-05:00
+2026-08-11 15:57:29 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-11T15:57:28.9596001-05:00
+2026-08-11 15:57:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T20:57:29.0877652Z
+2026-08-11 17:03:53 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-11T17:03:53.7763272-05:00
+2026-08-11 17:03:53 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-11T17:03:53.7763272-05:00
+2026-08-11 17:03:53 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-11T22:03:53.9313497Z

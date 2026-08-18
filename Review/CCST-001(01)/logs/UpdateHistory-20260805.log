@@ -1,0 +1,6 @@
+2026-08-05 11:11:33 | INF | WINGET | HP.ConnectionOptimizer | Status="Succeeded" | RebootRequired=false | 2026-08-05T16:11:33.4846898Z
+2026-08-05 11:11:37 | WRN | WINGET | Microsoft.VCLibs.14 | Status="Failed" | Error=winget exit code -2147024809:  | 2026-08-05T16:11:37.3928547Z
+2026-08-05 11:11:39 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-08-05T16:11:39.1975843Z
+2026-08-05 14:15:17 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T19:15:17.7819107Z
+2026-08-05 15:16:20 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T20:16:20.9374406Z
+2026-08-05 16:17:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T21:17:22.8796729Z

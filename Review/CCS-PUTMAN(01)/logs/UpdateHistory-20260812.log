@@ -1,0 +1,29 @@
+2026-08-12 01:06:16 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T01:06:16.3279493-05:00
+2026-08-12 01:06:17 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T01:06:16.3274160-05:00
+2026-08-12 01:06:17 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T06:06:16.8338694Z
+2026-08-12 02:12:46 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T02:12:46.1536898-05:00
+2026-08-12 02:12:46 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T02:12:46.1526830-05:00
+2026-08-12 02:12:46 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T07:12:46.3878137Z
+2026-08-12 03:19:25 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T03:19:24.8811008-05:00
+2026-08-12 03:19:25 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T03:19:24.8801025-05:00
+2026-08-12 03:19:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T08:19:25.1288123Z
+2026-08-12 04:26:43 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T04:26:43.7948593-05:00
+2026-08-12 04:26:43 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T04:26:43.7938589-05:00
+2026-08-12 04:26:43 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T09:26:43.9563128Z
+2026-08-12 05:33:58 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T05:33:58.7628082-05:00
+2026-08-12 05:33:58 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T05:33:58.7617290-05:00
+2026-08-12 05:33:58 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T10:33:58.9356130Z
+2026-08-12 08:15:51 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T08:15:50.6204544-05:00
+2026-08-12 08:15:51 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T08:15:50.6189251-05:00
+2026-08-12 08:15:51 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T13:15:51.1719164Z
+2026-08-12 09:23:36 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T09:23:35.9611162-05:00
+2026-08-12 09:23:36 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T09:23:35.9601178-05:00
+2026-08-12 09:23:36 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T14:23:36.2217899Z
+2026-08-12 10:31:42 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T10:31:42.0559246-05:00
+2026-08-12 10:31:42 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T10:31:42.0544114-05:00
+2026-08-12 10:31:42 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T15:31:42.5795686Z
+2026-08-12 11:39:56 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T11:39:56.5255937-05:00
+2026-08-12 11:39:56 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T11:39:56.5245962-05:00
+2026-08-12 11:39:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T16:39:56.9276819Z
+2026-08-12 11:40:04 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-08-12T16:40:04.6245176Z
+2026-08-12 11:40:07 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-08-12T16:40:07.5415950Z

@@ -1,0 +1,9 @@
+2026-08-12 07:31:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T12:31:22.4193888Z
+2026-08-12 08:32:45 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T13:32:45.6542608Z
+2026-08-12 09:34:11 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T14:34:11.0654792Z
+2026-08-12 10:37:39 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T15:37:39.3100713Z
+2026-08-12 10:37:45 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-08-12T15:37:45.2995308Z
+2026-08-12 11:39:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T16:39:08.1599542Z
+2026-08-12 12:40:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T17:40:26.1025680Z
+2026-08-12 13:41:47 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T18:41:47.0280133Z
+2026-08-12 14:43:09 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T19:43:09.8968742Z

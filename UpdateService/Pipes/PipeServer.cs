@@ -192,25 +192,40 @@ public sealed class PipeServer
     private async Task RunScheduledRebootCoreAsync(
         DateTime target, CancellationToken cancellationToken)
     {
-        // Overdue (woke up / booted after the scheduled time): reboot now,
-        // preceded by the standard 5-minute warning window.
-        if (target <= DateTime.Now)
+        // Loop instead of a single check: Task.Delay only counts time the
+        // machine is actually awake, so if it sleeps mid-wait the delay can
+        // complete long after `target` (wall-clock) has passed. Re-validate
+        // after every wait and recompute a fresh target until one actually
+        // holds — otherwise the notifier gets sent a stale reboot time.
+        while (true)
         {
-            target = DateTime.Now.AddMinutes(AppConstants.ScheduledRebootWarningMinutes);
-            RegistryHelper.SetString(
-                RegistryConstants.ScheduledRebootUtc, target.ToUniversalTime().ToString("o"));
-            LogConfig.ServiceLog.Information(
-                "PipeServer: scheduled reboot time already passed — rebooting at {Target} " +
-                "after the standard warning.", target);
+            // Overdue (woke up / booted after the scheduled time, or slept
+            // through the wait below): reboot now, preceded by a fresh
+            // standard 5-minute warning window.
+            if (target <= DateTime.Now)
+            {
+                target = DateTime.Now.AddMinutes(AppConstants.ScheduledRebootWarningMinutes);
+                RegistryHelper.SetString(
+                    RegistryConstants.ScheduledRebootUtc, target.ToUniversalTime().ToString("o"));
+                LogConfig.ServiceLog.Information(
+                    "PipeServer: scheduled reboot time already passed — rebooting at {Target} " +
+                    "after the standard warning.", target);
+            }
+
+            var warnAt = target.AddMinutes(-AppConstants.ScheduledRebootWarningMinutes);
+
+            // Wait until 5 minutes before the reboot.
+            if (warnAt > DateTime.Now)
+                await Task.Delay(warnAt - DateTime.Now, cancellationToken);
+
+            // The wait above can take far longer than requested if the
+            // machine slept. If `target` is still in the future (within a
+            // small tolerance for pipe/launch overhead), it's still good —
+            // proceed. Otherwise loop back and recompute a fresh one instead
+            // of sending a stale timestamp to the notifier.
+            if (target > DateTime.Now.AddSeconds(-30))
+                break;
         }
-
-        var warnAt = target.AddMinutes(-AppConstants.ScheduledRebootWarningMinutes);
-
-        // Wait until 5 minutes before the reboot. (If the machine sleeps during
-        // this wait, the delay completes on wake and the overdue path above has
-        // already ensured a sane target on service restart.)
-        if (warnAt > DateTime.Now)
-            await Task.Delay(warnAt - DateTime.Now, cancellationToken);
 
         // Show the countdown warning. The response window only lasts until the
         // reboot time — if the notifier fails to launch, no one is logged in,

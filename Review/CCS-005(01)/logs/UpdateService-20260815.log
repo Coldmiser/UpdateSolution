@@ -1,0 +1,141 @@
+2026-08-15 00:33:24.431 -05:00 [ERR] (Thread 20) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 390
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken, Nullable`1 responseTimeout) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 356
+2026-08-15 00:33:24.455 -05:00 [WRN] (Thread 20) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 00:56:11.849 -05:00 [INF] (Thread 25) PipeServer: pipe created — launching notifier.
+2026-08-15 00:56:11.872 -05:00 [WRN] (Thread 25) PipeServer: killed stale notifier process (PID 52544).
+2026-08-15 00:56:11.872 -05:00 [INF] (Thread 25) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 00:56:11.873 -05:00 [DBG] (Thread 25) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 00:56:11.874 -05:00 [DBG] (Thread 25) UserProcessLauncher: using session ID = 1.
+2026-08-15 00:56:11.942 -05:00 [INF] (Thread 25) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 00:56:11.942 -05:00 [DBG] (Thread 25) PipeServer: waiting for notifier to connect.
+2026-08-15 00:57:11.947 -05:00 [WRN] (Thread 25) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 00:57:11.947 -05:00 [WRN] (Thread 25) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 01:17:47.668 -05:00 [INF] (Thread 13) PipeServer: pipe created — launching notifier.
+2026-08-15 01:17:47.724 -05:00 [INF] (Thread 13) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 01:17:47.725 -05:00 [DBG] (Thread 13) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 01:17:47.725 -05:00 [DBG] (Thread 13) UserProcessLauncher: using session ID = 1.
+2026-08-15 01:17:47.763 -05:00 [INF] (Thread 13) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 01:17:47.764 -05:00 [DBG] (Thread 13) PipeServer: waiting for notifier to connect.
+2026-08-15 01:17:48.172 -05:00 [INF] (Thread 20) PipeServer: notifier connected.
+2026-08-15 01:17:48.186 -05:00 [DBG] (Thread 20) PipeServer: "RebootRequired" message sent.
+2026-08-15 11:51:16.716 -05:00 [ERR] (Thread 7) PipeServer: error reading user response from notifier.
+System.OperationCanceledException: The operation was canceled.
+   at System.IO.Pipes.PipeStream.PipeValueTaskSource.GetResult(Int16 token)
+   at System.IO.Stream.ReadAtLeastAsyncCore(Memory`1 buffer, Int32 minimumBytes, Boolean throwOnEndOfStream, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at UpdateService.Pipes.PipeServer.ReadMessageAsync(PipeStream pipe, CancellationToken ct) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 390
+   at UpdateService.Pipes.PipeServer.RunOneNotificationCycleAsync(PipeMessage outbound, CancellationToken cancellationToken, Nullable`1 responseTimeout) in C:\Users\sbutski\Documents\VSCode Solutions Folder\UpdateSolution\UpdateService\Pipes\PipeServer.cs:line 356
+2026-08-15 11:51:16.720 -05:00 [WRN] (Thread 7) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 12:12:32.483 -05:00 [INF] (Thread 7) PipeServer: pipe created — launching notifier.
+2026-08-15 12:12:32.513 -05:00 [WRN] (Thread 7) PipeServer: killed stale notifier process (PID 30680).
+2026-08-15 12:12:32.514 -05:00 [INF] (Thread 7) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 12:12:32.516 -05:00 [DBG] (Thread 7) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 12:12:32.516 -05:00 [DBG] (Thread 7) UserProcessLauncher: using session ID = 1.
+2026-08-15 12:12:32.594 -05:00 [INF] (Thread 7) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 12:12:32.594 -05:00 [DBG] (Thread 7) PipeServer: waiting for notifier to connect.
+2026-08-15 12:13:32.600 -05:00 [WRN] (Thread 24) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 12:13:32.600 -05:00 [WRN] (Thread 24) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 12:33:39.280 -05:00 [INF] (Thread 11) PipeServer: pipe created — launching notifier.
+2026-08-15 12:33:39.309 -05:00 [WRN] (Thread 11) PipeServer: killed stale notifier process (PID 27372).
+2026-08-15 12:33:39.310 -05:00 [INF] (Thread 11) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 12:33:39.310 -05:00 [DBG] (Thread 11) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 12:33:39.311 -05:00 [DBG] (Thread 11) UserProcessLauncher: using session ID = 1.
+2026-08-15 12:33:39.358 -05:00 [INF] (Thread 11) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 12:33:39.358 -05:00 [DBG] (Thread 11) PipeServer: waiting for notifier to connect.
+2026-08-15 12:34:39.373 -05:00 [WRN] (Thread 21) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 12:34:39.373 -05:00 [WRN] (Thread 21) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 12:53:53.963 -05:00 [INF] (Thread 21) PipeServer: pipe created — launching notifier.
+2026-08-15 12:53:53.993 -05:00 [WRN] (Thread 21) PipeServer: killed stale notifier process (PID 46984).
+2026-08-15 12:53:53.993 -05:00 [INF] (Thread 21) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 12:53:53.994 -05:00 [DBG] (Thread 21) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 12:53:53.994 -05:00 [DBG] (Thread 21) UserProcessLauncher: using session ID = 1.
+2026-08-15 12:53:54.058 -05:00 [INF] (Thread 21) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 12:53:54.058 -05:00 [DBG] (Thread 21) PipeServer: waiting for notifier to connect.
+2026-08-15 12:54:54.059 -05:00 [WRN] (Thread 21) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 12:54:54.060 -05:00 [WRN] (Thread 21) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 13:14:23.472 -05:00 [INF] (Thread 21) PipeServer: pipe created — launching notifier.
+2026-08-15 13:14:23.499 -05:00 [WRN] (Thread 21) PipeServer: killed stale notifier process (PID 1896).
+2026-08-15 13:14:23.499 -05:00 [INF] (Thread 21) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 13:14:23.501 -05:00 [DBG] (Thread 21) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 13:14:23.501 -05:00 [DBG] (Thread 21) UserProcessLauncher: using session ID = 1.
+2026-08-15 13:14:23.558 -05:00 [INF] (Thread 21) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 13:14:23.559 -05:00 [DBG] (Thread 21) PipeServer: waiting for notifier to connect.
+2026-08-15 13:16:19.735 -05:00 [WRN] (Thread 11) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 13:16:19.736 -05:00 [WRN] (Thread 11) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 13:35:52.722 -05:00 [INF] (Thread 21) PipeServer: pipe created — launching notifier.
+2026-08-15 13:35:52.750 -05:00 [WRN] (Thread 21) PipeServer: killed stale notifier process (PID 27496).
+2026-08-15 13:35:52.751 -05:00 [INF] (Thread 21) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 13:35:52.752 -05:00 [DBG] (Thread 21) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 13:35:52.752 -05:00 [DBG] (Thread 21) UserProcessLauncher: using session ID = 1.
+2026-08-15 13:35:52.810 -05:00 [INF] (Thread 21) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 13:35:52.810 -05:00 [DBG] (Thread 21) PipeServer: waiting for notifier to connect.
+2026-08-15 13:36:52.818 -05:00 [WRN] (Thread 21) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 13:36:52.818 -05:00 [WRN] (Thread 21) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 13:56:39.521 -05:00 [INF] (Thread 21) PipeServer: pipe created — launching notifier.
+2026-08-15 13:56:39.543 -05:00 [WRN] (Thread 21) PipeServer: killed stale notifier process (PID 54604).
+2026-08-15 13:56:39.543 -05:00 [INF] (Thread 21) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 13:56:39.544 -05:00 [DBG] (Thread 21) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 13:56:39.544 -05:00 [DBG] (Thread 21) UserProcessLauncher: using session ID = 1.
+2026-08-15 13:56:39.601 -05:00 [INF] (Thread 21) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 13:56:39.601 -05:00 [DBG] (Thread 21) PipeServer: waiting for notifier to connect.
+2026-08-15 13:57:39.614 -05:00 [WRN] (Thread 11) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 13:57:39.614 -05:00 [WRN] (Thread 11) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 14:18:57.495 -05:00 [INF] (Thread 11) PipeServer: pipe created — launching notifier.
+2026-08-15 14:18:57.529 -05:00 [WRN] (Thread 11) PipeServer: killed stale notifier process (PID 55124).
+2026-08-15 14:18:57.529 -05:00 [INF] (Thread 11) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 14:18:57.531 -05:00 [DBG] (Thread 11) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 14:18:57.531 -05:00 [DBG] (Thread 11) UserProcessLauncher: using session ID = 1.
+2026-08-15 14:18:57.588 -05:00 [INF] (Thread 11) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 14:18:57.588 -05:00 [DBG] (Thread 11) PipeServer: waiting for notifier to connect.
+2026-08-15 14:19:57.588 -05:00 [WRN] (Thread 11) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 14:19:57.589 -05:00 [WRN] (Thread 11) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 14:41:26.809 -05:00 [INF] (Thread 11) PipeServer: pipe created — launching notifier.
+2026-08-15 14:41:26.830 -05:00 [WRN] (Thread 11) PipeServer: killed stale notifier process (PID 16572).
+2026-08-15 14:41:26.830 -05:00 [INF] (Thread 11) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 14:41:26.831 -05:00 [DBG] (Thread 11) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 14:41:26.831 -05:00 [DBG] (Thread 11) UserProcessLauncher: using session ID = 1.
+2026-08-15 14:41:26.886 -05:00 [INF] (Thread 11) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 14:41:26.886 -05:00 [DBG] (Thread 11) PipeServer: waiting for notifier to connect.
+2026-08-15 14:42:53.021 -05:00 [WRN] (Thread 11) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 14:42:53.022 -05:00 [WRN] (Thread 11) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 15:02:07.393 -05:00 [INF] (Thread 11) PipeServer: pipe created — launching notifier.
+2026-08-15 15:02:07.446 -05:00 [WRN] (Thread 11) PipeServer: killed stale notifier process (PID 45676).
+2026-08-15 15:02:07.447 -05:00 [INF] (Thread 11) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 15:02:07.447 -05:00 [DBG] (Thread 11) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 15:02:07.448 -05:00 [DBG] (Thread 11) UserProcessLauncher: using session ID = 1.
+2026-08-15 15:02:07.505 -05:00 [INF] (Thread 11) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 15:02:07.505 -05:00 [DBG] (Thread 11) PipeServer: waiting for notifier to connect.
+2026-08-15 15:03:07.518 -05:00 [WRN] (Thread 21) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 15:03:07.518 -05:00 [WRN] (Thread 21) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 15:24:39.534 -05:00 [INF] (Thread 24) PipeServer: pipe created — launching notifier.
+2026-08-15 15:24:39.562 -05:00 [WRN] (Thread 24) PipeServer: killed stale notifier process (PID 12592).
+2026-08-15 15:24:39.562 -05:00 [INF] (Thread 24) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 15:24:39.563 -05:00 [DBG] (Thread 24) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 15:24:39.563 -05:00 [DBG] (Thread 24) UserProcessLauncher: using session ID = 1.
+2026-08-15 15:24:39.625 -05:00 [INF] (Thread 24) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 15:24:39.625 -05:00 [DBG] (Thread 24) PipeServer: waiting for notifier to connect.
+2026-08-15 15:25:39.636 -05:00 [WRN] (Thread 21) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 15:25:39.637 -05:00 [WRN] (Thread 21) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 15:45:31.241 -05:00 [INF] (Thread 24) PipeServer: pipe created — launching notifier.
+2026-08-15 15:45:31.266 -05:00 [WRN] (Thread 24) PipeServer: killed stale notifier process (PID 29264).
+2026-08-15 15:45:31.266 -05:00 [INF] (Thread 24) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 15:45:31.268 -05:00 [DBG] (Thread 24) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 15:45:31.268 -05:00 [DBG] (Thread 24) UserProcessLauncher: using session ID = 1.
+2026-08-15 15:45:31.318 -05:00 [INF] (Thread 24) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 15:45:31.318 -05:00 [DBG] (Thread 24) PipeServer: waiting for notifier to connect.
+2026-08-15 15:46:31.319 -05:00 [WRN] (Thread 24) PipeServer: notifier did not connect within 60 seconds.
+2026-08-15 15:46:31.320 -05:00 [WRN] (Thread 24) PipeServer: no response received — retrying notification in 15 minutes.
+2026-08-15 16:08:07.683 -05:00 [INF] (Thread 24) PipeServer: pipe created — launching notifier.
+2026-08-15 16:08:07.707 -05:00 [WRN] (Thread 24) PipeServer: killed stale notifier process (PID 54232).
+2026-08-15 16:08:07.707 -05:00 [INF] (Thread 24) UserProcessLauncher: launching 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' as active user.
+2026-08-15 16:08:07.708 -05:00 [DBG] (Thread 24) UserProcessLauncher: console session 1 has a valid user token.
+2026-08-15 16:08:07.708 -05:00 [DBG] (Thread 24) UserProcessLauncher: using session ID = 1.
+2026-08-15 16:08:07.765 -05:00 [INF] (Thread 24) UserProcessLauncher: 'C:\Program Files\CapTG Updater\UpdateNotifier.exe' launched in session 1.
+2026-08-15 16:08:07.765 -05:00 [DBG] (Thread 24) PipeServer: waiting for notifier to connect.
+2026-08-15 16:09:44.040 -05:00 [INF] (Thread 24) PipeServer: notifier connected.
+2026-08-15 16:09:44.564 -05:00 [DBG] (Thread 24) PipeServer: "RebootRequired" message sent.

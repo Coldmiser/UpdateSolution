@@ -1,0 +1,10 @@
+2026-07-30 07:56:14 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T12:56:14.2558100Z
+2026-07-30 08:57:23 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T13:57:23.5455282Z
+2026-07-30 09:58:43 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T14:58:43.4702713Z
+2026-07-30 11:00:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T16:00:08.8394529Z
+2026-07-30 12:01:34 | INF | WINDOWS-UPDATE | KB=KB5007651 | Title=Update for Windows Security platform - KB5007651 (Version 10.0.29628.1000) | Status=Skipped | 2026-07-30T12:01:34.1629503-05:00
+2026-07-30 12:01:34 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T17:01:34.4744451Z
+2026-07-30 13:02:45 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T18:02:45.4262257Z
+2026-07-30 14:04:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T19:04:29.2133238Z
+2026-07-30 15:05:48 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T20:05:48.5005311Z
+2026-07-30 16:06:58 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-30T21:06:58.7052264Z

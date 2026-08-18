@@ -1,0 +1,54 @@
+2026-08-12 00:12:35 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T00:12:35.3723450-05:00
+2026-08-12 00:12:35 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T00:12:35.3753433-05:00
+2026-08-12 00:12:35 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T00:12:35.3783437-05:00
+2026-08-12 00:12:35 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T05:12:35.8240365Z
+2026-08-12 02:22:33 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T02:22:33.0071471-05:00
+2026-08-12 02:22:33 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T02:22:33.0155295-05:00
+2026-08-12 02:22:33 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T02:22:33.0255412-05:00
+2026-08-12 02:22:33 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T07:22:33.4739811Z
+2026-08-12 04:28:29 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T04:28:27.0374076-05:00
+2026-08-12 04:28:29 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T04:28:27.0436172-05:00
+2026-08-12 04:28:29 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T04:28:29.4898823-05:00
+2026-08-12 04:28:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T09:28:29.8490273Z
+2026-08-12 06:39:25 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T06:39:24.6673891-05:00
+2026-08-12 06:39:25 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T06:39:24.6693899-05:00
+2026-08-12 06:39:25 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T06:39:24.6713895-05:00
+2026-08-12 06:39:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T11:39:25.1135354Z
+2026-08-12 08:43:58 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T08:43:57.1006601-05:00
+2026-08-12 08:43:58 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T08:43:57.1029802-05:00
+2026-08-12 08:43:58 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T08:43:57.1049865-05:00
+2026-08-12 08:43:58 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T13:43:58.0234016Z
+2026-08-12 10:00:21 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T10:00:20.9693987-05:00
+2026-08-12 10:00:21 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T10:00:20.9723963-05:00
+2026-08-12 10:00:21 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T10:00:20.9753961-05:00
+2026-08-12 10:00:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T15:00:21.4433474Z
+2026-08-12 13:07:51 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T13:07:50.8452461-05:00
+2026-08-12 13:07:51 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T13:07:50.8472441-05:00
+2026-08-12 13:07:51 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T13:07:50.8497527-05:00
+2026-08-12 13:07:51 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T18:07:51.2392182Z
+2026-08-12 13:07:57 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-08-12T18:07:57.4075068Z
+2026-08-12 14:24:05 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T14:24:05.0399352-05:00
+2026-08-12 14:24:05 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T14:24:05.0433466-05:00
+2026-08-12 14:24:05 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T14:24:05.0474128-05:00
+2026-08-12 14:24:05 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T19:24:05.4039975Z
+2026-08-12 15:39:34 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T15:39:34.0923309-05:00
+2026-08-12 15:39:34 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T15:39:34.0943313-05:00
+2026-08-12 15:39:34 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T15:39:34.0963290-05:00
+2026-08-12 15:39:34 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T20:39:34.5483572Z
+2026-08-12 16:56:34 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T16:56:33.9562712-05:00
+2026-08-12 16:56:34 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T16:56:33.9592723-05:00
+2026-08-12 16:56:34 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T16:56:33.9622724-05:00
+2026-08-12 16:56:34 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T21:56:34.4005051Z
+2026-08-12 18:39:22 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T18:39:21.7269561-05:00
+2026-08-12 18:39:22 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T18:39:21.7458983-05:00
+2026-08-12 18:39:22 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T18:39:21.7797858-05:00
+2026-08-12 18:39:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T23:39:22.2984451Z
+2026-08-12 20:47:51 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T20:47:50.9721518-05:00
+2026-08-12 20:47:51 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T20:47:50.9865322-05:00
+2026-08-12 20:47:51 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T20:47:50.9979682-05:00
+2026-08-12 20:47:51 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-13T01:47:51.4967016Z
+2026-08-12 22:43:47 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-12T22:43:47.4260576-05:00
+2026-08-12 22:43:47 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T22:43:47.4567609-05:00
+2026-08-12 22:43:47 | INF | WINDOWS-UPDATE | KB= | Title=Intel Corporation Display Driver Update (32.0.101.8801) | Status=Skipped | 2026-08-12T22:43:47.4446765-05:00
+2026-08-12 22:43:47 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T22:43:47.4622672-05:00
+2026-08-12 22:43:47 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-13T03:43:47.9745293Z

@@ -1,0 +1,5 @@
+2026-08-14 11:44:21 | INF | WINDOWS-UPDATE | KB= | Title=Advanced Micro Devices Inc. SecurityDevices Driver Update (5.44.0.0) | Status=Skipped | 2026-08-14T11:44:21.4807972-05:00
+2026-08-14 11:44:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-14T16:44:21.8659560Z
+2026-08-14 12:45:33 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-14T17:45:33.8646006Z
+2026-08-14 14:35:24 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-14T19:35:24.2758296Z
+2026-08-14 15:38:57 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-14T20:38:57.8526187Z

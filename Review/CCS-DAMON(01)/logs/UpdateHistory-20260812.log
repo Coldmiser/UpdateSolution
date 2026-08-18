@@ -1,0 +1,25 @@
+2026-08-12 06:21:50 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T06:21:49.9738930-05:00
+2026-08-12 06:21:50 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T06:21:49.9728927-05:00
+2026-08-12 06:21:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T11:21:50.3740822Z
+2026-08-12 07:27:56 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T07:27:53.6732824-05:00
+2026-08-12 07:27:56 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T07:27:53.6722810-05:00
+2026-08-12 07:27:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T12:27:56.9087916Z
+2026-08-12 08:34:29 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T08:34:29.1761163-05:00
+2026-08-12 08:34:29 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T08:34:29.1761163-05:00
+2026-08-12 08:34:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T13:34:29.5878712Z
+2026-08-12 09:41:14 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T09:41:13.8833086-05:00
+2026-08-12 09:41:14 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T09:41:13.8823087-05:00
+2026-08-12 09:41:14 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T14:41:14.1148797Z
+2026-08-12 10:46:50 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T10:46:49.8622020-05:00
+2026-08-12 10:46:50 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T10:46:49.8611929-05:00
+2026-08-12 10:46:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T15:46:50.1243516Z
+2026-08-12 11:52:56 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T11:52:56.2796087-05:00
+2026-08-12 11:52:56 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T11:52:56.2796087-05:00
+2026-08-12 11:52:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T16:52:56.5169341Z
+2026-08-12 11:53:05 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-08-12T16:53:05.4222151Z
+2026-08-12 12:59:26 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T12:59:26.6087431-05:00
+2026-08-12 12:59:26 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T12:59:26.6087431-05:00
+2026-08-12 12:59:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T17:59:26.9241684Z
+2026-08-12 14:06:35 | INF | WINDOWS-UPDATE | KB=KB5121003 | Title=2026-08 Security Update (KB5121003) (26200.9168) | Status=Skipped | 2026-08-12T14:06:35.6343135-05:00
+2026-08-12 14:06:35 | INF | WINDOWS-UPDATE | KB=KB5120708 | Title=2026-08 .NET Framework Security Update (KB5120708) | Status=Skipped | 2026-08-12T14:06:35.6333108-05:00
+2026-08-12 14:06:35 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-12T19:06:35.8648340Z

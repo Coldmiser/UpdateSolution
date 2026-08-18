@@ -1,0 +1,5 @@
+2026-08-05 08:22:49 | INF | WINGET | Google.Chrome | Status="Succeeded" | RebootRequired=false | 2026-08-05T13:22:49.7416416Z
+2026-08-05 08:22:52 | WRN | WINGET | 14.0.33519.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-08-05T13:22:52.6305175Z
+2026-08-05 14:32:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T19:32:21.4989784Z
+2026-08-05 15:33:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T20:33:25.9516709Z
+2026-08-05 16:34:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T21:34:29.4701565Z

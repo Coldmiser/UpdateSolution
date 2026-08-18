@@ -1,0 +1,14 @@
+2026-07-29 10:10:03 | INF | WINDOWS-UPDATE | KB=KB5100998 | Title=2026-07 .NET Framework Security Update (KB5100998) | Status=Skipped | 2026-07-29T10:10:03.3415242-05:00
+2026-07-29 10:10:03 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T10:10:03.3404423-05:00
+2026-07-29 10:10:03 | INF | WINDOWS-UPDATE | KB=KB5101650 | Title=2026-07 Security Update (KB5101650) (26200.8875) | Status=Skipped | 2026-07-29T10:10:03.3425942-05:00
+2026-07-29 10:10:03 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T15:10:03.5721541Z
+2026-07-29 10:10:10 | WRN | WINGET | 1.6.9 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-07-29T15:10:10.0864227Z
+2026-07-29 10:10:11 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-07-29T15:10:11.7310538Z
+2026-07-29 10:41:45 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T15:41:45.0239879Z
+2026-07-29 11:42:53 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T16:42:53.3539636Z
+2026-07-29 12:43:59 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T17:43:59.9419971Z
+2026-07-29 13:45:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T18:45:08.9000594Z
+2026-07-29 14:46:12 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T19:46:12.8288481Z
+2026-07-29 15:47:16 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T20:47:16.6853417Z
+2026-07-29 16:48:29 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T21:48:29.8843698Z
+2026-07-29 17:50:37 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T22:50:37.0037634Z

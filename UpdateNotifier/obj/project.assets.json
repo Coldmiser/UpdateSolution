@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
-    "net10.0-windows7.0": {
-      "Microsoft.NET.ILLink.Tasks/10.0.8": {
+    "net10.0-windows": {
+      "Microsoft.NET.ILLink.Tasks/10.0.11": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
@@ -72,7 +72,7 @@
           }
         }
       },
-      "Shared/1.26.586.697": {
+      "Shared/1.26.621.524": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -83,8 +83,8 @@
         }
       }
     },
-    "net10.0-windows7.0/win-x64": {
-      "Microsoft.NET.ILLink.Tasks/10.0.8": {
+    "net10.0-windows/win-x64": {
+      "Microsoft.NET.ILLink.Tasks/10.0.11": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
@@ -154,7 +154,7 @@
           }
         }
       },
-      "Shared/1.26.586.697": {
+      "Shared/1.26.621.524": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -167,10 +167,10 @@
     }
   },
   "libraries": {
-    "Microsoft.NET.ILLink.Tasks/10.0.8": {
-      "sha512": "dVbSXGIFNR5nZcv2tOLoWI+a9T4jtFd77IYjuND+QVe360qWgAF7H0WtoopYhRw/+SgpGUTyrkrh+65+ClNnfw==",
+    "Microsoft.NET.ILLink.Tasks/10.0.11": {
+      "sha512": "IBf7lbovvjGWVWXZX5cJ/cO0WXbId0Zq4BuSeT94mGZuOAP66oMeH9PTBZ9Jpp3Jb6jtK0qm/NyUbPRo1gC/wQ==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/10.0.8",
+      "path": "microsoft.net.illink.tasks/10.0.11",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -183,7 +183,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.10.0.8.nupkg.sha512",
+        "microsoft.net.illink.tasks.10.0.11.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net/ILLink.Tasks.deps.json",
         "tools/net/ILLink.Tasks.dll",
@@ -317,27 +317,27 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "Shared/1.26.586.697": {
+    "Shared/1.26.621.524": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net10.0-windows7.0": [
-      "Microsoft.NET.ILLink.Tasks >= 10.0.8",
+    "net10.0-windows": [
+      "Microsoft.NET.ILLink.Tasks >= 10.0.11",
       "Serilog >= 4.3.1",
       "Serilog.Enrichers.Thread >= 4.0.0",
       "Serilog.Sinks.Console >= 6.1.1",
       "Serilog.Sinks.File >= 7.0.0",
-      "Shared >= 1.26.586.697"
+      "Shared >= 1.26.621.524"
     ]
   },
   "packageFolders": {
     "C:\\Users\\sbutski\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.26.586.697",
+    "version": "1.26.621.524",
     "restore": {
       "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateNotifier\\UpdateNotifier.csproj",
       "projectName": "UpdateNotifier",
@@ -355,7 +355,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net10.0-windows7.0": {
+        "net10.0-windows": {
+          "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "projectReferences": {
             "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
@@ -374,16 +375,17 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
-      "net10.0-windows7.0": {
+      "net10.0-windows": {
+        "framework": "net10.0-windows7.0",
         "targetAlias": "net10.0-windows",
         "dependencies": {
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.8, )",
+            "version": "[10.0.11, )",
             "autoReferenced": true
           },
           "Serilog": {
@@ -417,15 +419,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[10.0.8, 10.0.8]"
+            "version": "[10.0.11, 10.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[10.0.8, 10.0.8]"
+            "version": "[10.0.11, 10.0.11]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[10.0.8, 10.0.8]"
+            "version": "[10.0.11, 10.0.11]"
           }
         ],
         "frameworkReferences": {
@@ -436,7 +438,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -1,0 +1,20 @@
+2026-07-29 10:03:10.430 -05:00 [INF] (Thread 2) Logging initialized. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-07-29 10:03:10.486 -05:00 [INF] (Thread 2) CapTG UpdateService starting. Args: [--install]
+2026-07-29 10:03:10.494 -05:00 [INF] (Thread 2) Installing service from: C:\Program Files\CapTG Updater\UpdateService.exe
+2026-07-29 10:03:10.640 -05:00 [DBG] (Thread 2) sc.exe create "CapTGUpdateService" binPath= "C:\Program Files\CapTG Updater\UpdateService.exe" DisplayName= "CapTG Automatic Update Service" start= delayed-auto obj= LocalSystem
+2026-07-29 10:03:10.755 -05:00 [DBG] (Thread 2) sc.exe stdout: [SC] CreateService SUCCESS
+2026-07-29 10:03:10.760 -05:00 [DBG] (Thread 2) sc.exe description "CapTGUpdateService" "Automatically applies Windows Updates, driver updates, and winget package upgrades hourly. Notifies the logged-in user when a reboot is required."
+2026-07-29 10:03:10.854 -05:00 [DBG] (Thread 2) sc.exe stdout: [SC] ChangeServiceConfig2 SUCCESS
+2026-07-29 10:03:10.856 -05:00 [DBG] (Thread 2) sc.exe failure "CapTGUpdateService" reset= 86400 actions= restart/0/restart/60000/restart/300000
+2026-07-29 10:03:10.964 -05:00 [DBG] (Thread 2) sc.exe stdout: [SC] ChangeServiceConfig2 SUCCESS
+2026-07-29 10:03:10.968 -05:00 [DBG] (Thread 2) sc.exe start "CapTGUpdateService"
+2026-07-29 10:03:11.473 -05:00 [DBG] (Thread 2) sc.exe stdout: SERVICE_NAME: CapTGUpdateService 
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 2  START_PENDING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 50116
+        FLAGS              :

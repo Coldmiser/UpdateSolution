@@ -1,0 +1,39 @@
+2026-08-08 00:26:58 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T00:26:57.7705360-05:00
+2026-08-08 02:21:54 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T02:21:53.9838817-05:00
+2026-08-08 02:21:54 | INF | WINDOWS-UPDATE | KB= | Title=Intel(R) Corporation - HIDClass - 2.2.2.17 | Status=Skipped | 2026-08-08T02:21:54.0203111-05:00
+2026-08-08 03:48:18 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T03:48:17.8310858-05:00
+2026-08-08 03:48:18 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T08:48:18.2967154Z
+2026-08-08 05:54:18 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T05:54:18.2107068-05:00
+2026-08-08 05:54:18 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T10:54:18.5552295Z
+2026-08-08 07:16:30 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T07:16:29.5907335-05:00
+2026-08-08 07:16:30 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T12:16:30.1841271Z
+2026-08-08 08:24:33 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T08:24:33.0750913-05:00
+2026-08-08 08:24:33 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T13:24:33.3918589Z
+2026-08-08 09:33:26 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T09:33:26.2117697-05:00
+2026-08-08 09:33:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T14:33:26.4731732Z
+2026-08-08 10:40:35 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T10:40:35.4118193-05:00
+2026-08-08 10:40:35 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T15:40:35.7051880Z
+2026-08-08 11:42:17 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T11:42:17.6229095-05:00
+2026-08-08 11:42:17 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T16:42:17.8947177Z
+2026-08-08 12:44:25 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T12:44:24.7760294-05:00
+2026-08-08 12:44:25 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T17:44:25.0014388Z
+2026-08-08 13:46:06 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T13:46:06.4549139-05:00
+2026-08-08 13:46:06 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T18:46:06.6507426Z
+2026-08-08 14:47:52 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T14:47:52.3758913-05:00
+2026-08-08 14:47:52 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T19:47:52.6095273Z
+2026-08-08 15:49:55 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T15:49:55.7091737-05:00
+2026-08-08 15:49:55 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T20:49:55.9702664Z
+2026-08-08 16:54:43 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T16:54:43.3248900-05:00
+2026-08-08 16:54:43 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T21:54:43.5463469Z
+2026-08-08 18:06:31 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T18:06:31.4606855-05:00
+2026-08-08 18:06:31 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-08T23:06:31.7232053Z
+2026-08-08 19:14:21 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T19:14:20.9723014-05:00
+2026-08-08 19:14:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-09T00:14:21.3872608Z
+2026-08-08 20:26:52 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T20:26:52.1057824-05:00
+2026-08-08 20:26:52 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-09T01:26:52.3438354Z
+2026-08-08 21:32:50 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T21:32:50.4722414-05:00
+2026-08-08 21:32:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-09T02:32:50.7488064Z
+2026-08-08 22:42:05 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T22:42:05.4978291-05:00
+2026-08-08 22:42:05 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-09T03:42:05.6735460Z
+2026-08-08 23:49:55 | INF | WINDOWS-UPDATE | KB= | Title=Intel - Extension - 2.1.10103.24 | Status=Skipped | 2026-08-08T23:49:55.1573796-05:00
+2026-08-08 23:49:55 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-09T04:49:55.3777495Z

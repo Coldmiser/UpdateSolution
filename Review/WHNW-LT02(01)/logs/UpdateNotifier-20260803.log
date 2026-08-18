@@ -1,0 +1,10 @@
+2026-08-03 10:07:39.213 -05:00 [DBG] (Thread 2) MainWindow: close attempt blocked.
+2026-08-03 10:07:49.863 -05:00 [INF] (Thread 2) MainViewModel: user confirmed choice: 'Snooze for 3 Hours' ("03:00:00").
+2026-08-03 10:07:49.866 -05:00 [INF] (Thread 2) SnoozeManager: user snoozed for "03:00:00". Options before removal: 6
+2026-08-03 10:07:49.867 -05:00 [INF] (Thread 2) SnoozeManager: removed option 'Snooze for 3 Hours'. Remaining: 5
+2026-08-03 10:07:49.867 -05:00 [INF] (Thread 2) MainWindow: user decided 'Snooze for 3 Hours'. Closing window.
+2026-08-03 10:07:49.997 -05:00 [INF] (Thread 2) App: user chose 'Snooze for 3 Hours' (180 min).
+2026-08-03 10:07:50.188 -05:00 [INF] (Thread 2) PipeClient: sending UserResponse — SnoozeMinutes=180.
+2026-08-03 10:07:51.513 -05:00 [DBG] (Thread 2) PipeClient: wrote 180 bytes to pipe.
+2026-08-03 10:07:51.610 -05:00 [DBG] (Thread 2) PipeClient: disposed.
+2026-08-03 10:07:51.781 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 0.

@@ -1,0 +1,9 @@
+2026-07-29 10:07:26 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T10:07:26.3953574-05:00
+2026-07-29 10:07:26 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T15:07:26.7148392Z
+2026-07-29 11:08:44 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T16:08:44.2852068Z
+2026-07-29 12:09:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T17:09:50.7658961Z
+2026-07-29 13:10:56 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T18:10:56.6113049Z
+2026-07-29 14:12:08 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T19:12:08.7883481Z
+2026-07-29 15:13:21 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T20:13:21.1438393Z
+2026-07-29 16:14:47 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T21:14:47.6065214Z
+2026-07-29 17:15:51 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T22:15:51.0195914Z

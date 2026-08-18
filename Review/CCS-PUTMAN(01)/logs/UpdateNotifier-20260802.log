@@ -1,0 +1,39 @@
+2026-08-02 08:08:42.178 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-02 08:08:42.215 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-02 08:08:42.216 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-02 08:08:42.226 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-02 08:08:42.234 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-08-02 08:08:42.356 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-08-02 08:08:42.363 -05:00 [INF] (Thread 2) SnoozeManager initialised with 7 options (previousSnoozeCount=0).
+2026-08-02 08:08:42.365 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=7
+2026-08-02 08:08:42.365 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-08-02 08:08:42.656 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-08-02 08:08:42.989 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-08-02 08:08:42.989 -05:00 [DBG] (Thread 2) MainWindow: position locked at (508, 124).
+2026-08-02 08:08:43.012 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-08-02 08:08:43.018 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-08-02 08:18:32.363 -05:00 [INF] (Thread 2) MainViewModel: user confirmed choice: 'Reboot at 5:30 PM' ("00:00:00").
+2026-08-02 08:18:32.364 -05:00 [INF] (Thread 2) MainWindow: user decided 'Reboot at 5:30 PM'. Closing window.
+2026-08-02 08:18:32.380 -05:00 [INF] (Thread 2) App: user chose 'Reboot at 5:30 PM' (-1 min).
+2026-08-02 08:18:32.381 -05:00 [INF] (Thread 2) PipeClient: sending UserResponse — SnoozeMinutes=-1.
+2026-08-02 08:18:32.460 -05:00 [DBG] (Thread 2) PipeClient: wrote 179 bytes to pipe.
+2026-08-02 08:18:32.462 -05:00 [DBG] (Thread 2) PipeClient: disposed.
+2026-08-02 08:18:32.464 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 0.
+2026-08-02 17:33:33.389 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-02 17:33:33.417 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-02 17:33:33.417 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-02 17:33:33.425 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-02 17:33:33.431 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-08-02 17:33:33.472 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootImminent".
+2026-08-02 17:33:33.475 -05:00 [INF] (Thread 2) UpdateNotifier: reboot-imminent warning — reboot at "2026-08-02T17:30:00.0000000-05:00".
+2026-08-02 17:33:33.643 -05:00 [INF] (Thread 2) CountdownWindow: countdown expired — closing.
+2026-08-02 17:33:33.644 -05:00 [INF] (Thread 2) CountdownWindow: shown — reboot scheduled for "2026-08-02T17:30:00.0000000-05:00".
+2026-08-02 17:33:33.648 -05:00 [FTL] (Thread 2) OnStartup fatal exception.
+System.InvalidOperationException: Cannot set Visibility or call Show, ShowDialog, or WindowInteropHelper.EnsureHandle after a Window has closed.
+   at System.Windows.Window.VerifyCanShow()
+   at System.Windows.Window.ShowDialog()
+   at UpdateNotifier.App.RunCountdownModeAsync(PipeMessage message) in C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 223
+   at UpdateNotifier.App.RunNormalModeAsync() in C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 175
+   at UpdateNotifier.App.OnStartup(StartupEventArgs e) in C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\UpdateNotifier\App.xaml.cs:line 93
+2026-08-02 17:33:33.674 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 1.
+2026-08-02 17:33:33.675 -05:00 [DBG] (Thread 2) PipeClient: disposed.

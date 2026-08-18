@@ -1,0 +1,4 @@
+2026-07-29 10:07:31 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T10:07:30.8243142-05:00
+2026-07-29 10:07:31 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T15:07:31.0964400Z
+2026-07-29 10:07:48 | WRN | WINGET | Microsoft.VCLibs.14 | Status="Failed" | Error=winget exit code -2147024809:  | 2026-07-29T15:07:48.0456103Z
+2026-07-29 10:07:49 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-07-29T15:07:49.8703585Z

@@ -1,0 +1,6 @@
+[2026-07-29 10:03:20] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-07-29 10:03:20] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run
+[2026-08-05 11:07:42] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-08-05 11:07:42] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run
+[2026-08-05 17:17:53] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-08-05 17:17:53] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run

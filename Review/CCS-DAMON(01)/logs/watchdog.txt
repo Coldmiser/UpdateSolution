@@ -1,0 +1,8 @@
+[2026-07-29 10:31:59] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-07-29 10:31:59] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run
+[2026-08-05 11:34:35] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-08-05 11:34:35] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run
+[2026-08-06 07:41:33] Registered task: \CapTG\CapTG Update Service Watchdog
+[2026-08-06 07:41:33] Task action: "C:\Program Files\CapTG Updater\WatchDog.exe" --run
+[2026-08-11 09:41:02] Service 'CapTGUpdateService' is Stopped. Starting...
+[2026-08-11 09:41:03] Service 'CapTGUpdateService' started successfully.

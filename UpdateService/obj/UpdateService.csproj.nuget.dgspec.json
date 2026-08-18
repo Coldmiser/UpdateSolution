@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
-      "version": "1.26.586.697",
+      "version": "1.26.621.524",
       "restore": {
         "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj",
         "projectName": "Shared",
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -38,16 +39,17 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.8, )",
+              "version": "[10.0.11, )",
               "autoReferenced": true
             }
           },
@@ -65,15 +67,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -81,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -365,7 +367,7 @@
       }
     },
     "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj": {
-      "version": "1.26.586.697",
+      "version": "1.26.621.524",
       "restore": {
         "projectUniqueName": "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\UpdateService\\UpdateService.csproj",
         "projectName": "UpdateService",
@@ -384,6 +386,7 @@
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\sbutski\\Documents\\VSCode Solutions Folder\\UpdateSolution\\Shared\\Shared.csproj": {
@@ -402,10 +405,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.Extensions.Hosting": {
@@ -423,7 +427,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.8, )",
+              "version": "[10.0.11, )",
               "autoReferenced": true
             },
             "Serilog.Enrichers.Environment": {
@@ -461,15 +465,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[10.0.8, 10.0.8]"
+              "version": "[10.0.11, 10.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -477,7 +481,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

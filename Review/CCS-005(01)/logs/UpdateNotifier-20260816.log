@@ -1,0 +1,44 @@
+2026-08-16 03:12:57.160 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-16 03:12:57.504 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-16 03:12:57.516 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-16 03:12:57.602 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-16 05:43:20.279 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-16 05:43:20.953 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-16 05:43:20.955 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-16 05:43:21.055 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-16 06:10:40.633 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-16 06:10:41.103 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-16 06:10:41.104 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-16 06:10:41.145 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-16 06:10:51.156 -05:00 [ERR] (Thread 2) PipeClient: connection timed out.
+2026-08-16 06:10:51.157 -05:00 [ERR] (Thread 2) No message received from service.
+2026-08-16 06:10:51.158 -05:00 [INF] (Thread 2) UpdateNotifier: exiting with code 1.
+2026-08-16 06:10:51.159 -05:00 [DBG] (Thread 2) PipeClient: disposed.
+2026-08-16 06:14:54.230 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-16 06:14:54.257 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-16 06:14:54.258 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-16 06:14:54.269 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-16 06:14:54.277 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-08-16 06:14:54.325 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-08-16 06:14:54.328 -05:00 [INF] (Thread 2) SnoozeManager initialised with 7 options (previousSnoozeCount=0).
+2026-08-16 06:14:54.329 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=7
+2026-08-16 06:14:54.329 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-08-16 06:14:54.702 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-08-16 06:14:55.495 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-08-16 06:14:55.495 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 140).
+2026-08-16 06:14:55.517 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-08-16 06:14:55.524 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.
+2026-08-16 17:49:18.988 -05:00 [INF] (Thread 2) UpdateNotifier logging initialised. Directory: C:\ProgramData\CapTG\UpdateService\logs
+2026-08-16 17:49:20.534 -05:00 [INF] (Thread 2) UpdateNotifier: application starting.
+2026-08-16 17:49:20.589 -05:00 [INF] (Thread 2) UpdateNotifier: args=C:\Program Files\CapTG Updater\UpdateNotifier.exe
+2026-08-16 17:49:21.053 -05:00 [INF] (Thread 2) PipeClient: connecting to pipe 'CapTG_UpdatePipe'.
+2026-08-16 17:49:21.307 -05:00 [INF] (Thread 2) PipeClient: connected.
+2026-08-16 17:49:22.155 -05:00 [INF] (Thread 2) PipeClient: received message type="RebootRequired".
+2026-08-16 17:49:22.163 -05:00 [INF] (Thread 2) SnoozeManager initialised with 7 options (previousSnoozeCount=0).
+2026-08-16 17:49:22.167 -05:00 [DBG] (Thread 2) MainViewModel: options refreshed. Count=7
+2026-08-16 17:49:22.168 -05:00 [INF] (Thread 2) MainViewModel: loading message. KBs=0 Pkgs=0
+2026-08-16 17:49:27.431 -05:00 [INF] (Thread 2) MainWindow: constructor complete.
+2026-08-16 17:49:29.822 -05:00 [INF] (Thread 2) MainWindow: logo loaded from C:\Program Files\CapTG Updater\CompanyLogo.png.
+2026-08-16 17:49:29.827 -05:00 [DBG] (Thread 2) MainWindow: position locked at (700, 140).
+2026-08-16 17:49:29.936 -05:00 [DBG] (Thread 2) MainWindow: move attempt blocked.
+2026-08-16 17:49:29.946 -05:00 [DBG] (Thread 2) MainWindow: Topmost re-asserted.

@@ -189,7 +189,6 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\hostfxr.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\hostpolicy.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\mscordaccore.dll
-C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\mscordaccore_amd64_amd64_10.0.826.23019.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\mscordbi.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\mscorrc.dll
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\msquic.dll
@@ -207,3 +206,4 @@ C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solution
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\obj\Debug\net10.0-windows\win-x64\WatchDog.pdb
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\obj\Debug\net10.0-windows\win-x64\WatchDog.genruntimeconfig.cache
 C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\obj\Debug\net10.0-windows\win-x64\ref\WatchDog.dll
+C:\Users\SyncthingServiceAcct\Syncthing\CapTG_OneDrive\Documents\VSCode Solutions Folder\UpdateSolution\WatchDog\bin\Debug\net10.0-windows\win-x64\mscordaccore_amd64_amd64_10.0.1126.37416.dll

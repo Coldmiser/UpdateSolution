@@ -218,19 +218,36 @@ public partial class App : Application
         LogConfig.Log.Information(
             "UpdateNotifier: reboot-imminent warning — reboot at {At}.", rebootAtLocal);
 
-        var window = new Views.CountdownWindow(rebootAtLocal);
-        MainWindow = window;
-        window.ShowDialog();
+        // CountdownWindow auto-closes itself (from inside its own constructor)
+        // the moment its countdown reaches zero, which happens immediately if
+        // rebootAtLocal is already in the past. ShowDialog() on an
+        // already-closed window throws InvalidOperationException, so skip the
+        // window entirely in that case — there is nothing to count down to.
+        bool delayRequested;
+        if (rebootAtLocal <= DateTime.Now)
+        {
+            LogConfig.Log.Warning(
+                "UpdateNotifier: reboot-imminent target {At} is already in the past — " +
+                "skipping the countdown window.", rebootAtLocal);
+            delayRequested = false;
+        }
+        else
+        {
+            var window = new Views.CountdownWindow(rebootAtLocal);
+            MainWindow = window;
+            window.ShowDialog();
+            delayRequested = window.DelayRequested;
+        }
 
         // Send the response AFTER the window closes (same race-avoidance
         // pattern as normal mode — see RunNormalModeAsync).
-        var responseMinutes = window.DelayRequested
+        var responseMinutes = delayRequested
             ? AppConstants.ScheduledRebootDelayMinutes
             : 0;
 
         LogConfig.Log.Information(
             "UpdateNotifier: countdown result — DelayRequested={D}, sending {Min}.",
-            window.DelayRequested, responseMinutes);
+            delayRequested, responseMinutes);
 
         if (_pipeClient is not null)
         {
