@@ -1,8 +1,0 @@
-2026-07-29 10:35:34 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T10:35:34.0399725-05:00
-2026-07-29 10:35:34 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T15:35:34.4132263Z
-2026-07-29 10:35:41 | WRN | WINGET | winget | Status="Failed" | Error=winget exit code -1978335212:  | 2026-07-29T15:35:41.0677621Z
-2026-07-29 11:37:10 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T16:37:10.1466227Z
-2026-07-29 12:38:11 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T17:38:11.2368829Z
-2026-07-29 13:39:22 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T18:39:22.4226124Z
-2026-07-29 14:40:30 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T19:40:30.3602592Z
-2026-07-29 15:41:38 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T20:41:38.4108247Z

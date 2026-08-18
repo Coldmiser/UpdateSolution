@@ -1,6 +1,0 @@
-2026-07-30 08:54:53 | INF | WINGET | Google.Chrome | Status="Succeeded" | RebootRequired=false | 2026-07-30T13:54:53.1860144Z
-2026-07-30 08:55:38 | INF | WINGET | HP.ConnectionOptimizer | Status="Succeeded" | RebootRequired=false | 2026-07-30T13:55:38.1295267Z
-2026-07-30 08:55:55 | WRN | WINGET | Microsoft.VCLibs.14 | Status="Failed" | Error=winget exit code -2147024809:  | 2026-07-30T13:55:55.7011763Z
-2026-07-30 08:55:58 | WRN | WINGET | 14.0.32530.0 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-07-30T13:55:58.0792698Z
-2026-07-30 08:56:00 | WRN | WINGET | Microsoft.WindowsAppRuntime.1.4 1.4.5 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-07-30T13:56:00.3091380Z
-2026-07-30 08:56:02 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-07-30T13:56:02.5311345Z

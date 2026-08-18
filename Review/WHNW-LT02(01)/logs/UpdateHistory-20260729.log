@@ -1,8 +1,0 @@
-2026-07-29 14:01:53 | INF | WINDOWS-UPDATE | KB=KB5100998 | Title=2026-07 .NET Framework Security Update (KB5100998) | Status=Skipped | 2026-07-29T14:01:52.9193291-05:00
-2026-07-29 14:01:53 | INF | WINDOWS-UPDATE | KB=KB5104034 | Title=2026-07 .NET 10.0.10 Security Update for x64 Client (KB5104034) | Status=Skipped | 2026-07-29T14:01:52.9163220-05:00
-2026-07-29 14:01:53 | INF | WINDOWS-UPDATE | KB=KB5101650 | Title=2026-07 Security Update (KB5101650) (26200.8875) | Status=Skipped | 2026-07-29T14:01:52.9213293-05:00
-2026-07-29 14:01:53 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-07-29T19:01:53.3254260Z
-2026-07-29 14:03:36 | WRN | WINGET | Adobe.Acrobat.Pro | Status="Failed" | Error=winget exit code -1978335215:  | 2026-07-29T19:03:36.0917288Z
-2026-07-29 14:04:08 | INF | WINGET | PaperCutSoftware.GhostTrap | Status="Succeeded" | RebootRequired=false | 2026-07-29T19:04:08.3615085Z
-2026-07-29 14:04:28 | WRN | WINGET | Microsoft.VCLibs.14 | Status="Failed" | Error=winget exit code -2147024809:  | 2026-07-29T19:04:28.5388753Z
-2026-07-29 14:04:30 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-07-29T19:04:30.3180725Z

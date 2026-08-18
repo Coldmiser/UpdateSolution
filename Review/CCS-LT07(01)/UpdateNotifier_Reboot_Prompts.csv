@@ -1,9 +1,0 @@
-Date,Log Source,Prompt Type,Time Prompt Shown/Received,Reboot/Countdown Target,Snooze Options Available,User Response,Time Response Sent,Time to Respond,SnoozeMinutes Sent,Exit Code,Actual Reboot Confirmed At,Notes
-2026-07-29,UpdateNotifier-20260729.log,RebootRequired,10:10:12,,7,Reboot Now,10:30:47,0:20:35,0,0,2026-07-29 10:30:47,"Legitimate, fully notified"
-2026-08-03,UpdateNotifier-20260803.log,RebootRequired,08:45:26,,7,Reboot Now,08:47:51,0:02:25,0,0,2026-08-03 08:47:51,"Legitimate, fully notified"
-2026-08-06,UpdateNotifier-20260806.log,RebootRequired,14:52:46,,7,Reboot Now,14:54:38,0:01:52,0,0,2026-08-06 14:54:38,"Legitimate, fully notified"
-2026-08-10,UpdateNotifier-20260810.log,RebootRequired,08:18:51,,7,Reboot Now,08:19:11,0:00:20,0,0,2026-08-10 08:19:11,"Legitimate, fully notified"
-2026-08-14,UpdateNotifier-20260814.log,RebootRequired,10:51:30,,7,Reboot Now,10:57:25,0:05:55,0,0,2026-08-14 10:57:25,"Legitimate, fully notified"
-2026-08-17,UpdateNotifier-20260817.log,RebootRequired,11:41:06,,7,Snooze for 15 Minutes,11:41:52,0:00:46,15,0,,Normal flow
-2026-08-17,UpdateNotifier-20260817.log,RebootRequired,11:56:53,,6,Reboot at 5:30 PM,11:57:58,0:01:05,-1,0,,Schedules reboot for 2026-08-17 17:30
-2026-08-17,UpdateNotifier-20260817.log,RebootImminent (countdown) — CLEAN,17:24:57,2026-08-17 17:30:00,,(none — countdown ran to full completion),17:30:00,0:05:03,0,0,2026-08-17 17:30:00,"The countdown displayed correctly, ran its full 5 minutes, and expired naturally, sending SnoozeMinutes=0 with no crash and no out-of-order log lines. This is the working/intended behavior — the only machine in the fleet where the countdown path never failed."

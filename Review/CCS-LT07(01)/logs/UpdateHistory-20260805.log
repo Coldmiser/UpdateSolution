@@ -1,4 +1,0 @@
-2026-08-05 10:25:56 | WRN | WINGET | 1.6.9 | Status="Failed" | Error=winget exit code -1978335212:  | 2026-08-05T15:25:56.1063033Z
-2026-08-05 10:25:57 | WRN | WINGET | Microsoft.PowerShell | Status="Failed" | Error=winget exit code -1978335090:  | 2026-08-05T15:25:57.7441987Z
-2026-08-05 15:33:50 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T20:33:50.4211195Z
-2026-08-05 16:34:57 | INF | WINDOWS-UPDATE | KB=PendingReboot | Title=Reboot pending from a previous update cycle | RebootRequired=true | 2026-08-05T21:34:57.9246905Z
